@@ -5,7 +5,7 @@ services:
     build:
       context: ./docker/
       dockerfile: app.dockerfile
-    working_dir: /var/www
+    working_dir: /var/www/src
     volumes:
       - ./:/var/www
     environment:
@@ -16,7 +16,7 @@ services:
     build:
       context: ./docker/
       dockerfile: web.dockerfile
-    working_dir: /var/www
+    working_dir: /var/www/src
     volumes:
       - ./:/var/www
     ports:
