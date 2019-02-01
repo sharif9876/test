@@ -13,8 +13,14 @@
             <div class="question-answers {{$question->type}}">
                 <form class="form">
                     @if($question->type == 'text')
+                    <div class="form-input">
+                        <input type="text" name="question-answer">
+                    </div>
                     @endif
-                    <div class="question-submit">
+                    <div class="form-submit">
+                        <div class="question-submit">
+                            
+                        </div>
                     </div>
                 </form>
             </div>
