@@ -1,0 +1,70 @@
+@import 'variables';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+div,input,select,textarea {
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+}
+
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    z-index: 999;
+}
+
+/*Backgrounds*/
+.background-cover {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/*Question*/
+.question {
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    .question-inner {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px;
+        background-color: $theme-2;
+        .question-image {
+            width: 100%;
+            height: 350px;
+            padding: 5px;
+            .image-inner {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .question-title {
+            text-align: center;
+            padding: 0px 35px;
+            line-height: 35px;
+            font-size: 26px;
+        }
+        //can be text/select/multiple/num/date
+        //text: simple input
+        //select: buttons
+        //multiple: buttons with multiple to select
+        //num: number input
+        //date: date input
+        .question-answers {
+
+        }
+        .question-submit {
+
+        }
+    }
+}

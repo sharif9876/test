@@ -1,0 +1,20 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/layout_platform.css": "/css/layout_platform.css",
+    "/css/layout_app.css": "/css/layout_app.css",
+    "/css/layout_questions.css": "/css/layout_questions.css",
+    "/css/layout_splash.css": "/css/layout_splash.css",
+    "/css/content_blocks.css": "/css/content_blocks.css",
+    "/css/grid.css": "/css/grid.css",
+    "/css/containers.css": "/css/containers.css",
+    "/css/questions.css": "/css/questions.css",
+    "/css/splashes.css": "/css/splashes.css",
+    "/js/tableControls.js": "/js/tableControls.js",
+    "/js/splashBehaviour.js": "/js/splashBehaviour.js",
+    "/js/sidebar_app.js": "/js/sidebar_app.js",
+    "/js/sidebar_admin.js": "/js/sidebar_admin.js",
+    "/js/platformBehaviour.js": "/js/platformBehaviour.js",
+    "/js/behaviour.js": "/js/behaviour.js",
+    "/js/appBehaviour.js": "/js/appBehaviour.js"
+}

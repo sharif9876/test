@@ -18,9 +18,17 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->integer('level')->unsigned();
+            $table->integer('points')->unsigned();
             $table->string('password')->nullable();
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->enum('userlevel', ['member', 'admin', 'owner']);
+            $table->date('dob')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('level')->references('id')->on('levels')->onDelete('set null');
         });
     }
 

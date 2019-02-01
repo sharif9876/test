@@ -1,0 +1,122 @@
+/* Splash Level Up*/
+
+#level-up.splash {
+  color: #fff;
+}
+
+#level-up.splash .splash-inner {
+  background-color: #486591;
+}
+
+#level-up.splash .splash-inner .splash-image {
+  width: 100%;
+  height: 250px;
+  padding: 30px 20px 10px 20px;
+}
+
+#level-up.splash .splash-inner .splash-image .splash-image-inner {
+  width: 100%;
+  height: 100%;
+}
+
+#level-up.splash .splash-inner .splash-title {
+  width: 100%;
+  height: 100px;
+  line-height: 65px;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#level-up.splash .splash-inner .splash-desc {
+  width: 100%;
+  height: 130px;
+  line-height: 35px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#level-up.splash .splash-inner .splash-continue {
+  width: 100%;
+  height: calc(100% - 480px);
+  padding-top: calc(100% - 230px);
+}
+
+#level-up.splash .splash-inner .splash-continue .button-continue {
+  width: 65%;
+  height: 50px;
+  margin: auto;
+  background-color: #bf9418;
+  border-bottom: 5px solid #907116;
+  line-height: 50px;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#level-up.splash .splash-inner .splash-continue .button-continue a {
+  color: #fff;
+  display: block;
+}
+
+#task-complete.splash {
+  color: #fff;
+}
+
+#task-complete.splash .splash-inner {
+  background-color: #486591;
+}
+
+#task-complete.splash .splash-inner .splash-image {
+  width: 100%;
+  height: 250px;
+  padding: 30px 20px 10px 20px;
+}
+
+#task-complete.splash .splash-inner .splash-image .splash-image-inner {
+  width: 100%;
+  height: 100%;
+}
+
+#task-complete.splash .splash-inner .splash-title {
+  width: 100%;
+  height: 100px;
+  line-height: 65px;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#task-complete.splash .splash-inner .splash-desc {
+  width: 100%;
+  height: 130px;
+  line-height: 35px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#task-complete.splash .splash-inner .splash-continue {
+  width: 100%;
+  height: calc(100% - 480px);
+  padding-top: calc(100% - 230px);
+}
+
+#task-complete.splash .splash-inner .splash-continue .button-continue {
+  width: 65%;
+  height: 50px;
+  margin: auto;
+  background-color: #bf9418;
+  border-bottom: 5px solid #907116;
+  line-height: 50px;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#task-complete.splash .splash-inner .splash-continue .button-continue a {
+  color: #fff;
+  display: block;
+}
+

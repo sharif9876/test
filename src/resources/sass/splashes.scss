@@ -1,0 +1,106 @@
+@import 'variables';
+
+/* Splash Level Up*/
+#level-up.splash {
+    color: #fff;
+    .splash-inner {
+        background-color: $theme-2;
+        .splash-image {
+            width: 100%;
+            height: 250px;
+            padding: 30px 20px 10px 20px;
+            .splash-image-inner {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .splash-title {
+            width: 100%;
+            height: 100px;
+            line-height: 65px;
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .splash-desc {
+            width: 100%;
+            height: 130px;
+            line-height: 35px;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .splash-continue {
+            width: 100%;
+            height: calc(100% - 480px);
+            padding-top: calc(100% - 230px);
+            .button-continue {
+                width: 65%;
+                height: 50px;
+                margin: auto;
+                background-color: #bf9418;
+                border-bottom: 5px solid #907116;
+                line-height: 50px;
+                font-size: 28px;
+                text-align: center;
+                border-radius: 5px;
+                a {
+                    color: #fff;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+#task-complete.splash {
+    color: #fff;
+    .splash-inner {
+        background-color: $theme-2;
+        .splash-image {
+            width: 100%;
+            height: 250px;
+            padding: 30px 20px 10px 20px;
+            .splash-image-inner {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .splash-title {
+            width: 100%;
+            height: 100px;
+            line-height: 65px;
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .splash-desc {
+            width: 100%;
+            height: 130px;
+            line-height: 35px;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .splash-continue {
+            width: 100%;
+            height: calc(100% - 480px);
+            padding-top: calc(100% - 230px);
+            .button-continue {
+                width: 65%;
+                height: 50px;
+                margin: auto;
+                background-color: #bf9418;
+                border-bottom: 5px solid #907116;
+                line-height: 50px;
+                font-size: 28px;
+                text-align: center;
+                border-radius: 5px;
+                a {
+                    color: #fff;
+                    display: block;
+                }
+            }
+        }
+    }
+}

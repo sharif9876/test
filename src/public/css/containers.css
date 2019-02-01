@@ -1,0 +1,334 @@
+/* Page Home*/
+
+/* Container user*/
+
+.page-container.user .row .user-profile .user-inner .user-left {
+  padding: 20px 0px;
+  float: left;
+}
+
+.page-container.user .row .user-profile .user-inner .user-left .user-initial {
+  width: 125px;
+  height: 125px;
+  margin-right: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 70px;
+  color: #fff;
+  line-height: 125px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right {
+  width: calc(100% - 170px);
+  padding-top: 40px;
+  padding-right: 20px;
+  float: left;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info {
+  height: 35px;
+  width: 100%;
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-name {
+  height: 35px;
+  line-height: 35px;
+  float: left;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-level {
+  height: 30px;
+  line-height: 30px;
+  float: right;
+  background-color: #d7732a;
+  color: #fff;
+  padding: 0px 20px;
+  border-radius: 17.5px;
+  font-size: 22px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-level .user-level-level {
+  font-weight: 600;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-points {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar {
+  padding: 5px 0px;
+  height: 8px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #d0d0d0;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar .points-progress {
+  top: -8px;
+  height: 8px;
+  margin-top: 0px;
+  background-color: #d7732a;
+  border-radius: 4px;
+}
+
+/* Container upcoming-levels*/
+
+.page-container.upcoming-levels .row .upcoming-levels {
+  width: 100%;
+  padding: 5px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container {
+  width: 100%;
+  height: 150px;
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 3px -3px #090909;
+          box-shadow: 0 5px 3px -3px #090909;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container .level-container-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container .level-container-inner .level-left {
+  float: left;
+  width: calc(100% - 180px);
+  height: 80px;
+  margin: 35px 20px;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container .level-container-inner .level-right {
+  float: left;
+  width: 140px;
+  height: 150px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container .level-container-inner .level-right .icon-locked {
+  width: 80px;
+  height: 80px;
+  margin: 35px 20px;
+  border: 3px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 75px;
+  font-size: 45px;
+  border-radius: 50%;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next {
+  width: 100%;
+  height: 150px;
+  margin-top: 15px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 3px -3px #090909;
+          box-shadow: 0 5px 3px -3px #090909;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-container-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left {
+  width: calc(100% - 90px);
+  height: 100%;
+  float: left;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info {
+  padding: 20px;
+  padding-right: 0px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info .level-name {
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info .level-task {
+  height: 70px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info .level-task .task-title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 25px;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info .level-task .task-info {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-right {
+  width: 50px;
+  height: 50px;
+  margin: 50px 20px;
+  float: left;
+  color: #fff;
+  text-align: right;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+/* Page Tasks*/
+
+/* Container task*/
+
+.page-container.task {
+  min-height: 100%;
+}
+
+.page-container.task .row {
+  height: 100%;
+}
+
+.page-container.task .row .task-background {
+  width: 100%;
+  height: 40%;
+}
+
+.page-container.task .row .task-block {
+  width: 100%;
+  height: 60%;
+}
+
+.page-container.task .row .task-block .task-info {
+  width: calc(100% - 20px);
+  height: 120%;
+  position: relative;
+  top: calc(-20% - 15px);
+  left: 10px;
+  background-color: #486591;
+  -webkit-box-shadow: 0 5px 3px -3px #090909;
+          box-shadow: 0 5px 3px -3px #090909;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: -25%;
+  overflow-y: auto;
+}
+
+.page-container.task .row .task-block .task-info .task-header {
+  margin: auto;
+  width: calc(100% - 10px);
+  border-bottom: 1px solid #fff;
+  height: 25px;
+  line-height: 25px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.page-container.task .row .task-block .task-info .task-body {
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit {
+  width: 100%;
+  padding: 10px;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row {
+  width: 100%;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-answer {
+  width: 150px;
+  height: 25px;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-answer .button {
+  width: 100%;
+  height: 25px;
+  background-color: #bf9418;
+  color: #fff;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-answer input {
+  width: 100%;
+  height: 25px;
+  position: relative;
+  top: -25px;
+  left: 0;
+  opacity: 0;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit {
+  display: none;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-submit-background {
+  width: 100%;
+  height: 200px;
+  margin: 15px 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 3px -3px #2d2d2d;
+          box-shadow: 0 5px 3px -3px #2d2d2d;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-submit {
+  width: 200px;
+  height: 35px;
+  margin: auto;
+  margin-top: -60px;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-submit button {
+  width: 100%;
+  height: 100%;
+  line-height: 35px;
+  background-color: #bf9418;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-submit button:hover {
+  cursor: pointer;
+}
+

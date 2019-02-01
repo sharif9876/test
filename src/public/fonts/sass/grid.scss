@@ -1,0 +1,54 @@
+/*==============================*/
+/*=====LARGE DESKTOP DEVICES====*/
+/*==============================*/
+@media only screen and (min-width: 1200px) {
+    /*Users page*/
+    #users {grid-column: 1/4; grid-row: 1;}
+
+    /*Sisters page*/
+    #sisterpages {grid-column: 1/4; grid-row: 1;}
+}
+
+/*==============================*/
+/*====MEDIUM DESKTOP DEVICES====*/
+/*==============================*/
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+    /*Users page*/
+    #users {grid-column: 1/4; grid-row: 1;}
+
+    /*Sisters page*/
+    #sisterpages {grid-column: 1/4; grid-row: 1;}
+}
+
+/*==============================*/
+/*====MEDIUM DEVICES TABLETS====*/
+/*==============================*/
+@media only screen and (min-width: 660px) and (max-width: 959px) {
+    /*Users page*/
+    #users {grid-column: 1/4; grid-row: 1;}
+
+    /*Sisters page*/
+    #sisterpages {grid-column: 1/4; grid-row: 1;}
+}
+
+/*==============================*/
+/*=====MEDIUM DEVICES MOBILE====*/
+/*==============================*/
+@media only screen and (min-width: 480px) and (max-width: 659px) {
+    /*Users page*/
+    #users {grid-column: 1/4; grid-row: 1;}
+
+    /*Sisters page*/
+    #sisterpages {grid-column: 1/4; grid-row: 1;}
+}
+
+/*==============================*/
+/*=====SMALL DEVICES MOBILE=====*/
+/*==============================*/
+@media only screen and (max-width: 479px) {
+    /*Users page*/
+    #users {grid-column: 1/4; grid-row: 1;}
+
+    /*Sisters page*/
+    #sisterpages {grid-column: 1/4; grid-row: 1;}
+}
