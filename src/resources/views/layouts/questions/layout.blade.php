@@ -9,7 +9,7 @@
 
         <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/behaviour.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/questionBehaviour.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/questionsBehaviour.js') }}"></script>
 
         <link href="{{ asset('css/layout_questions.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/questions.css') }}" rel="stylesheet" type="text/css" >

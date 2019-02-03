@@ -60,4 +60,5 @@ Route::group(['prefix' => 'splash'], function() {
 // Questions routes
 Route::group(['prefix' => 'questions'], function() {
     Route::get('/', 'Questions\QuestionsController@questions');
+    Route::post('/', 'Questions\QuestionsController@questionSubmit');
 });

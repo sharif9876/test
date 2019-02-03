@@ -16,7 +16,7 @@ class UserInfo extends Model {
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['info', 'user_id', 'question_id'];
 
     /**
      * The attributes that should be hidden for arrays.

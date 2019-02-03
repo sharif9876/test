@@ -34,6 +34,12 @@ ul {
   background-repeat: no-repeat;
 }
 
+.background-contain {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 /*Question*/
 
 .question {
@@ -65,5 +71,115 @@ ul {
   padding: 0px 35px;
   line-height: 35px;
   font-size: 26px;
+}
+
+.question .question-inner .question-answers .form-input {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.question .question-inner .question-answers .form-input.text {
+  height: 45px;
+}
+
+.question .question-inner .question-answers .form-input.text input {
+  width: 100%;
+  height: 100%;
+  padding-left: 5px;
+  line-height: 45px;
+  color: #323232;
+  font-size: 28px;
+  border: 3px solid #bf9418;
+  border-radius: 5px;
+  background-color: #ececec;
+}
+
+.question .question-inner .question-answers .form-input.select .select-field {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.question .question-inner .question-answers .form-input.select .select-field .select-option {
+  width: calc(50% - 32.3px);
+  height: 55px;
+  margin: 15px 15px;
+  display: inline-block;
+}
+
+.question .question-inner .question-answers .form-input.select .select-field .select-option .select-option-inner {
+  height: 100%;
+  width: 100%;
+  line-height: 55px;
+  font-size: 28px;
+  text-align: center;
+  color: #949494;
+  background-color: #6c6c6c;
+  border-radius: 5px;
+  border-bottom: 4px solid #545454;
+}
+
+.question .question-inner .question-answers .form-input.select .select-field .select-option.selected .select-option-inner {
+  color: #fff;
+  background-color: #bf9418;
+  border-bottom: 1px solid #545454;
+  position: relative;
+  top: 3px;
+}
+
+.question .question-inner .question-answers .form-input.multiple .select-field {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.question .question-inner .question-answers .form-input.multiple .select-field .select-option {
+  width: calc(50% - 32.3px);
+  height: 55px;
+  margin: 15px 15px;
+  display: inline-block;
+}
+
+.question .question-inner .question-answers .form-input.multiple .select-field .select-option .select-option-inner {
+  height: 100%;
+  width: 100%;
+  line-height: 55px;
+  font-size: 28px;
+  text-align: center;
+  color: #949494;
+  background-color: #6c6c6c;
+  border-radius: 5px;
+  border-bottom: 4px solid #545454;
+}
+
+.question .question-inner .question-answers .form-input.multiple .select-field .select-option.selected .select-option-inner {
+  color: #fff;
+  background-color: #bf9418;
+  border-bottom: 1px solid #545454;
+  position: relative;
+  top: 3px;
+}
+
+.question .question-inner .question-answers .form-submit {
+  margin-top: 35px;
+  width: 100%;
+}
+
+.question .question-inner .question-answers .form-submit .question-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.question .question-inner .question-answers .form-submit .question-submit .form-submit-button {
+  width: 150px;
+  height: 35px;
+  margin: auto;
+  line-height: 35px;
+  font-size: 18px;
+  background-color: #bf9418;
+  border: none;
+  border-radius: 17.5px;
+  color: #fff;
 }
 

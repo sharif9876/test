@@ -31,7 +31,7 @@
                             <th style="width: 70px;">level</th>
                             <th style="width: 100px;">points</th>
                             @foreach($user_info_types as $type)
-                                <th style="width: 100px;">{{$type->name}}</th>
+                                <th style="width: 150px;">{{$type->name}}</th>
                             @endforeach
                         </tr>
                         @if(count($users) > 0)

@@ -20,7 +20,7 @@ class QuestionsCheck {
      public function handle($request, Closure $next)
      {
          foreach(Question::where('level_min', '<=', Auth::user()->level)->get() as $question) {
-             if(!UserInfo::where('question_id', $question->id)->where('user_id', Auth::user()->id)->count()) {
+             if(UserInfo::where(['question_id' => $question->id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
                  //questions page
                  return $next($request);
              }

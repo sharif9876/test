@@ -14,6 +14,9 @@
             function url() {
                 return '<?= url('') ?>';
             }
+            function tableSetup() {
+                alert();
+            }
         </script>
 
         <link href="{{ asset('css/layout_platform.css') }}" rel="stylesheet" type="text/css" >

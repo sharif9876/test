@@ -14,6 +14,7 @@
     "/js/splashBehaviour.js": "/js/splashBehaviour.js",
     "/js/sidebar_app.js": "/js/sidebar_app.js",
     "/js/sidebar_admin.js": "/js/sidebar_admin.js",
+    "/js/questionsBehaviour.js": "/js/questionsBehaviour.js",
     "/js/platformBehaviour.js": "/js/platformBehaviour.js",
     "/js/behaviour.js": "/js/behaviour.js",
     "/js/appBehaviour.js": "/js/appBehaviour.js"

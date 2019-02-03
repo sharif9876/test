@@ -30,5 +30,6 @@ mix.js('resources/js/sidebar_app.js', 'public/js');
 mix.js('resources/js/tableControls.js', 'public/js');
 mix.js('resources/js/behaviour.js', 'public/js');
 mix.js('resources/js/appBehaviour.js', 'public/js');
+mix.js('resources/js/questionsBehaviour.js', 'public/js');
 mix.js('resources/js/platformBehaviour.js', 'public/js');
 mix.js('resources/js/splashBehaviour.js', 'public/js');

@@ -76,6 +76,23 @@ module.exports = __webpack_require__(58);
 /***/ 58:
 /***/ (function(module, exports) {
 
+var tables = [];
+
+function tablePrepare(data) {
+    tName = $.type(data.name) == "string" ? data.tableName : ""; //string
+    tAjax = $.type(data.ajax) == "boolean" ? data.tableAjax : false; //boolean
+    tData = $.type(data.data) == "array" ? data.tableData : []; //array
+
+    var table = {
+        name: tName,
+        ajax: tAjax,
+        data: tData
+    };
+    tables.push(table);
+}
+
+$("document").ready(function () {});
+
 var trl = [];
 var trls = [];
 var tcp = [];
@@ -223,7 +240,6 @@ function fillTable(trr, t) {
         pag.append(html);
     }
     var tc = $("#" + tn + " .table-pagination .tablep-counter");
-    console.log(tc);
     var tca = tcp[tn] >= tmp ? trls[tn].length - (tcp[tn] - 1) * size : size;
     tc.text("showing " + tca + " / " + trl[tn].length + " entries");
 }

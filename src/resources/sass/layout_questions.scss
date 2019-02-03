@@ -28,6 +28,11 @@ ul {
     background-position: center center;
     background-repeat: no-repeat;
 }
+.background-contain {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
 /*Question*/
 .question {
@@ -61,7 +66,110 @@ ul {
         //num: number input
         //date: date input
         .question-answers {
-
+            .form-input {
+                width: 80%;
+                margin: auto;
+                margin-top: 20px;
+                &.text {
+                    height: 45px;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        padding-left: 5px;
+                        line-height: 45px;
+                        color: $text-dark;
+                        font-size: 28px;
+                        border: 3px solid $theme-3;
+                        border-radius: 5px;
+                        background-color: #ececec;
+                    }
+                }
+                &.select {
+                    .select-field {
+                        width: 100%;
+                        margin: auto;
+                        display: block;
+                        .select-option {
+                            width: calc(50% - 32.3px);
+                            height: 55px;
+                            margin: 15px 15px;
+                            display: inline-block;
+                            .select-option-inner {
+                                height: 100%;
+                                width: 100%;
+                                line-height: 55px;
+                                font-size: 28px;
+                                text-align: center;
+                                color: $text-lightgrey;
+                                background-color: #6c6c6c;
+                                border-radius: 5px;
+                                border-bottom: 4px solid #545454;
+                            }
+                            &.selected {
+                                .select-option-inner {
+                                    color: $text-light;
+                                    background-color: $theme-3;
+                                    border-bottom: 1px solid #545454;
+                                    position: relative;
+                                    top: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.multiple {
+                    .select-field {
+                        width: 100%;
+                        margin: auto;
+                        display: block;
+                        .select-option {
+                            width: calc(50% - 32.3px);
+                            height: 55px;
+                            margin: 15px 15px;
+                            display: inline-block;
+                            .select-option-inner {
+                                height: 100%;
+                                width: 100%;
+                                line-height: 55px;
+                                font-size: 28px;
+                                text-align: center;
+                                color: $text-lightgrey;
+                                background-color: #6c6c6c;
+                                border-radius: 5px;
+                                border-bottom: 4px solid #545454;
+                            }
+                            &.selected {
+                                .select-option-inner {
+                                    color: $text-light;
+                                    background-color: $theme-3;
+                                    border-bottom: 1px solid #545454;
+                                    position: relative;
+                                    top: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .form-submit {
+                margin-top: 35px;
+                width: 100%;
+                .question-submit {
+                    width: 100%;
+                    text-align: center;
+                    .form-submit-button {
+                        width: 150px;
+                        height: 35px;
+                        margin: auto;
+                        line-height: 35px;
+                        font-size: 18px;
+                        background-color: $theme-3;
+                        border: none;
+                        border-radius: 17.5px;
+                        color: $text-light;
+                    }
+                }
+            }
         }
         .question-submit {
 
