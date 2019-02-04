@@ -54,7 +54,6 @@ function tableLoadRows(table) {
 
 
 
-
 var trl = [];
 var trls = [];
 var tcp = [];
