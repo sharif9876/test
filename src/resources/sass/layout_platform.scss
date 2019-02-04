@@ -399,36 +399,126 @@ main {
 /*FORMS*/
 .form {
     width: 100%;
-    .form-title {
-        width: 100%;
-    }
     .form-row {
         width: 100%;
-        margin-top: 10px;
-        padding-left: 15px;
-        display: block;
+        min-height: 60px;
+        margin-bottom: 15px;
         .form-input {
-            width: 100%;
+            padding-left: 15px;
             .input-label {
                 width: 100%;
-                color: $text-dark;
+                line-height: 20px;
+                margin-bottom: 5px;
+                height: 20px;
                 label {
-                    width: 100%;
-                    line-height: 35px;
-                    font-size: 20px;
-                    font-weight: 600;
+                    line-height: 20px;
+                    font-size: 18px;
+                    color: #505050;
                 }
             }
-            .input-input {
-                width: 100%;
-                padding-left: 15px;
-                input{
-                    width: 90%;
+            &.text {
+                width: 50%;
+                float: left;
+                .input {
+                    width: 80%;
                     height: 35px;
-                    padding: 2.5px;
-                    padding-left: 5px;
-                    font-size: 17px;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border-bottom: 2px solid #444;
+                        &:focus {
+                            border-bottom: 2px solid $theme-1;
+                        }
+                    }
                 }
+            }
+            &.textarea {
+                width: 100%;
+                .input {
+                    textarea {
+                        width: 60%;
+                        height: 200px;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border: 2px solid #444;
+                        &:focus {
+                            border: 2px solid $theme-1;
+                        }
+                    }
+                }
+            }
+            &.select {
+                width: 50%;
+                .input {
+                    select {
+                        width: 50%;
+                        height: 35px;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border: 2px solid #444;
+                        &:focus {
+                            border: 2px solid $theme-1;
+                        }
+                    }
+                }
+            }
+            &.num {
+                width: 50%;
+                .input {
+                    input {
+                        width: 40%;
+                        height: 35px;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border: 2px solid #444;
+                        &:focus {
+                            border: 2px solid $theme-1;
+                        }
+                    }
+                }
+            }
+            &.image {
+                width: 100%;
+                .input {
+                    .button {
+                        width: 150px;
+                        height: 35px;
+                        background-color: #fff;
+                        border: 2px solid #444;
+                        font-size: 18px;
+                        line-height: 35px;
+                        text-align: center;
+
+                    }
+                    input {
+                        width: 150px;
+                        height: 35px;
+                        position: relative;
+                        top: -35px;
+                        left: 0;
+                        opacity: 0;
+
+                    }
+                }
+                .preview {
+                    display: none;
+                    width: 300px;
+                    height: 150px;
+                }
+            }
+        }
+        .form-submit {
+            padding-left: 15px;
+            .submit {
+                width: 150px;
+                height: 45px;
+                border: none;
+                background-color: #50b038;
+                color: $text-light;
+                font-size: 18px;
             }
         }
     }

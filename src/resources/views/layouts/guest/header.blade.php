@@ -37,8 +37,7 @@
         </div>
         <div class="header-logo">
             <a href="{{url('home')}}">
-                <div class="header-logo-inner" style="background-image: url({{asset('/images/loremipsum-logo.png')}});">
-                </div>
+                GET OFFLINE
             </a>
         </div>
     </div>

@@ -30,6 +30,32 @@ class AdminTasksController extends Controller
         return view('admin/tasks/taskEntries', compact('task_entries'));
     }
 
+    public function taskAdd() {
+        return view('admin/tasks/taskAdd');
+    }
+
+    public function taskAddSave(Request $request) {
+        if($request->input('task_title')) {
+            //Save image
+
+            Task::create([
+                'title' => $request->input('task_title'),
+                'description' => $request->input('task_description'),
+                'type' => $request->input('task_type'),
+                'level_min' => $request->input('task_level_min'),
+                'reward_points' => $request->input('task_reward_points'),
+                'background_image_path' => '/images/tasks/task'.$request->input('task_title').'.jpg'
+            ]);
+            $task_image = $request->file('task_image');
+            $path = public_path('/images/tasks');
+            $image_name = 'task'.$request->input('task_title').'.jpg';
+            $task_image->move($path, 'task'.$request->input('task_title').'.jpg');
+
+            return redirect(url('/admin/tasks'));
+        }
+        return redirect(url('/admin/tasks/add'));
+    }
+
     public function ajaxTasksFeed(Request $request) {
         if(!$request->ajax()){
             return back();

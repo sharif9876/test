@@ -89,3 +89,27 @@ function showNewCards(cards) {
         taskEntriesLoaded.push(v.id);
     });
 }
+
+
+
+
+
+
+
+//FORMS
+$("document").ready(function() {
+    // IMAGE
+    $(".form .image input").change(function(e) {
+        if(e.target.files && e.target.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $(".form .image .preview").css("background-image", "url('"+e.target.result+"')");
+                $(".form .image .preview").css("display", "block");
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+        else {
+            $(".form .image .preview").css("display", "none");
+        }
+    });
+});

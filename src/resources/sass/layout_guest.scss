@@ -154,12 +154,14 @@ header {
                 height: 65px;
                 float: left;
                 padding: 5px 25px;
-                .header-logo-inner {
+                a {
+                    display: block;
                     width: 100%;
                     height: 100%;
-                    background-position: center center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
+                    color: #fff;
+                    line-height: 55px;
+                    font-size: 40px;
+                    font-weight: 700;
                 }
             }
         }

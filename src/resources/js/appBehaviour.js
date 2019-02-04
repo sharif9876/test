@@ -17,5 +17,5 @@ $("document").ready(function() {
         else {
             $("#formTaskSubmit #imageRowSubmit").css("display", "none");
         }
-    })
+    });
 });

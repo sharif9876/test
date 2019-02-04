@@ -4,7 +4,7 @@
 /* Block login*/
 .page-container.login {
     width: 100%;
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     .container-inner {
         background-color: rgba(44, 95, 185, 0.31);
         .app-logo {

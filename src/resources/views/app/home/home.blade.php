@@ -21,7 +21,7 @@
                     </div>
                     <div class="user-progress">
                         <div class="user-points">
-                            Coins: {{Auth::user()->points}}
+                            {{Auth::user()->points}} / {{Auth::user()->nextLevel()->points}}
                         </div>
                         <div class="user-bar">
                             <div class="points-bar">

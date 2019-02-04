@@ -2,7 +2,7 @@
 
 /* GRID BLOCKS ADMIN CONTENT*/
 /* Page Dashboard*/
-#task-entries {
+.content-block#task-entries {
     .block-body {
         .task-entries {
             width: 100%;
@@ -66,5 +66,12 @@
                 }
             }
         }
+    }
+}
+
+/* Page Task Add*/
+.content-block#task-add {
+    .block-body {
+        
     }
 }

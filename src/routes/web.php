@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'tasks'], function() {
         Route::get('/', 'Admin\AdminTasksController@tasks');
         Route::get('/entries', 'Admin\AdminTasksController@taskEntries');
+        Route::get('/add', 'Admin\AdminTasksController@taskAdd');
+        Route::post('/add', 'Admin\AdminTasksController@taskAddSave');
         Route::post('/ajaxtasksfeed', 'Admin\AdminTasksController@ajaxTasksFeed');
         Route::post('/ajaxtasksconfirm', 'Admin\AdminTasksController@ajaxTasksConfirm');
     });

@@ -1,5 +1,6 @@
 var tables = [];
 var tablesNonAjaxRows = [];
+var tablesCurrentRows = [];
 
 $("document").ready(function() {
     tableSetup();
@@ -20,8 +21,13 @@ function tablesPrepare() {
     $(".table").each(function(i,v) {
         tables.push({
             name : v.id,
+            page : 1,
             ajax : $(v).attr("data-ajax") == "true" ? true : false,
             ajaxPath: $(v).attr("data-ajaxPath") ? $(v).attr("data-ajaxPath") : ""
+        });
+        tablesCurrentRows.push({
+            name : v.id,
+            rows : $("#"+v.id+" .table-row")
         });
     });
 }
@@ -32,13 +38,20 @@ function tableLoadData(table) {
     }
     else {
         var dataRows = tableLoadRows(table);
-        console.log(dataRows);
     }
+
+    console.log(dataRows);
 }
 
 function tableLoadRows(table) {
-    var table_rows = tablesNonAjaxRows.find(item => item.name == table.name);;
-    return table_rows;
+    var tableRows = tablesCurrentRows.find(item => item.name == table.name).rows;
+    var amount = $("#"+table.name+" .table-amount select").val();
+    var offsetMin = (table.page - 1) * amount;
+    var offsetMax = table.page * amount;
+
+    tableRows = tableRows.slice(offsetMin, offsetMax);
+    tablesCurrentRows.find(item => item.name == table.name).rows = tableRows;
+    return tableRows;
 }
 
 

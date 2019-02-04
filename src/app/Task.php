@@ -17,7 +17,7 @@ class Task extends Model {
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['title', 'description', 'type', 'level_min', 'reward_points', 'background_image_path'];
 
     /**
      * The attributes that should be hidden for arrays.
