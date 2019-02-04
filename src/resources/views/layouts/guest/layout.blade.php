@@ -9,40 +9,29 @@
 
         <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/behaviour.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/platformBehaviour.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/tableControls.js') }}"></script>
-        <script>
-            function url() {
-                return '<?= url('') ?>';
-            }
-        </script>
+        <script type="text/javascript" src="{{ asset('js/guestBehaviour.js') }}"></script>
 
-        <link href="{{ asset('css/layout_platform.css') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/content_blocks.css') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/grid.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/layout_guest.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/blocks.css') }}" rel="stylesheet" type="text/css" >
 
         <link href="{{ asset('fonts/fontawesome-free-5.3.1-web/css/all.min.css') }}" rel="stylesheet" type="text/css" >
     </head>
     <body>
         <div class="page-wrapper">
             <header>
-                @include('layouts.admin.header')
+                @include('layouts.guest.header')
             </header>
             <main>
-                @include('layouts.admin.sidebar')
                 <div class="page-content" id="pageContent">
                     <div class="page-sections">
                         @yield('content')
                     </div>
                     <footer>
-                        <div class="footer-content">
-                        </div>
-                        <div class="footer-copyright">
-                        </div>
+                        @include('layouts.guest.footer')
                     </footer>
                 </div>
             </main>
         </div>
-        <script type="text/javascript" src="{{ asset('js/sidebar_admin.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/sidebar_guest.js') }}"></script>
     </body>
 </html>

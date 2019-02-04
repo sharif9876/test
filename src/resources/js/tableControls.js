@@ -1,21 +1,58 @@
-var tables = []
-
-function tablePrepare(data) {
-    tName = $.type(data.name) == "string" ? data.tableName : ""; //string
-    tAjax = $.type(data.ajax) == "boolean" ? data.tableAjax : false; //boolean
-    tData = $.type(data.data) == "array" ? data.tableData : []; //array
-
-    var table = {
-        name : tName,
-        ajax : tAjax,
-        data : tData
-    };
-    tables.push(table);
-}
+var tables = [];
+var tablesNonAjaxRows = [];
 
 $("document").ready(function() {
-
+    tableSetup();
 });
+
+function tableSetup() {
+    tablesPrepare();
+    $(tables).each(function(i,v) {
+        tablesNonAjaxRows.push({
+            name : v.name,
+            rows : $("#"+v.name+" .table-row")
+        });
+        tableLoadData(v);
+    });
+}
+
+function tablesPrepare() {
+    $(".table").each(function(i,v) {
+        tables.push({
+            name : v.id,
+            ajax : $(v).attr("data-ajax") == "true" ? true : false,
+            ajaxPath: $(v).attr("data-ajaxPath") ? $(v).attr("data-ajaxPath") : ""
+        });
+    });
+}
+
+function tableLoadData(table) {
+    if(table.ajax) {
+        //var dataRows = tableLoadRowsAjax(table);
+    }
+    else {
+        var dataRows = tableLoadRows(table);
+        console.log(dataRows);
+    }
+}
+
+function tableLoadRows(table) {
+    var table_rows = tablesNonAjaxRows.find(item => item.name == table.name);;
+    return table_rows;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var trl = [];

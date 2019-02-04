@@ -60,60 +60,38 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 67);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 67:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(68);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
 
-/***/ 68:
+/***/ 60:
 /***/ (function(module, exports) {
 
 $("document").ready(function () {
-    // Form select input
-    $("form .form-input.select .select-field").on("click", ".select-option", function (e) {
-        var form = $(e.target.closest(".form"));
-        var ih = form.find(".form-input.select .select-hidden");
-        var sf = form.find(".select-field");
-        var tb = $(e.target).closest(".select-option");
-        // Reset all buttons
-        sf.find(".select-option").each(function (i, v) {
-            $(v).removeClass("selected");
-        });
-        // Select selected button
-        tb.addClass("selected");
-        // Set hidden input
-        var val = $(tb).attr("select-value");
-        ih.val(val);
-    });
-    // Form multiple input
-    $("form .form-input.multiple .select-field").on("click", ".select-option", function (e) {
-        var form = $(e.target.closest(".form"));
-        var ih = form.find(".form-input.multiple .select-hidden");
-        var sf = form.find(".select-field");
-        var tb = $(e.target).closest(".select-option");
-        // Select selected button
-        if (tb.hasClass("selected")) {
-            tb.removeClass("selected");
-        } else {
-            tb.addClass("selected");
-        }
-        // Set hidden input
-        var val = "";
-        sf.find(".select-option.selected").each(function (i, v) {
-            val += $(v).attr("select-value") + ",";
-        });
-        val = val.slice(0, -1);
-        ih.val(val);
+    $("#sidebarToggle").click(function () {
+        sidebarToggle();
     });
 });
+
+function sidebarToggle() {
+    var sb = $("#sidebar");
+    if (!sb.hasClass("toggled")) {
+        sb.css({ "left": "0%" });
+        sb.addClass("toggled");
+    } else {
+        sb.css({ "left": "-100vw" });
+        sb.removeClass("toggled");
+    }
+}
 
 /***/ })
 

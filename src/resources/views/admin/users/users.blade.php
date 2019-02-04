@@ -6,7 +6,7 @@
             <div class="block-title">Users</div>
         </div>
         <div class="block-body">
-            <div class="table platform users" id="table-users">
+            <div class="table platform users" id="table-users" data-ajax="false" data-ajaxPath="/admin/users/ajaxTableUsers">
                 <div class="table-options">
                     <div class="table-search">
                         <input type="text" placeholder="search...">

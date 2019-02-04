@@ -4,21 +4,14 @@
  * menu_app_main
  */
 
-if(!function_exists('menu_app_main')) {
-    function menu_app_main() {
+if(!function_exists('menu_guest_main')) {
+    function menu_guest_main() {
         $menu_items = [
             'home' => [
                 'name' => 'home',
                 'display_name' => 'dashboard',
                 'slug' => 'menuitem_home',
                 'site_url' => 'home',
-                'permissions' => []
-            ],
-            'logout' => [
-                'name' => 'logout',
-                'display_name' => 'logout',
-                'slug' => 'menuitem_logout',
-                'site_url' => 'logout',
                 'permissions' => []
             ]
         ];

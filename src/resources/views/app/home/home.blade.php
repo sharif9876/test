@@ -1,7 +1,7 @@
 @extends('layouts.app.layout')
 
 @section('content')
-<div class="page-container user"  style="background-image: url({{asset('/images/loremipsum-background.jpg')}});">
+<div class="page-container user" style="background-image: url({{asset('/images/loremipsum-background.jpg')}});">
     <div class="row">
         <div class="user-profile">
             <div class="user-inner">

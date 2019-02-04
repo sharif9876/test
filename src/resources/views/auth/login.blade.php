@@ -1,79 +1,67 @@
-@extends('layouts.app')
+@extends('layouts.guest.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+    <div class="page-container login background-cover" style="background-image: url({{asset('/images/app/background-login.jpg')}});">
+        <div class="container-inner">
+            <div class="app-logo">
+                <div class="logo-inner">
+                    levels<br/>out
+                </div>
+            </div>
+            <div class="app-login">
+                <div class="login-inner">
+                    <form method="POST" action="" class="form login">
+                    @csrf
+                        <div class="form-row">
+                            <div class="form-input login-email">
+                                <input id="email" type="email" placeholder="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-row lessspace">
+                            <div class="form-input login-password">
+                                <input id="password" type="password" placeholder="password"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                        <div class="form-row lessspace">
+                            <div class="form-input login-remember">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <span>remember me</span>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                        <div class="form-row">
+                            <div class="form-input login-submit">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-
-                        <hr>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/twitter') }}" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
                             </div>
                         </div>
                     </form>
+                    <div class="login-forgot">
+                        <div class="forgot-message">
+                            <span>- or -</span>
+                            <a href="{{url('password/reset')}}">forgot password?</a> / <a href="{{url('/register')}}">create an account</a>
+                            <span>- or -</span>
+                        </div>
+                    </div>
+                    <div class="login-social">
+                        <div class="social-message">
+                            login via twitter or facebook
+                        </div>
+                        <div class="social-icons">
+                            <div class="social-button twitter">
+                                <a href="{{url('/auth/twitter')}}">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="social-button facebook">
+                                <a href="{{url('/auth/facebook')}}">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

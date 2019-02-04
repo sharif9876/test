@@ -60,38 +60,65 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 57);
+/******/ 	return __webpack_require__(__webpack_require__.s = 61);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 57:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
 
-/***/ 58:
+/***/ 62:
 /***/ (function(module, exports) {
 
 var tables = [];
+var tablesNonAjaxRows = [];
 
-function tablePrepare(data) {
-    tName = $.type(data.name) == "string" ? data.tableName : ""; //string
-    tAjax = $.type(data.ajax) == "boolean" ? data.tableAjax : false; //boolean
-    tData = $.type(data.data) == "array" ? data.tableData : []; //array
+$("document").ready(function () {
+    tableSetup();
+});
 
-    var table = {
-        name: tName,
-        ajax: tAjax,
-        data: tData
-    };
-    tables.push(table);
+function tableSetup() {
+    tablesPrepare();
+    $(tables).each(function (i, v) {
+        tablesNonAjaxRows.push({
+            name: v.name,
+            rows: $("#" + v.name + " .table-row")
+        });
+        tableLoadData(v);
+    });
 }
 
-$("document").ready(function () {});
+function tablesPrepare() {
+    $(".table").each(function (i, v) {
+        tables.push({
+            name: v.id,
+            ajax: $(v).attr("data-ajax") == "true" ? true : false,
+            ajaxPath: $(v).attr("data-ajaxPath") ? $(v).attr("data-ajaxPath") : ""
+        });
+    });
+}
+
+function tableLoadData(table) {
+    if (table.ajax) {
+        //var dataRows = tableLoadRowsAjax(table);
+    } else {
+        var dataRows = tableLoadRows(table);
+        console.log(dataRows);
+    }
+}
+
+function tableLoadRows(table) {
+    var table_rows = tablesNonAjaxRows.find(function (item) {
+        return item.name == table.name;
+    });;
+    return table_rows;
+}
 
 var trl = [];
 var trls = [];
