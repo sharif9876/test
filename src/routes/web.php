@@ -22,7 +22,8 @@ Route::group(['prefix' => ''], function() {
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
-
+    Route::get('/terms-of-service', 'Guest\GuestController@termsOfService');
+    Route::get('/privacy-policy', 'Guest\GuestController@privacyPolicy');
 });
 
 // OAuth Routes

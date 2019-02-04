@@ -36,7 +36,7 @@ class OAuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
-        return redirect(URL::action('HomeController@index'));
+        return redirect(url('home'));
     }
 
     /**
@@ -56,6 +56,9 @@ class OAuthController extends Controller
         return User::create([
             'name'     => $user->name,
             'email'    => $user->email,
+            'level' => 0,
+            'points' => 0,
+            'userlevel' => 'member',
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
