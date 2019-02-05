@@ -37,7 +37,7 @@
         </div>
         <div class="header-logo">
             <a href="{{url('home')}}">
-                GET OFFLINE
+                GET OUT
             </a>
         </div>
     </div>

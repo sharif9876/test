@@ -74,7 +74,7 @@
                                 </div>
                                 <input type="file" name="task_image">
                             </div>
-                            <div class="preview background-cover shown" style="background-image: url({{asset('/images/tasks/'.$task->background_image_path)}})">
+                            <div class="preview background-cover shown" style="background-image: url({{asset('images/tasks/'.$task->background_image_path)}})">
                             </div>
                         </div>
                     </div>
