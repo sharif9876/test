@@ -47,7 +47,10 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/', 'Admin\AdminTasksController@tasks');
         Route::get('/entries', 'Admin\AdminTasksController@taskEntries');
         Route::get('/add', 'Admin\AdminTasksController@taskAdd');
+        Route::get('/{id}/edit', 'Admin\AdminTasksController@taskEdit');
+        Route::get('/{id}/delete', 'Admin\AdminTasksController@taskDelete');
         Route::post('/add', 'Admin\AdminTasksController@taskAddSave');
+        Route::post('/{id}/edit', 'Admin\AdminTasksController@taskEditSave');
         Route::post('/ajaxtasksfeed', 'Admin\AdminTasksController@ajaxTasksFeed');
         Route::post('/ajaxtasksconfirm', 'Admin\AdminTasksController@ajaxTasksConfirm');
     });

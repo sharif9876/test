@@ -404,6 +404,33 @@ i {
   text-overflow: ellipsis;
 }
 
+.table.platform .table-field table .table-row td.actions {
+  padding-left: 0px;
+}
+
+.table.platform .table-field table .table-row td.actions a {
+  display: block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  float: left;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.table.platform .table-field table .table-row td.actions a i {
+  color: #fff;
+}
+
+.table.platform .table-field table .table-row td.actions a.edit {
+  background-color: #50b038;
+}
+
+.table.platform .table-field table .table-row td.actions a.delete {
+  background-color: #df2525;
+}
+
 .table.platform .table-field table .table-row .table-centered {
   text-align: center;
   padding: 0px;
@@ -609,6 +636,10 @@ i {
   display: none;
   width: 300px;
   height: 150px;
+}
+
+.form .form-row .form-input.image .preview.shown {
+  display: block;
 }
 
 .form .form-row .form-submit {

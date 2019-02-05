@@ -178,16 +178,13 @@ function tableLoadRows(table) {
     var tr = {};
     tableRows.each(function (i, v) {
         for (var j = 0; j < v.children.length; j++) {
-            console.log(v.children[j].textContent.toLowerCase().indexOf(tableSearch));
             if (v.children[j].textContent.toLowerCase().indexOf(tableSearch) >= 0) {
                 tr[Object.keys(tr).length] = v;
-
                 return true;
             }
         }
     });
     tableRows = tr;
-
     //paginate function
 }
 

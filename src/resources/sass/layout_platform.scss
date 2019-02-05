@@ -367,6 +367,28 @@ main {
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+                    &.actions {
+                        padding-left: 0px;
+                        a {
+                            display: block;
+                            width: 25px;
+                            height: 25px;
+                            text-align: center;
+                            line-height: 25px;
+                            float: left;
+                            margin: 5px;
+                            border-radius: 3px;
+                            i {
+                                color: $text-light;
+                            }
+                            &.edit {
+                                background-color: #50b038;
+                            }
+                            &.delete {
+                                background-color: #df2525;
+                            }
+                        }
+                    }
                 }
                 .table-centered {
                     text-align: center;
@@ -552,6 +574,9 @@ main {
                     display: none;
                     width: 300px;
                     height: 150px;
+                    &.shown {
+                        display: block;
+                    }
                 }
             }
         }

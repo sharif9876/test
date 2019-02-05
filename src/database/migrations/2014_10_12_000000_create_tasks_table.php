@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->enum('type', ['image', 'select', 'multiple', 'num', 'date']);
             $table->text('hint')->nullable();
             $table->integer('level_min')->nullable();
-            $table->integer('reward_points');
+            $table->integer('reward_points')->default('0');
             $table->string('background_image_path')->nullable();
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();

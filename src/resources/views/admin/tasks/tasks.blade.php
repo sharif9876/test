@@ -36,6 +36,7 @@
                     <table cellpadding="0" cellspacing="0">
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
+                            <th style="width: 70px;">actions</th>
                             <th style="width: 200px;">title</th>
                             <th style="width: 250px;">description</th>
                             <th style="width: 70px;">level</th>
@@ -46,7 +47,8 @@
                         @if(count($tasks) > 0)
                         @foreach($tasks as $task)
                             <tr class="table-row">
-                                <td class="id">{{$task->id}}</td>
+                                <td class="id table-centered">{{$task->id}}</td>
+                                <td class="actions"><a class="edit" href="{{url('/admin/tasks/'.$task->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/tasks/'.$task->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="title" title="{{$task->title}}">{{$task->title}}</td>
                                 <td class="description" title="{{$task->description}}">{{$task->description}}</td>
                                 <td class="level-min table-centered">{{$task->level_min}}</td>
