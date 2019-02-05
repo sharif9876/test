@@ -19,6 +19,18 @@
                             <option value="100">100</option>
                         </select>
                     </div>
+                    <div class="table-add">
+                        <div class="add-button">
+                            <a href="{{url('/admin/tasks/add')}}">
+                                <div class="add-left">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="add-right">
+                                    ADD
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-field">
                     <table cellpadding="0" cellspacing="0">

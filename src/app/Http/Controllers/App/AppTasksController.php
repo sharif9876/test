@@ -27,8 +27,8 @@ class AppTasksController extends Controller
     public function taskSubmit($id, Request $request) {
         $task_answer = $request->file('task_answer');
         $path = public_path('/images/taskentries');
-        $image_name = 'task'.$id.'_'.str_slug(Auth::user()->name, '-').'.jpg';
-        $task_answer->move($path, 'task'.$id.'_'.str_slug(Auth::user()->name, '-').'.jpg');
+        $image_name = 'task'.$id.'_'.Auth::user()->id.$task_answer->extension();
+        $task_answer->move($path, 'task'.$id.'_'.Auth::user()->id.$task_answer->extension());
 
         TaskEntry::create([
             'date_submit' => Carbon::now(),

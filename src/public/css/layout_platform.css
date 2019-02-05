@@ -310,6 +310,54 @@ i {
   display: inline-block;
 }
 
+.table.platform .table-options .table-add {
+  margin-left: 25px;
+  float: right;
+  padding: 2.5px 20px;
+}
+
+.table.platform .table-options .table-add .add-button {
+  width: 100px;
+  height: 30px;
+}
+
+.table.platform .table-options .table-add .add-button a {
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  display: block;
+  color: #fff;
+}
+
+.table.platform .table-options .table-add .add-button a .add-left {
+  width: 30px;
+  height: 100%;
+  float: left;
+  background-color: #50b038;
+  text-align: center;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.table.platform .table-options .table-add .add-button a .add-right {
+  width: 70px;
+  height: 30px;
+  float: left;
+  padding-left: 5px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #50b038;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 1px solid #50b038;
+  border-left: none;
+}
+
+.table.platform .table-options .table-add .add-button a:hover .add-right {
+  background-color: #50b038;
+  color: #fff;
+}
+
 .table.platform .table-field {
   width: 100%;
   overflow: auto;

@@ -1,19 +1,46 @@
 var tables = [];
-var tablesNonAjaxRows = [];
+var tablesTotalRows = [];
 var tablesCurrentRows = [];
 
 $("document").ready(function() {
-    tableSetup();
+    tablesSetup();
+
+    //Check for amount change
+    $(".table .table-amount select").on("change", function(e) {
+        var table = getTable(e.target.closest(".table").id);
+        tableLoad(table);
+    });
+
+    //Check for search input
+    $(".table .table-search input").on("keyup", function(e) {
+        var table = getTable(e.target.closest(".table").id);
+        tableLoad(table);
+    });
+
+    //Check for sort input
+    $(".table .table-header th").on("click", function(e) {
+        var table = getTable(e.target.closest(".table").id);
+        var asc = true;
+        if($(e.target).hasClass("descending")) {
+            asc = false;
+            $(e.target).removeClass("descending");
+        }
+        else {
+            $(e.target).addClass("descending");
+        }
+        tableSort(table, asc);
+    });
 });
 
-function tableSetup() {
+
+function tablesSetup() {
     tablesPrepare();
     $(tables).each(function(i,v) {
-        tablesNonAjaxRows.push({
+        tablesTotalRows.push({
             name : v.name,
             rows : $("#"+v.name+" .table-row")
         });
-        tableLoadData(v);
+        tableLoad(getTable(v.name));
     });
 }
 
@@ -32,28 +59,69 @@ function tablesPrepare() {
     });
 }
 
-function tableLoadData(table) {
+function getTable(name) {
+    var table = tables.find(item => item.name == name);
+    return table;
+}
+function getCurrentRows(name) {
+    var currentRows = tablesCurrentRows.find(item => item.name == name);
+    return currentRows;
+}
+function getTotalRows(name) {
+    var totalRows = tablesTotalRows.find(item => item.name == name);
+    return totalRows;
+}
+function getSearch(name) {
+    var table = tables.find(item => item.name == name);
+    return $("#"+name+" .table-search input").val();
+}
+
+
+function tableLoad(table) {
     if(table.ajax) {
-        //var dataRows = tableLoadRowsAjax(table);
+
     }
     else {
-        var dataRows = tableLoadRows(table);
+        var tableRows = tableLoadRows(table);
     }
-
-    console.log(dataRows);
+    // var currentRows = getCurrentRows(table.name);
+    // console.log(currentRows);
+    // currentRows.rows = tableRows;
+    // tablePaginate(table);
 }
 
 function tableLoadRows(table) {
-    var tableRows = tablesCurrentRows.find(item => item.name == table.name).rows;
-    var amount = $("#"+table.name+" .table-amount select").val();
-    var offsetMin = (table.page - 1) * amount;
-    var offsetMax = table.page * amount;
+    //get all rows
+    var tableRows = getTotalRows(table.name).rows;
+    //filter through search
+    var tableSearch = getSearch();
+    var tr = {};
+    tableRows.each(function(i, v) {
+        for(var j = 0; j < v.children.length; j++) {
+            console.log(v.children[j].textContent.toLowerCase().indexOf(tableSearch));
+            if(v.children[j].textContent.toLowerCase().indexOf(tableSearch) >= 0) {
+                tr[Object.keys(tr).length] = v;
 
-    tableRows = tableRows.slice(offsetMin, offsetMax);
-    tablesCurrentRows.find(item => item.name == table.name).rows = tableRows;
-    return tableRows;
+                return true;
+            }
+        }
+    });
+    tableRows = tr;
+
+    //paginate function
 }
 
+function tableSort() {
+    //get current rows
+}
+
+function tablePaginate(table) {
+
+}
+
+function tableRender(table) {
+
+}
 
 
 
@@ -130,7 +198,7 @@ function searchTable(tn, ts) {
                 return true;
             }
         }
-   });
+    });
    tr = Object.values(tr);
    tr = $(tr);
    trls[tn] = tr;
