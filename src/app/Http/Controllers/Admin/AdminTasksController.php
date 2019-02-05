@@ -51,20 +51,33 @@ class AdminTasksController extends Controller
     }
 
     public function taskAddSave(Request $request) {
-        $task_image = $request->file('task_image');
+        $level_max = Level::max('id');
+        $validator = Validator::make($request->all(), [
+            'task_title' => 'required|max:191',
+            'task_description' => 'required|max:355',
+            'task_type' => 'required|in:image',
+            'task_level_min' => 'min:0|max:'.$level_max,
+            'task_image' => 'file|image'
+        ]);
+        if($validator->fails()) {
+            return redirect(url('/admin/tasks/'.$id.'/edit'));
+        }
         $nextId = Task::max('id')+1;
+        if($request->has('task_image')) {
+            $task_image = $request->file('task_image');
+            $image_name = 'task_'.$nextId;
+            $image_extention = $task_image->extension() == 'jpeg' ? '.jpg' : '.'.$task_extention;
+            $image_path = public_path('/images/tasks/');
+            $task_image->move($image_path, $image_name.$image_extention);
+        }
         Task::create([
             'title' => $request->input('task_title'),
             'description' => $request->input('task_description'),
             'type' => $request->input('task_type'),
-            'level_min' => $request->input('task_level_min'),
+            'level_min' => $request->has('task_level_min') ? $request->input('task_level_min') : 0,
             //'reward_points' => $request->input('task_reward_points'),
-            'background_image_path' => '/images/tasks/task_'.$nextId.$task_image->extension()
+            'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : ''
         ]);
-
-        $path = public_path('/images/tasks');
-        $task_image->move($path, 'task_'.$nextId.$task_image->extension());
-
         return redirect(url('/admin/tasks'));
     }
 
@@ -84,19 +97,19 @@ class AdminTasksController extends Controller
         if($request->has('task_image')) {
             $task_image = $request->file('task_image');
             $image_name = $task->background_image_path;
+            $image_extention = $task_image->extension() == 'jpeg' ? '.jpg' : '.'.$task_image->extension();
             $image_path = public_path('/images/tasks/');
             if(File::exists($image_path.$image_name)) {
                 File::delete($image_path.$image_name);
             }
-            //$task_image->move($image_path, 'task_'.$id.$task_image->extension());
-
+            $task_image->move($image_path, 'task_'.$id.$image_extention);
         }
         $task->update([
             'title' => $request->has('task_title') ? $request->input('task_title') : $task->title,
             'description' => $request->has('task_description') ? $request->input('task_description') : $task->description,
             'type' => $request->has('task_type') ? $request->input('task_type') : $task->type,
             'level_min' => $request->has('task_level_min') ? $request->input('task_level_min') : $task->level_min,
-            'background_image_path' => $request->has('task_image') ? '/images/tasks/task_'.$id.$task_image->extension() : $task->background_image_path,
+            'background_image_path' => $request->has('task_image') ? '/images/tasks/task_'.$id.$image_extention : $task->background_image_path,
         ]);
 
         return redirect(url('/admin/tasks'));

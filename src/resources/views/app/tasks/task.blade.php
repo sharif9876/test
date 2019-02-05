@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-container nopadding task">
     <div class="row">
-        <div class="task-background background-cover" style="background-image: url({{asset($task->background_image_path)}})">
+        <div class="task-background background-cover" style="background-image: url({{asset('/images/tasks/'.$task->background_image_path)}})">
         </div>
         <div class="task-block">
             <div class="task-info">
