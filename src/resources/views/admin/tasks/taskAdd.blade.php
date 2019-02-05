@@ -36,7 +36,9 @@
                             </div>
                             <div class="input">
                                 <select name="task_type">
-                                    <option type="image">image</option>
+                                    @foreach($task_types as $type)
+                                        <option type="{{$type->name}}">{{$type->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -47,11 +49,11 @@
                                 <label>level</label>
                             </div>
                             <div class="input">
-                                <input type="number" name="task_level_min">
+                                <input type="number" name="task_level_min"  min="0" max="{{$level_max}}">
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    {{-- <div class="form-row">
                         <div class="form-input num task-rewardpoints">
                             <div class="input-label">
                                 <label>reward points</label>
@@ -60,7 +62,7 @@
                                 <input type="number" name="task_reward_points">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-row">
                         <div class="form-input image task-rewardpoints">
                             <div class="input-label">

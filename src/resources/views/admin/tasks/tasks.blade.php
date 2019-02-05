@@ -60,6 +60,7 @@
                         @else
                             <tr class="table-empty">
                                 <td></td>
+                                <td></td>
                                 <td class="table-empty-msg">
                                     No items found.
                                 </td>

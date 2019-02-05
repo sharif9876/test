@@ -160,7 +160,7 @@ function showNewCards(cards) {
     });
 }
 
-//FORMS
+//FORM INPUTS
 $("document").ready(function () {
     // IMAGE
     $(".form .image input").change(function (e) {
@@ -173,6 +173,23 @@ $("document").ready(function () {
             reader.readAsDataURL(e.target.files[0]);
         } else {
             $(".form .image .preview").css("display", "none");
+        }
+    });
+    // PASSWORD
+    $(".form .password .password-toggle").on('click', function (e) {
+        var input = $(e.target.closest(".input")).children("input");
+        var button = $(e.target.closest(".password-toggle"));
+        var icon = $(e.target.closest(".password-toggle")).children("i");
+        if (!button.hasClass("toggled")) {
+            button.addClass("toggled");
+            input.attr("type", "text");
+            icon.removeClass("fa-eye");
+            icon.addClass("fa-eye-slash");
+        } else {
+            button.removeClass("toggled");
+            input.attr("type", "password");
+            icon.removeClass("fa-eye-slash");
+            icon.addClass("fa-eye");
         }
     });
 });

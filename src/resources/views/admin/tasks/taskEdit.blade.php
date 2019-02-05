@@ -1,12 +1,12 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-    <div class="content-block" id="task-add">
+    <div class="content-block" id="task-edit">
         <div class="block-header">
             <div class="block-title">Edit Task {{$task->id}}</div>
         </div>
         <div class="block-body">
-            <div class="form task-add">
+            <div class="form task-edit">
                 <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                     <div class="form-row">
@@ -49,7 +49,7 @@
                                 <label>level</label>
                             </div>
                             <div class="input">
-                                <input type="number" name="task_level_min" value="{{$task->level_min}}">
+                                <input type="number" name="task_level_min" value="{{$task->level_min}}" min="0" max="{{$level_max}}">
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <input type="file" name="task_image">
                             </div>
-                            <div class="preview background-cover shown" style="background-image: url({{asset($task->background_image_path)}})">
+                            <div class="preview background-cover shown" style="background-image: url({{asset('/images/tasks/'.$task->background_image_path)}})">
                             </div>
                         </div>
                     </div>

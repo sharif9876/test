@@ -579,6 +579,41 @@ main {
                     }
                 }
             }
+            &.password {
+                width: 50%;
+                float: left;
+                .input {
+                    width: 80%;
+                    height: 35px;
+                    input {
+                        width: calc(100% - 35px);
+                        height: 100%;
+                        border: none;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border-bottom: 2px solid #444;
+                        &:focus {
+                            border-bottom: 2px solid $theme-1;
+                        }
+                    }
+                    .password-toggle {
+                        width: 35px;
+                        height: 100%;
+                        display: block;
+                        float: right;
+                        border: 2px solid #444;
+                        line-height: 35px;
+                        text-align: center;
+                        color: #595959;
+                        background-color: #c3c3c3;
+                        box-sizing: border-box;
+                        &.toggled {
+                            color: #fff;
+                            background-color: #50b038;
+                        }
+                    }
+                }
+            }
         }
         .form-submit {
             padding-left: 15px;

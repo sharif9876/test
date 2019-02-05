@@ -247,7 +247,7 @@ function fillTable(trr, t) {
         });
     }
     else {
-        var html = "<tr class='table-empty'><td></td><td class='table-empty-msg'>No items found.</td></tr>";
+        var html = "<tr class='table-empty'><td></td><td></td><td class='table-empty-msg'>No items found.</td></tr>";
         t.append(html);
     }
     var spread = 3;

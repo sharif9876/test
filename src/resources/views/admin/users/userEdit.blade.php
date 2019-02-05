@@ -15,7 +15,7 @@
                                 <label>name</label>
                             </div>
                             <div class="input">
-                                <input type="text" name="user_name">
+                                <input type="text" name="user_name" value="{{$user->name}}">
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                 <label>e-mail</label>
                             </div>
                             <div class="input">
-                                <input type="email" name="user_email">
+                                <input type="email" name="user_email" value="{{$user->email}}">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 <label>level</label>
                             </div>
                             <div class="input">
-                                <input type="number" name="user_level" min="0" max="{{$level_max}}">
+                                <input type="number" name="user_level" min="0" max="{{$level_max}}" value="{{$user->level}}">
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <div class="input">
                                 <select name="user_userlevel">
                                 @foreach(['member', 'admin', 'owner'] as $user_level)
-                                    <option type="{{$user_level}}">{{$user_level}}</option>
+                                    <option type="{{$user_level}}" {{$user->userlevel == $user_level ? "selected" : ""}}>{{$user_level}}</option>
                                 @endforeach
                                 </select>
                             </div>

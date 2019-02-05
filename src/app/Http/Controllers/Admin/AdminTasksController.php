@@ -35,13 +35,16 @@ class AdminTasksController extends Controller
     }
 
     public function taskAdd() {
-        return view('admin/tasks/taskAdd');
+        $task_types = TaskType::all();
+        $level_max = Level::max('id');
+        return view('admin/tasks/taskAdd', compact('task_types', 'level_max'));
     }
 
     public function taskEdit($id) {
         $task = Task::find($id);
         $task_types = TaskType::all();
-        return view('admin/tasks/taskEdit', compact('task', 'task_types'));
+        $level_max = Level::max('id');
+        return view('admin/tasks/taskEdit', compact('task', 'task_types', 'level_max'));
     }
 
     public function taskDelete($id) {
@@ -60,7 +63,7 @@ class AdminTasksController extends Controller
             'task_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/tasks/'.$id.'/edit'));
+            return redirect(url('/admin/tasks/add'));
         }
         $nextId = Task::max('id')+1;
         if($request->has('task_image')) {

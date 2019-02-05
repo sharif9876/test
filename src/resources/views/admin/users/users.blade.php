@@ -19,11 +19,24 @@
                             <option value="100">100</option>
                         </select>
                     </div>
+                    <div class="table-add">
+                        <div class="add-button">
+                            <a href="{{url('/admin/users/add')}}">
+                                <div class="add-left">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="add-right">
+                                    ADD
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-field">
                     <table cellpadding="0" cellspacing="0">
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
+                            <th style="width: 70px;">actions</th>
                             <th style="width: 200px;">name</th>
                             <th style="width: 250px;">e-mail</th>
                             <th style="width: 200px;">joined since</th>
@@ -38,6 +51,7 @@
                         @foreach($users as $user)
                             <tr class="table-row">
                                 <td class="id table-centered">{{$user->id}}</td>
+                                <td class="actions"><a class="edit" href="{{url('/admin/users/'.$user->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/users/'.$user->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="name">{{$user->name}}</td>
                                 <td class="email">{{$user->email}}</td>
                                 <td class="joined-since">{{$user->created_at}}</td>
@@ -52,6 +66,7 @@
                         @endforeach
                         @else
                             <tr class="table-empty">
+                                <td></td>
                                 <td></td>
                                 <td class="table-empty-msg">
                                     No items found.
