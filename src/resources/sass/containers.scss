@@ -217,7 +217,7 @@
 /* Page Tasks*/
 /* Container task*/
 .page-container.task {
-    min-height: 100%;
+    height: calc(100vh - 90%);
     .row {
         height: 100%;
         .task-background {
