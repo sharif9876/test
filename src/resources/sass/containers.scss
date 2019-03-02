@@ -25,25 +25,23 @@
                 .user-right {
                     width: calc(100% - 170px);
                     padding-top: 40px;
-                    padding-right: 20px;
                     float: left;
                     .user-info {
-                        height: 35px;
                         width: 100%;
                         line-height: 35px;
                         margin-bottom: 10px;
                         .user-name {
                             height: 35px;
                             line-height: 35px;
-                            float: left;
                             color: $text-light;
                             font-size: 24px;
                             font-weight: 600;
                         }
                         .user-level {
+                            width: 120px;
                             height: 30px;
                             line-height: 30px;
-                            float: right;
+                            text-align: center;
                             background-color: #d7732a;
                             color: $text-light;
                             padding: 0px 20px;
@@ -186,6 +184,29 @@
                         text-align: right;
                         line-height: 50px;
                         font-size: 50px;
+                    }
+                    .level-empty {
+                        color: #fff;
+                        padding: 20px;
+                        .level-name {
+                            height: 20px;
+                            line-height: 20px;
+                            margin-bottom: 20px;
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                        .level-text {
+                            height: 70px;
+                            line-height: 25px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            padding-bottom: 20px;
+                            span {
+                                font-size: 14px;
+                                line-height: 14px;
+                                font-weight: 500;
+                            }
+                        }
                     }
                 }
             }

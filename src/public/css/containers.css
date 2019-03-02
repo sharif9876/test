@@ -23,12 +23,10 @@
 .page-container.user .row .user-profile .user-inner .user-right {
   width: calc(100% - 170px);
   padding-top: 40px;
-  padding-right: 20px;
   float: left;
 }
 
 .page-container.user .row .user-profile .user-inner .user-right .user-info {
-  height: 35px;
   width: 100%;
   line-height: 35px;
   margin-bottom: 10px;
@@ -37,16 +35,16 @@
 .page-container.user .row .user-profile .user-inner .user-right .user-info .user-name {
   height: 35px;
   line-height: 35px;
-  float: left;
   color: #fff;
   font-size: 24px;
   font-weight: 600;
 }
 
 .page-container.user .row .user-profile .user-inner .user-right .user-info .user-level {
+  width: 120px;
   height: 30px;
   line-height: 30px;
-  float: right;
+  text-align: center;
   background-color: #d7732a;
   color: #fff;
   padding: 0px 20px;
@@ -206,6 +204,33 @@
   text-align: right;
   line-height: 50px;
   font-size: 50px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty {
+  color: #fff;
+  padding: 20px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty .level-name {
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty .level-text {
+  height: 70px;
+  line-height: 25px;
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty .level-text span {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
 }
 
 /* Page Tasks*/

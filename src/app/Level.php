@@ -29,6 +29,15 @@ class Level extends Model {
 
     public function highestRewardTaskAvailable() {
         // CHANGE SO THAT ONLY TASKS NOT ALREADY COMPLETED BY USER GET RETRIEVED
-        return Task::where('level_min', $this->id)->orderBy('reward_points', 'desc')->first();
+        // for each available tasks
+        // get where no entry available
+        //dd(Task::where('level_min', $this->id)->get());
+        if(Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->count()) {
+            return Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->first();
+        }
+        else {
+            return Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->get();
+
+        }
     }
 }

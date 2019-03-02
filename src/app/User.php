@@ -11,6 +11,8 @@ use App\Level;
 use App\Splash;
 use App\Task;
 use App\Question;
+use App\UserInfo;
+use App\TaskEntry;
 
 class User extends Authenticatable {
     use Notifiable;
@@ -47,16 +49,16 @@ class User extends Authenticatable {
         return Level::find($this->level);
     }
 
+    public function splashes() {
+        return $this->hasMany(Splash::class);
+    }
+
     public function nextLevel(int $count = null) {
         if($count != null) {
             $level_ids = ($this->level + $count) > Level::max('id') ? range($this->level+1, Level::max('id')) : range($this->level+1, $this->level+$count);
             return level::whereIn('id', $level_ids)->get()->all();
         }
         return Level::find($this->level + 1);
-    }
-
-    public function splashes() {
-        return $this->hasMany(Splash::class);
     }
 
     public function taskComplete($task_id) {
@@ -80,5 +82,32 @@ class User extends Authenticatable {
         }
         //Cant't get a higher level than current
         return;
+    }
+
+    public function questionsLeft($user = null) {
+        if($user == null) {
+            $user = Auth::user();
+        }
+        $ids = [];
+        foreach(Question::all() as $question) {
+            if(!UserInfo::where('user_id', $user->id)->where('question_id', $question->id)->count()) {
+                $ids[] = $question->id;
+            }
+        }
+        return Question::whereIn('id', $ids)->get();
+    }
+
+    public function tasksLeft() {
+        $ids = [];
+        foreach(Task::where('level_min', '<=', $this->level+1)->get() as $task) {
+            if(!TaskEntry::where('user_id', $this->id)->where('task_id', $task->id)->count()) {
+                $ids[] = $task->id;
+            }
+        }
+        return Task::whereIn('id', $ids)->get();
+    }
+
+    public function getTasks() {
+        return Task::available($this->level)->get();
     }
 }

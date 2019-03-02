@@ -53,6 +53,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-input relation task-requirements">
+                            <input type="hidden" class="input-requirements" name="task_requirements">
+                            <div class="input-label">
+                                <label>requirements</label>
+                            </div>
+                            <div class="relation-add">
+                                <div class="add-button">
+                                    <div class="add-left">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="add-right">
+                                        ADD
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="relations">
+                            </ul>
+                        </div>
+                    </div>
                     {{-- <div class="form-row">
                         <div class="form-input num task-rewardpoints">
                             <div class="input-label">

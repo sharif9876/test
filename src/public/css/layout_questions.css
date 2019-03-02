@@ -44,7 +44,7 @@ ul {
 
 .question {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: #fff;
 }
 
@@ -71,6 +71,10 @@ ul {
   padding: 0px 35px;
   line-height: 35px;
   font-size: 26px;
+}
+
+.question .question-inner .question-answers {
+  padding-bottom: 50px;
 }
 
 .question .question-inner .question-answers .form-input {
@@ -112,7 +116,7 @@ ul {
   height: 100%;
   width: 100%;
   line-height: 55px;
-  font-size: 28px;
+  font-size: 22px;
   text-align: center;
   color: #949494;
   background-color: #6c6c6c;
@@ -145,7 +149,7 @@ ul {
   height: 100%;
   width: 100%;
   line-height: 55px;
-  font-size: 28px;
+  font-size: 22px;
   text-align: center;
   color: #949494;
   background-color: #6c6c6c;

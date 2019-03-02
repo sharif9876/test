@@ -13,11 +13,13 @@ use App\TaskType;
 use App\TaskEntry;
 use App\Splash;
 use App\Level;
+use App\Question;
+use App\TaskRequirement;
 
 class AdminTasksController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin');
+        $this->middleware('admin', ['except' => 'ajaxQuestionAnswerInput']);
     }
 
     public function tasks() {
@@ -81,6 +83,16 @@ class AdminTasksController extends Controller
             //'reward_points' => $request->input('task_reward_points'),
             'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : ''
         ]);
+        if($request->has('task_requirements')) {
+            foreach(explode(',', $request->input('task_requirements')) as $requirement) {
+                $requirement = explode(':', $requirement);
+                TaskRequirement::create([
+                    'question_answer' => $requirement[1],
+                    'question_id' => $requirement[0],
+                    'task_id' => $nextId
+                ]);
+            }
+        }
         return redirect(url('/admin/tasks'));
     }
 
@@ -153,6 +165,34 @@ class AdminTasksController extends Controller
             }
             return;
         }
+    }
+
+    function ajaxQuestionsIdList(Request $request) {
+        if(!$request->ajax()){
+            return back();
+        }
+        return Question::select('id', 'question')->get()->toArray();
+    }
+
+    function ajaxQuestionAnswerInput(Request $request) {
+        if(!$request->ajax()){
+            return back();
+        }
+        $question = Question::find($request->question_id);
+        $html = ' ';
+        if($question->answer_type == 'multiple') {
+            $html .= '<select class="relation-question-answer">';
+            foreach(explode(',', $question->answers) as $answer) {
+                $options = explode(':', $answer);
+                $html .= '<option value="'.$options[1].'">'.$options[0].'</option>';
+            }
+            $html .= '</select>';
+        }
+        else {
+            $html .= '<input type="text" name="relation-question-answer">';
+        }
+        $res = [$html];
+        return $res;
     }
 }
 

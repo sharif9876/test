@@ -642,6 +642,30 @@ i {
   display: block;
 }
 
+.form .form-row .form-input.color {
+  width: 50%;
+  float: left;
+}
+
+.form .form-row .form-input.color .input {
+  width: 100px;
+  height: 35px;
+}
+
+.form .form-row .form-input.color .input input {
+  width: calc(100%);
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-bottom: 2px solid #444;
+}
+
+.form .form-row .form-input.color .input input:focus {
+  border-bottom: 2px solid #3ba4ab;
+}
+
 .form .form-row .form-input.password {
   width: 50%;
   float: left;
@@ -682,6 +706,131 @@ i {
 .form .form-row .form-input.password .input .password-toggle.toggled {
   color: #fff;
   background-color: #50b038;
+}
+
+.form .form-row .form-input.relation {
+  width: 100%;
+}
+
+.form .form-row .form-input.relation .relation-add {
+  width: 100px;
+  height: 30px;
+}
+
+.form .form-row .form-input.relation .relation-add .add-button {
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  color: #fff;
+}
+
+.form .form-row .form-input.relation .relation-add .add-button .add-left {
+  width: 30px;
+  height: 100%;
+  float: left;
+  background-color: #444;
+  text-align: center;
+}
+
+.form .form-row .form-input.relation .relation-add .add-button .add-right {
+  width: 70px;
+  height: 30px;
+  float: left;
+  padding-left: 5px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #444;
+  border-left: none;
+}
+
+.form .form-row .form-input.relation .relation-add .add-button:hover .add-right {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row {
+  margin: 5px 0px;
+  width: 500px;
+  height: 80px;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  background-color: #a2a2a2;
+  border: 2px solid #444;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left .relation-label {
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left .relation-label .relation-remove {
+  width: 30px;
+  height: 30px;
+  display: none;
+  float: right;
+  color: #df2525;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left .relation-label .relation-remove:hover {
+  cursor: pointer;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left .relation-input {
+  width: 100%;
+  height: 30px;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left .relation-input select {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  border: 1px solid #444;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-left:hover .relation-label .relation-remove {
+  display: block;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-right {
+  float: left;
+  width: 48%;
+  margin-left: 2%;
+  padding: 5px;
+  background-color: #a2a2a2;
+  border: 2px solid #444;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-right .answer-label {
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-right .answer-input {
+  width: 100%;
+  height: 30px;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-right .answer-input select {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  border: 1px solid #444;
+}
+
+.form .form-row .form-input.relation .relations .relation .relation-row .relation-right .answer-input input {
+  width: 100%;
+  height: 100%;
+  padding-left: 3px;
+  font-size: 16px;
+  border: 1px solid #444;
 }
 
 .form .form-row .form-submit {

@@ -74,6 +74,23 @@ if(!function_exists('menu_admin_sidebar')) {
                     ]
                 ]
             ],
+            'levels' => [
+                'name' => 'levels',
+                'display_name' => 'levels',
+                'slug' => 'menuitem_levels',
+                'site_url' => 'admin/levels',
+                'icon' => 'chart-bar',
+                'permissions' => [],
+                'submenu' => [
+                    'levels-all' => [
+                        'name' => 'levels-all',
+                        'display_name' => 'all levels',
+                        'slug' => 'menuitem_levels-all',
+                        'site_url' => 'admin/levels',
+                        'permissions' => []
+                    ]
+                ]
+            ],
             'settings' => [
                 'name' => 'settings',
                 'display_name' => 'settings',

@@ -21,7 +21,7 @@
                     </div>
                     <div class="user-progress">
                         <div class="user-points">
-                            
+
                         </div>
                         <div class="user-bar">
                             <div class="points-bar">
@@ -43,6 +43,7 @@
         @if($loop->first)
             <div class="level-container-next" style="background-image: url({{asset($level->container_background_image_path)}})">
                 <div class="level-container-inner">
+                @if($level->highestRewardTaskAvailable()->count())
                     <a href="{{url('tasks/'.$level->highestRewardTaskAvailable()->id)}}" class="level-container-link">
                         <div class="level-left">
                             <div class="level-info">
@@ -62,6 +63,17 @@
                             {!!load_icon('chevron-right')!!}
                         </div>
                     </a>
+                @else
+                    <div class="level-empty">
+                        <div class="level-name">
+                            Level {{$level->id}}
+                        </div>
+                        <div class="level-text">
+                            No tasks available<br />
+                            <span>check again soon!</span>
+                        </div>
+                    </div>
+                @endif
                 </div>
             </div>
         @else

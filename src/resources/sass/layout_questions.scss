@@ -37,7 +37,7 @@ ul {
 /*Question*/
 .question {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     color: #fff;
     .question-inner {
         width: 100%;
@@ -66,6 +66,7 @@ ul {
         //num: number input
         //date: date input
         .question-answers {
+            padding-bottom: 50px;
             .form-input {
                 width: 80%;
                 margin: auto;
@@ -98,7 +99,7 @@ ul {
                                 height: 100%;
                                 width: 100%;
                                 line-height: 55px;
-                                font-size: 28px;
+                                font-size: 22px;
                                 text-align: center;
                                 color: $text-lightgrey;
                                 background-color: #6c6c6c;
@@ -131,7 +132,7 @@ ul {
                                 height: 100%;
                                 width: 100%;
                                 line-height: 55px;
-                                font-size: 28px;
+                                font-size: 22px;
                                 text-align: center;
                                 color: $text-lightgrey;
                                 background-color: #6c6c6c;

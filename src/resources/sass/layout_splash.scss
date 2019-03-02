@@ -32,7 +32,7 @@ ul {
 /*Splash layout*/
 .splash {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     padding: 15px;
     .splash-inner {
         width: 100%;

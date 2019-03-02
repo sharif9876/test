@@ -579,6 +579,26 @@ main {
                     }
                 }
             }
+            &.color {
+                width: 50%;
+                float: left;
+                .input {
+                    width: 100px;
+                    height: 35px;
+                    input {
+                        width: calc(100%);
+                        height: 100%;
+                        border: none;
+                        background-color: #fff;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                        border-bottom: 2px solid #444;
+                        &:focus {
+                            border-bottom: 2px solid $theme-1;
+                        }
+                    }
+                }
+            }
             &.password {
                 width: 50%;
                 float: left;
@@ -610,6 +630,123 @@ main {
                         &.toggled {
                             color: #fff;
                             background-color: #50b038;
+                        }
+                    }
+                }
+            }
+            &.relation {
+                width: 100%;
+                .relation-add {
+                    width: 100px;
+                    height: 30px;
+                    .add-button {
+                        width: 100%;
+                        height: 100%;
+                        line-height: 30px;
+                        color: $text-light;
+                        .add-left {
+                            width: 30px;
+                            height: 100%;
+                            float: left;
+                            background-color: #444;
+                            text-align: center;
+                        }
+                        .add-right {
+                            width: 70px;
+                            height: 30px;
+                            float: left;
+                            padding-left: 5px;
+                            font-weight: 600;
+                            background-color: #fff;
+                            //border: 2px solid #ddd;
+                            color: #444;
+                            border: 1px solid #444;
+                            border-left: none;
+                        }
+                        &:hover {
+                            .add-right {
+                                background-color: #444;
+                                color: $text-light;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .relations {
+                    .relation {
+                        .relation-row {
+                            margin: 5px 0px;
+                            width: 500px;
+                            height: 80px;
+                            .relation-left {
+                                float: left;
+                                width: 50%;
+                                padding: 5px;
+                                background-color: #a2a2a2;
+                                border: 2px solid #444;
+                                .relation-label {
+                                    height: 30px;
+                                    line-height: 30px;
+                                    color: #fff;
+                                    .relation-remove {
+                                        width: 30px;
+                                        height: 30px;
+                                        display: none;
+                                        float: right;
+                                        color: #df2525;
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                                .relation-input {
+                                    width: 100%;
+                                    height: 30px;
+                                    select {
+                                        width: 100%;
+                                        height: 100%;
+                                        font-size: 18px;
+                                        border: 1px solid #444;
+                                    }
+                                }
+                                &:hover {
+                                    .relation-label {
+                                        .relation-remove {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+                            .relation-right {
+                                float: left;
+                                width: 48%;
+                                margin-left: 2%;
+                                padding: 5px;
+                                background-color: #a2a2a2;
+                                border: 2px solid #444;
+                                .answer-label {
+                                    height: 30px;
+                                    line-height: 30px;
+                                    color: #fff;
+                                }
+                                .answer-input {
+                                    width: 100%;
+                                    height: 30px;
+                                    select {
+                                        width: 100%;
+                                        height: 100%;
+                                        font-size: 18px;
+                                        border: 1px solid #444;
+                                    }
+                                    input {
+                                        width: 100%;
+                                        height: 100%;
+                                        padding-left: 3px;
+                                        font-size: 16px;
+                                        border: 1px solid #444;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

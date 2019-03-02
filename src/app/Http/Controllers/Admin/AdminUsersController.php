@@ -71,9 +71,9 @@ class AdminUsersController extends Controller
         $level_max = Level::max('id');
         $validator = Validator::make($request->all(), [
             'user_name' => 'required|max:191',
-            'user_email' => 'required|email|unique:users,email|max:191',
+            'user_email' => 'required|email|max:191',
             'user_level' => 'required|min:0|max:'.$level_max,
-            'user_password' => 'required',
+            'user_password' => '',
             'user_userlevel' => 'required|in:member,admin,owner'
         ]);
         if($validator->fails()) {

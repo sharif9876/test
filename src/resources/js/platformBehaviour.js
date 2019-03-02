@@ -130,4 +130,118 @@ $("document").ready(function() {
             icon.addClass("fa-eye");
         }
     });
+
+
+
+    // TASK RELATIONS
+    $(".form.task-add .relation .relation-add .add-button").on('click',function(e) {
+        var input = $(e.target.closest(".form-input")).children(".input-requirements");
+        var field = $(e.target.closest(".form-input")).children(".relations");
+        var questionsList = "";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "get",
+            url: url()+'/admin/tasks/ajaxquestionsidlist',
+            dataType: 'json',
+            cache: false,
+            success: function(response) {
+                questionsList += `<select class="relation-question-id">`;
+                $(response).each(function(i, v) {
+                    questionsList += `
+                    <option value="`+v.id+`">`+v.question+`</option>
+                    `;
+                });
+                questionsList += `</select>`;
+                var html = `
+                <li class="relation">
+                    <div class="relation-row">
+                        <div class="relation-left">
+                            <div class="relation-label">
+                                <label>QUESTION</label><span class="relation-remove"><i class="fas fa-times"></i></span>
+                            </div>
+                            <div class="relation-input">
+                                `+questionsList+`
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                `;
+                field.append(html);
+            },
+            error: function(xhr,status,error) {
+                alert("something went wrong");
+                return;
+            },
+            fail: function() {
+                alert("something went wrong");
+                return;
+            }
+        });
+    });
+    $(".form.task-add .relations").on('change', ' .relation-input select',function(e) {
+        var id = $(e.target).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: url()+'/admin/tasks/ajaxquestionanswerinput',
+            data: {
+                question_id: id
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(response) {
+                //response = anything inside input
+                var answer = response;
+                var relation = $(e.target.closest(".relation")).children(".relation-row");
+                var html = `
+                <div class="relation-right">
+                    <div class="answer-label">
+                        <label>ANSWER</label>
+                    </div>
+                    <div class="answer-input">
+                        `+answer+`
+                    </div>
+                </div>
+                `;
+                $(relation).find(".relation-right").remove();
+                relation.append(html);
+                compileRelations(e);
+            },
+            error: function(xhr,status,error) {
+                alert(xhr+status+error);
+                return;
+            },
+            fail: function() {
+                alert("something went wrong");
+                return;
+            }
+        });
+    });
+    $(".form.task-add .relations").on('click', ' .relation-label .relation-remove',function(e) {
+        $(e.target.closest("li")).remove();
+        compileRelations(e);
+    });
+    $(".form.task-add .relations").on('change', '.relation-question-answer',function(e) {
+        compileRelations(e);
+    });
+    function compileRelations(e) {
+        var relations = $(e.target.closest(".relations")).children("li");
+        var inputV = "";
+        relations.each(function(i,v) {
+            var rq = $(v).find(".relation-question-id").val();
+            var ra = $(v).find(".relation-question-answer").val();
+            inputV += rq+":"+ra+",";
+        });
+        inputV = inputV.slice(0, -1);
+        inputH = $(e.target.closest(".form-input")).find(".input-requirements");
+        inputH.val(inputV);
+    }
 });

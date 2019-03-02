@@ -1,12 +1,12 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-    <div class="content-block" id="task-entries">
+    <div class="content-block" id="levels">
         <div class="block-header">
-            <div class="block-title">Submitted tasks</div>
+            <div class="block-title">levels</div>
         </div>
         <div class="block-body">
-            <div class="table platform tasks" id="table-task-entries">
+            <div class="table platform levels" id="table-levels">
                 <div class="table-options">
                     <div class="table-search">
                         <input type="text" placeholder="search...">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="table-add">
                         <div class="add-button">
-                            <a href="{{url('/admin/tasks/add')}}">
+                            <a href="{{url('/admin/levels/add')}}">
                                 <div class="add-left">
                                     <i class="fas fa-plus"></i>
                                 </div>
@@ -37,26 +37,22 @@
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
                             <th style="width: 70px;">actions</th>
-                            <th style="width: 200px;">submit date</th>
-                            <th style="width: 120px;">status</th>
-                            <th style="width: 200px;">answer</th>
-                            <th style="width: 100px;">user</th>
-                            <th style="width: 300px;">task</th>
+                            <th style="width: 70px;">points</th>
+                            <th style="width: 70px;">color</th>
+
                         </tr>
-                        @if(count($task_entries) > 0)
-                        @foreach($task_entries as $entry)
+                        @if(count($levels) > 0)
+                        @foreach($levels as $level)
                             <tr class="table-row">
-                                <td class="id">{{$entry->id}}</td>
-                                <td class="actions"><a class="edit" href="{{url('/admin/tasks/entries/'.$entry->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/tasks/entries/'.$entry->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
-                                <td class="submit-date">{{$entry->date_submit}}</td>
-                                <td class="status">{{$entry->status}}</td>
-                                <td class="answer" title="{{$entry->answer}}">{{$entry->answer}}</td>
-                                <td class="user">{{$entry->user->name}}</td>
-                                <td class="task">{{$entry->task->title}}</td>
+                                <td class="id table-centered">{{$level->id}}</td>
+                                <td class="actions"><a class="edit" href="{{url('/admin/levels/'.$level->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/levels/'.$level->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="points">{{$level->points}}</td>
+                                <td class="color">{{$level->container_background_color}}</td>
                             </tr>
                         @endforeach
                         @else
                             <tr class="table-empty">
+                                <td></td>
                                 <td></td>
                                 <td class="table-empty-msg">
                                     No items found.

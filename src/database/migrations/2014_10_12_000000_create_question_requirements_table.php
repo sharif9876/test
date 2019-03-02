@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsRequirementsTable extends Migration
+class CreateQuestionRequirementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateQuestionsRequirementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions_requirements', function (Blueprint $table) {
+        Schema::create('question_requirements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('question_requirement_answer');
+            $table->string('question_answer')->nullable();
             $table->integer('question_id')->unsigned();
-            $table->integer('question_requirement_id')->unsigned();
+            $table->integer('task_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-            $table->foreign('question_requirement_id')->references('id')->on('questions')->onDelete('cascade');
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
     }
 
@@ -33,6 +32,6 @@ class CreateQuestionsRequirementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions_requirements');
+        Schema::dropIfExists('question_requirements');
     }
 }
