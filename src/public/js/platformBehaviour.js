@@ -154,10 +154,14 @@ function showNewCards(cards) {
         } else {
             var image = "";
         }
-        var html = "\n        <div class=\"card background-cover\" card-id=\"" + v.id + "\" style=\"" + image + "\">\n            <div class=\"card-top\">\n                <div class=\"card-approve card-button\" card-action=\"approve\">\n                    <i class=\"fas fa-check\"></i>\n                </div>\n                <div class=\"card-decline card-button\" card-action=\"decline\">\n                    <i class=\"fas fa-times\"></i>\n                </div>\n            </div>\n            <div class=\"card-bottom\">\n                <div class=\"card-date\">\n                    " + v.date_submit + "\n                </div>\n            </div>\n        </div>";
+        var html = "\n        <div class=\"card background-cover\" title=\"" + v.task.title + "\" card-id=\"" + v.id + "\" style=\"" + image + "\">\n            <div class=\"card-top\">\n                <div class=\"card-approve card-button\" card-action=\"approve\">\n                    <i class=\"fas fa-check\"></i>\n                </div>\n                <div class=\"card-decline card-button\" card-action=\"decline\">\n                    <i class=\"fas fa-times\"></i>\n                </div>\n            </div>\n            <div class=\"card-bottom\">\n                <div class=\"card-date\">\n                    " + v.date_submit + "\n                </div>\n                <div class=\"card-user\">\n                    " + v.user.name + "\n                </div>\n            </div>\n        </div>";
         cardsField.append(html);
         taskEntriesLoaded.push(v.id);
     });
+}
+
+function convertToSlug(Text) {
+    return Text.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
 }
 
 //FORM INPUTS
@@ -279,6 +283,52 @@ $("document").ready(function () {
         inputV = inputV.slice(0, -1);
         inputH = $(e.target.closest(".form-input")).find(".input-requirements");
         inputH.val(inputV);
+    }
+
+    // Answer Types
+    $(".form.question-add .question-answer-type").on("change", ".answer-type", function (e) {
+        setDisplayedAnswerType(e);
+        compileAnswers(e);
+    });
+    $(".form.question-add .answers .select").on("keyup", ".answer-compile", function (e) {
+        compileAnswers(e);
+    });
+    $(".form.question-add .answers .select").on("click", ".add-button", function (e) {
+        addAnswerField(e);
+        compileAnswers(e);
+    });
+    $(".form.question-add .answers .select").on("click", ".remove-button", function (e) {
+        removeAnswerField(e);
+        compileAnswers(e);
+    });
+
+    function setDisplayedAnswerType(e) {
+        var types_DOM = $(".form.question-add .answers .type-answer");
+        types_DOM.each(function (i, v) {
+            $(v).removeClass("active");
+        });
+        var type_active_DOM = $(".form.question-add .answers .type-answer." + e.target.value);
+        type_active_DOM.addClass("active");
+    }
+    function addAnswerField(e) {
+        var html = "\n            <li class=\"answer-field\">\n                <input type=\"text\" class=\"answer-compile\"><span class=\"remove-button\"><i class=\"fas fa-times\"></i></span>\n            </li>\n        ";
+        var al = $(".form.question-add .answers .select .answers-list");
+        al.append(html);
+    }
+    function removeAnswerField(e) {
+        e.target.closest(".answer-field").remove();
+    }
+    function compileAnswers(e) {
+        var at = $(".form.question-add .question-answer-type .answer-type")[0].value;
+        var af = $(".form.question-add .answers .type-answer." + at);
+        var ac = af.find(".answer-compile");
+        var ai = $(".form.question-add .answers .answers-input");
+        var as = "";
+        ac.each(function (i, v) {
+            as += v.value + ":" + convertToSlug(v.value) + ",";
+        });
+        as = as.slice(0, -1);
+        ai[0].value = as;
     }
 });
 

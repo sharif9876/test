@@ -3,7 +3,7 @@
 @section('content')
     <div class="content-block" id="level-add">
         <div class="block-header">
-            <div class="block-title">Add Level</div>
+            <div class="block-title">Edit Level: {{$level->level}}</div>
         </div>
         <div class="block-body">
             <div class="form task-add">
@@ -15,7 +15,7 @@
                                 <label>level</label>
                             </div>
                             <div class="input">
-                                <input type="number" name="level_level" value="{{$nextLevel}}">
+                                <input type="number" name="level_level" value="{{$level->level}}">
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                 <label>points</label>
                             </div>
                             <div class="input">
-                                <input type="number" name="level_points" value="{{$points_min}}">
+                                <input type="number" name="level_points" value="{{$level->points}}">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 <label>color</label>
                             </div>
                             <div class="input">
-                                <input type="color" name="level_color">
+                                <input type="color" name="level_color" value="{{$level->container_background_color}}">
                             </div>
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                                 </div>
                                 <input type="file" name="level_image">
                             </div>
-                            <div class="preview background-cover">
+                            <div class="preview background-cover shown" style="background-image: url({{asset('images/levels/'.$level->container_background_image_path)}})">
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-submit level-submit">
-                            <button class="submit" type="submit" name="level_submit">CREATE LEVEL</button>
+                        <div class="form-submit user-submit">
+                            <button class="submit" type="submit" name="level_submit">SAVE LEVEL</button>
                         </div>
                     </div>
                 </form>

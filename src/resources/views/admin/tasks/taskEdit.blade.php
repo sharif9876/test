@@ -3,7 +3,7 @@
 @section('content')
     <div class="content-block" id="task-edit">
         <div class="block-header">
-            <div class="block-title">Edit Task {{$task->id}}</div>
+            <div class="block-title">Edit Task: {{$task->id}}</div>
         </div>
         <div class="block-body">
             <div class="form task-edit">

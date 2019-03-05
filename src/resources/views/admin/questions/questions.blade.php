@@ -18,11 +18,24 @@
                             <option value="50">50</option>
                         </select>
                     </div>
+                    <div class="table-add">
+                        <div class="add-button">
+                            <a href="{{url('/admin/questions/add')}}">
+                                <div class="add-left">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="add-right">
+                                    ADD
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-field">
                     <table cellpadding="0" cellspacing="0">
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
+                            <th style="width: 70px;">actions</th>
                             <th style="width: 100px;">name</th>
                             <th style="width: 300px;">question</th>
                             <th style="width: 70px;">level</th>
@@ -32,6 +45,7 @@
                         @foreach($questions as $question)
                             <tr class="table-row">
                                 <td class="id table-centered">{{$question->id}}</td>
+                                <td class="actions"><a class="edit" href="{{url('/admin/questions/'.$question->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/questions/'.$question->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="name">{{$question->name}}</td>
                                 <td class="description">{{$question->question}}</td>
                                 <td class="level-min table-centered">{{$question->level_min}}</td>

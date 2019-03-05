@@ -20,7 +20,6 @@ class QuestionsTableSeeder extends Seeder
             'answers' => 'yes:yes,no:no',
             'answer_type' => 'select',
             'level_min' => 0,
-            'age_min' => 18
         ]);
         App\Question::create([
             'name' => 'gin beer',

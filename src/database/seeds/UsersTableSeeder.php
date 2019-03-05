@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Oshi Okomilo',
             'email' => 'oshi@guestlist.net',
             'email_verified_at' => now(),
-            'level' => 2,
+            'level' => 3,
             'points' => 74,
             'password' => Hash::make('password'),
             'userlevel' => 'owner',

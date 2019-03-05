@@ -833,16 +833,108 @@ i {
   border: 1px solid #444;
 }
 
+.form .form-row .form-input.answers .input .type-answer {
+  width: 100%;
+  min-height: 50px;
+  display: none;
+}
+
+.form .form-row .form-input.answers .input .type-answer.active {
+  display: block;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answer-add {
+  height: 30px;
+  width: 100%;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answer-add .add-button {
+  float: left;
+  height: 100%;
+  line-height: 30px;
+  color: #fff;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answer-add .add-button .add-left {
+  width: 30px;
+  height: 100%;
+  float: left;
+  background-color: #444;
+  text-align: center;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answer-add .add-button .add-right {
+  width: 70px;
+  height: 30px;
+  float: left;
+  padding-left: 5px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #444;
+  border-left: none;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answer-add .add-button:hover .add-right {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list {
+  width: 100%;
+  padding: 10px;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list .answer-field {
+  width: 250px;
+  height: 35px;
+  margin: 5px 0px;
+  border: 2px solid #444;
+  padding: 2.5px;
+  background-color: #a2a2a2;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list .answer-field:hover span {
+  display: block;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list .answer-field input {
+  width: 210px;
+  height: 35px;
+  float: left;
+  padding-left: 5px;
+  font-size: 20px;
+  border: 1px solid #444;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list .answer-field span {
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  font-size: 26px;
+  display: none;
+  line-height: 35px;
+  text-align: center;
+  float: left;
+}
+
+.form .form-row .form-input.answers .input .type-answer.select .answers-list .answer-field span i {
+  color: #df2525;
+}
+
 .form .form-row .form-submit {
   padding-left: 15px;
 }
 
 .form .form-row .form-submit .submit {
-  width: 150px;
+  width: auto;
+  min-width: 150px;
   height: 45px;
   border: none;
   background-color: #50b038;
   color: #fff;
   font-size: 18px;
+  padding: 0px 10px;
 }
 

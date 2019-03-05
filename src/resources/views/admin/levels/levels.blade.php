@@ -37,6 +37,7 @@
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
                             <th style="width: 70px;">actions</th>
+                            <th style="width: 70px;">level</th>
                             <th style="width: 70px;">points</th>
                             <th style="width: 70px;">color</th>
 
@@ -46,6 +47,7 @@
                             <tr class="table-row">
                                 <td class="id table-centered">{{$level->id}}</td>
                                 <td class="actions"><a class="edit" href="{{url('/admin/levels/'.$level->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/levels/'.$level->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="level">{{$level->level}}</td>
                                 <td class="points">{{$level->points}}</td>
                                 <td class="color">{{$level->container_background_color}}</td>
                             </tr>

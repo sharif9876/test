@@ -18,7 +18,7 @@ class Level extends Model {
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['level', 'points', 'container_background_image_path', 'container_background_color'];
 
     /**
      * The attributes that should be hidden for arrays.

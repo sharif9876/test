@@ -14,7 +14,8 @@ class CreateLevelsTable extends Migration
     public function up()
     {
         Schema::create('levels', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->increments('id');
+            $table->integer('level');
             $table->integer('points');
             $table->string('container_background_image_path')->nullable();
             $table->string('container_background_color')->nullable();

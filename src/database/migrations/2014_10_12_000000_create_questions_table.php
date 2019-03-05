@@ -21,7 +21,6 @@ class CreateQuestionsTable extends Migration
             $table->text('answers')->nullable();
             $table->enum('answer_type', ['text', 'select', 'multiple', 'num', 'date']);
             $table->integer('level_min')->nullable();
-            $table->integer('age_min')->nullable();
             $table->string('background_image_path')->nullable();
             $table->timestamps();
         });

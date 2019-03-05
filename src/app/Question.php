@@ -16,7 +16,7 @@ class Question extends Model {
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'name_slug', 'question', 'answers', 'answer_type', 'level_min', 'background_image_path'];
 
     /**
      * The attributes that should be hidden for arrays.

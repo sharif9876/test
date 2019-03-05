@@ -3,7 +3,7 @@
 @section('content')
     <div class="content-block" id="user-add">
         <div class="block-header">
-            <div class="block-title">New User</div>
+            <div class="block-title">Edit User: {{$user->name}}</div>
         </div>
         <div class="block-body">
             <div class="form user-add">

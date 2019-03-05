@@ -38,7 +38,7 @@ class AdminTasksController extends Controller
 
     public function taskAdd() {
         $task_types = TaskType::all();
-        $level_max = Level::max('id');
+        $level_max = Level::max('level');
         return view('admin/tasks/taskAdd', compact('task_types', 'level_max'));
     }
 
@@ -83,7 +83,7 @@ class AdminTasksController extends Controller
             //'reward_points' => $request->input('task_reward_points'),
             'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : ''
         ]);
-        if($request->has('task_requirements')) {
+        if($request->has('task_requirements') && !empty($request->input('task_requirements'))) {
             foreach(explode(',', $request->input('task_requirements')) as $requirement) {
                 $requirement = explode(':', $requirement);
                 TaskRequirement::create([
@@ -99,10 +99,10 @@ class AdminTasksController extends Controller
     public function taskEditSave($id, Request $request) {
         $level_max = Level::max('id');
         $validator = Validator::make($request->all(), [
-            'task_title' => 'max:191',
-            'task_description' => 'max:355',
-            'task_type' => 'in:image',
-            'task_level_min' => 'min:0|max:'.$level_max,
+            'task_title' => 'required|max:191',
+            'task_description' => 'required|max:355',
+            'task_type' => 'required|in:image',
+            'task_level_min' => 'required|min:0|max:'.$level_max,
             'task_image' => 'file|image'
         ]);
         if($validator->fails()) {
@@ -134,7 +134,7 @@ class AdminTasksController extends Controller
         if(!$request->ajax()){
             return back();
         }
-        $task_entries = TaskEntry::with('task')->whereNotIn('id', $request->loaded)->where('status', 'ready')->orderBy('date_submit', 'asc')->get();
+        $task_entries = TaskEntry::with('task')->with('user')->whereNotIn('id', $request->loaded)->where('status', 'ready')->orderBy('date_submit', 'asc')->get();
         return $task_entries;
     }
 

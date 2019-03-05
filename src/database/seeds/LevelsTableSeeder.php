@@ -14,37 +14,37 @@ class LevelsTableSeeder extends Seeder
     public function run()
     {
         App\Level::create([
-            'id' => 0,
+            'level' => 0,
             'points' => 0,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#00ffff80'
         ]);
         App\Level::create([
-            'id' => 1,
+            'level' => 1,
             'points' => 10,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#0000ff80'
         ]);
         App\Level::create([
-            'id' => 2,
+            'level' => 2,
             'points' => 50,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#ff00ff80'
         ]);
         App\Level::create([
-            'id' => 3,
+            'level' => 3,
             'points' => 100,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#00ff0080'
         ]);
         App\Level::create([
-            'id' => 4,
+            'level' => 4,
             'points' => 200,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#00ff0080'
         ]);
         App\Level::create([
-            'id' => 5,
+            'level' => 5,
             'points' => 500,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#ff000080'

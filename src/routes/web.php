@@ -38,6 +38,11 @@ Route::group(['prefix' => 'admin'], function() {
     });
     Route::group(['prefix' => 'questions'], function() {
         Route::get('/', 'Admin\AdminQuestionsController@questions');
+        Route::get('/add', 'Admin\AdminQuestionsController@questionAdd');
+        Route::get('/{id}/edit', 'Admin\AdminQuestionsController@questionEdit');
+        Route::get('/{id}/delete', 'Admin\AdminQuestionsController@questionDelete');
+        Route::post('/add', 'Admin\AdminQuestionsController@questionAddSave');
+        Route::post('/{id}/edit', 'Admin\AdminQuestionsController@questionEditSave');
     });
     Route::group(['prefix' => 'settings'], function() {
         Route::get('/', 'Admin\AdminSettingsController@general');
