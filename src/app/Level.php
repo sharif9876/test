@@ -37,7 +37,6 @@ class Level extends Model {
         }
         else {
             return Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->get();
-
         }
     }
 }

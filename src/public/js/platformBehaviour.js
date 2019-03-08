@@ -213,7 +213,7 @@ $("document").ready(function () {
             dataType: 'json',
             cache: false,
             success: function success(response) {
-                questionsList += "<select class=\"relation-question-id\">";
+                questionsList += "<select class=\"relation-question-id\"><option></option>";
                 $(response).each(function (i, v) {
                     questionsList += "\n                    <option value=\"" + v.id + "\">" + v.question + "</option>\n                    ";
                 });
@@ -286,6 +286,9 @@ $("document").ready(function () {
     }
 
     // Answer Types
+    $("document").on("load", function (e) {
+        compileAnswers(e);
+    });
     $(".form.question-add .question-answer-type").on("change", ".answer-type", function (e) {
         setDisplayedAnswerType(e);
         compileAnswers(e);

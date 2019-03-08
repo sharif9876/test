@@ -45,8 +45,11 @@ class Task extends Model {
         else {
             $tasks_left = Auth::user()->tasksLeft($level);
         }
+        // dd($tasks_left);
         foreach($tasks_left as $task) {
             if(TaskRequirement::where('task_id', $task->id)->count()) {
+
+
                 foreach(TaskRequirement::where('task_id', $task->id)->get() as $task_requirement) {
                     if(UserInfo::where('user_id', Auth::user()->id)->where('question_id', $task_requirement->question_id)->count()) {
                         $answer_type = Question::find($task_requirement->question_id)->answer_type;

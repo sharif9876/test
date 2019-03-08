@@ -30,6 +30,24 @@ class AdminQuestionsController extends Controller
         return view('admin/questions/questionAdd', compact('level_max', 'answer_types'));
     }
 
+    public function questionEdit($id) {
+        $level_max = Level::max('level');
+        $answer_types = ['text', 'select', 'multiple'];
+        $question = Question::find($id);
+        if($question->answer_type == "select" || $question->answer_type == "multiple") {
+            $answers_ = explode(',', $question->answers);
+            $answers = [];
+            foreach($answers_ as $answer) {
+                $answers[] = explode(':', $answer)[0];
+            }
+        }
+        elseif($question->answer_type == "text") {
+            $answers = $question->answers;
+        }
+
+        return view('admin/questions/questionEdit', compact('level_max', 'answer_types', 'question', 'answers'));
+    }
+
     public function questionDelete($id) {
         $question = Question::find($id);
         $question->delete();
@@ -65,6 +83,42 @@ class AdminQuestionsController extends Controller
             'level_min' => $request->input('question_level'),
             'background_image_path' => $request->has('question_image') ? $image_name.$image_extention : ''
         ]);
+        return redirect(url('/admin/questions'));
+    }
+
+    public function questionEditSave(Request $request, $id) {
+        $level_max = Level::max('level');
+        $validator = Validator::make($request->all(), [
+            'question_name' => 'max:191',
+            'question_question' => 'max:355',
+            'question_level' => 'numeric|min:0|max:'.$level_max,
+            'question_answer_type' => 'in:text,select,multiple',
+            'question_image' => 'file|image'
+        ]);
+        if($validator->fails()) {
+            return redirect(url('/admin/questions/edit'));
+        }
+        $question = Question::find($id);
+        if($request->has('question_image')) {
+            $question_image = $request->file('question_image');
+            $image_name = $task->background_image_path;
+            $image_extention = $question_image->extension() == 'jpeg' ? '.jpg' : '.'.$question_image->extension();
+            $image_path = public_path('/images/tasks/');
+            if(File::exists($image_path.$image_name)) {
+                File::delete($image_path.$image_name);
+            }
+            $question_image->move($image_path, 'task_'.$id.$image_extention);
+        }
+        $question->update([
+            'name' => $request->has('question_name') ? $request->has('question_name') : $question->name,
+            'name_slug' => $request->has('question_name') ? Str::slug($request->input('question_name')) : $question->name_slug,
+            'question' => $request->has('question_question') ? $request->input('question_question') : $question->question,
+            'answers' => $request->has('question_answers') ? $request->input('question_answers') : $question->answers,
+            'answer_type' => $request->has('question_answer_type') ? $request->input('question_answer_type') : $question->answer_type,
+            'level_min' => $request->has('question_level') ? $request->input('question_level') : $question->level_min,
+            'background_image_path' => $request->has('question_image') ? $image_name.$image_extention : $question->background_image_path
+        ]);
+
         return redirect(url('/admin/questions'));
     }
 }
