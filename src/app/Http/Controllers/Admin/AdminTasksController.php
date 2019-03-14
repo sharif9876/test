@@ -86,6 +86,7 @@ class AdminTasksController extends Controller
         if($request->has('task_requirements') && !empty($request->input('task_requirements'))) {
             foreach(explode(',', $request->input('task_requirements')) as $requirement) {
                 $requirement = explode(':', $requirement);
+                dd($requirement);
                 TaskRequirement::create([
                     'question_answer' => $requirement[1],
                     'question_id' => $requirement[0],
@@ -189,7 +190,7 @@ class AdminTasksController extends Controller
             $html .= '</select>';
         }
         else {
-            $html .= '<input type="text" name="relation-question-answer">';
+            $html .= '<input type="text" name="relation-question-answer" class="relation-question-answer">';
         }
         $res = [$html];
         return $res;
