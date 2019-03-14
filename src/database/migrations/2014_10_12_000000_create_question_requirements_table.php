@@ -16,12 +16,12 @@ class CreateQuestionRequirementsTable extends Migration
         Schema::create('question_requirements', function (Blueprint $table) {
             $table->increments('id');
             $table->string('question_answer')->nullable();
+            $table->integer('question_answer_id')->unsigned();
             $table->integer('question_id')->unsigned();
-            $table->integer('task_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('question_answer_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 

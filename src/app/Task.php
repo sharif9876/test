@@ -45,7 +45,6 @@ class Task extends Model {
         else {
             $tasks_left = Auth::user()->tasksLeft($level);
         }
-        // dd($tasks_left);
         foreach($tasks_left as $task) {
             if(TaskRequirement::where('task_id', $task->id)->count()) {
 

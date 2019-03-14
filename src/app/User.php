@@ -90,6 +90,7 @@ class User extends Authenticatable {
         }
         $ids = [];
         foreach(Question::all() as $question) {
+
             if(!UserInfo::where('user_id', $user->id)->where('question_id', $question->id)->count()) {
                 $ids[] = $question->id;
             }

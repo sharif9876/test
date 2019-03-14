@@ -48,6 +48,16 @@
     grid-row: 1;
   }
 
+  #question-add {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-edit {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
   /*Admin Levels page*/
 
   #levels {
@@ -107,6 +117,16 @@
   /*Admin Questions page*/
 
   #questions {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-add {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-edit {
     grid-column: 1/4;
     grid-row: 1;
   }
@@ -174,6 +194,16 @@
     grid-row: 1;
   }
 
+  #question-add {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-edit {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
   /*Admin Levels page*/
 
   #levels {
@@ -237,6 +267,16 @@
     grid-row: 1;
   }
 
+  #question-add {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-edit {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
   /*Admin Levels page*/
 
   #levels {
@@ -296,6 +336,16 @@
   /*Admin Questions page*/
 
   #questions {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-add {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  #question-edit {
     grid-column: 1/4;
     grid-row: 1;
   }

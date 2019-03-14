@@ -8,6 +8,7 @@ use App\Splash;
 use App\UserInfo;
 use App\Question;
 use Closure;
+use App\QuestionRequirement;
 
 class QuestionRead {
     /**
@@ -21,8 +22,22 @@ class QuestionRead {
      {
          foreach(Question::where('level_min', '<=', Auth::user()->level)->get() as $question) {
              if(UserInfo::where('question_id', $question->id)->where('user_id', Auth::user()->id)->get()->isEmpty()) {
-                 //questions page
-                 return redirect(url('/questions'));
+                 if(!QuestionRequirement::where('question_id', $question->id)->count()) {
+                     //questions page
+                     return redirect(url('/questions'));
+                 }
+                 else {
+                     $question_requirements = QuestionRequirement::where('question_id', $question->id)->get();
+                     foreach($question_requirements as $requirement) {
+                         if(UserInfo::where('question_id', $requirement->question_answer_id)->where('user_id', Auth::user()->id)->count()) {
+                             $user_info = UserInfo::where('question_id', $requirement->question_answer_id)->where('user_id', Auth::user()->id)->first();
+                             if($requirement->question_answer == $user_info->info) {
+                                 return redirect(url('/questions'));
+                             }
+                         }
+                     }
+                 }
+
              }
          }
          return $next($request);

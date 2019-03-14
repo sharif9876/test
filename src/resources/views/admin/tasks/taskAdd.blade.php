@@ -36,6 +36,7 @@
                             </div>
                             <div class="input">
                                 <select name="task_type">
+                                    <option></option>
                                     @foreach($task_types as $type)
                                         <option type="{{$type->name}}">{{$type->name}}</option>
                                     @endforeach

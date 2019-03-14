@@ -56,6 +56,7 @@
                             </div>
                             <div class="input">
                                 <select name="user_userlevel">
+                                    <option></option>
                                 @foreach(['member', 'admin', 'owner'] as $user_level)
                                     <option type="{{$user_level}}" {{$user->userlevel == $user_level ? "selected" : ""}}>{{$user_level}}</option>
                                 @endforeach

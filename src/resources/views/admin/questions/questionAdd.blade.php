@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-    <div class="content-block" id="level-add">
+    <div class="content-block" id="question-add">
         <div class="block-header">
             <div class="block-title">Add Question</div>
         </div>
@@ -46,6 +46,7 @@
                             </div>
                             <div class="input">
                                 <select name="question_answer_type" class="answer-type">
+                                    <option></option>
                                     @foreach($answer_types as $type)
                                         <option type="{{$type}}">{{$type}}</option>
                                     @endforeach
@@ -78,6 +79,26 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-input relation question-requirements">
+                            <input type="hidden" class="input-requirements" name="question_requirements">
+                            <div class="input-label">
+                                <label>requirements</label>
+                            </div>
+                            <div class="relation-add">
+                                <div class="add-button">
+                                    <div class="add-left">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="add-right">
+                                        ADD
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="relations">
+                            </ul>
                         </div>
                     </div>
                     <div class="form-row">

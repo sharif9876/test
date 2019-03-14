@@ -285,6 +285,94 @@ $("document").ready(function () {
         inputH.val(inputV);
     }
 
+    // TASK RELATIONS
+    $(".form.question-add .relation .relation-add .add-button").on('click', function (e) {
+        var input = $(e.target.closest(".form-input")).children(".input-requirements");
+        var field = $(e.target.closest(".form-input")).children(".relations");
+        var questionsList = "";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "get",
+            url: url() + '/admin/questions/ajaxquestionsidlist',
+            dataType: 'json',
+            cache: false,
+            success: function success(response) {
+                questionsList += "<select class=\"relation-question-id\"><option></option>";
+                $(response).each(function (i, v) {
+                    questionsList += "\n                    <option value=\"" + v.id + "\">" + v.question + "</option>\n                    ";
+                });
+                questionsList += "</select>";
+                var html = "\n                <li class=\"relation\">\n                    <div class=\"relation-row\">\n                        <div class=\"relation-left\">\n                            <div class=\"relation-label\">\n                                <label>QUESTION</label><span class=\"relation-remove\"><i class=\"fas fa-times\"></i></span>\n                            </div>\n                            <div class=\"relation-input\">\n                                " + questionsList + "\n                            </div>\n                        </div>\n                    </div>\n                </li>\n                ";
+                field.append(html);
+            },
+            error: function error(xhr, status, _error5) {
+                alert("something went wronggg");
+                return;
+            },
+            fail: function fail() {
+                alert("something went wrongg");
+                return;
+            }
+        });
+    });
+    $(".form.question-add .relations").on('change', ' .relation-input select', function (e) {
+        var id = $(e.target).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: url() + '/admin/questions/ajaxquestionanswerinput',
+            data: {
+                question_id: id
+            },
+            dataType: 'json',
+            cache: false,
+            success: function success(response) {
+                //response = anything inside input
+                var answer = response;
+                var relation = $(e.target.closest(".relation")).children(".relation-row");
+                var html = "\n                <div class=\"relation-right\">\n                    <div class=\"answer-label\">\n                        <label>ANSWER</label>\n                    </div>\n                    <div class=\"answer-input\">\n                        " + answer + "\n                    </div>\n                </div>\n                ";
+                $(relation).find(".relation-right").remove();
+                relation.append(html);
+                compileRelations(e);
+            },
+            error: function error(xhr, status, _error6) {
+                alert(xhr + status + _error6);
+                return;
+            },
+            fail: function fail() {
+                alert("something went wrong");
+                return;
+            }
+        });
+    });
+    $(".form.question-add .relations").on('click', ' .relation-label .relation-remove', function (e) {
+        $(e.target.closest("li")).remove();
+        compileRelations(e);
+    });
+    $(".form.question-add .relations").on('change', '.relation-question-answer', function (e) {
+        compileRelations(e);
+    });
+    function compileRelations(e) {
+        var relations = $(e.target.closest(".relations")).children("li");
+        var inputV = "";
+        relations.each(function (i, v) {
+            var rq = $(v).find(".relation-question-id").val();
+            var ra = $(v).find(".relation-question-answer").val();
+            inputV += rq + ":" + ra + ",";
+        });
+        inputV = inputV.slice(0, -1);
+        inputH = $(e.target.closest(".form-input")).find(".input-requirements");
+        inputH.val(inputV);
+    }
+
     // Answer Types
     $("document").on("load", function (e) {
         compileAnswers(e);

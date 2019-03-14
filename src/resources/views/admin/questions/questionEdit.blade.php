@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('content')
-    <div class="content-block" id="level-add">
+    <div class="content-block" id="question-edit">
         <div class="block-header">
             <div class="block-title">Add Question</div>
         </div>
@@ -46,6 +46,7 @@
                             </div>
                             <div class="input">
                                 <select name="question_answer_type" class="answer-type">
+                                    <option></option>
                                     @foreach($answer_types as $type)
                                         <option type="{{$type}}" <?= $type == $question->answer_type ? "selected" : "" ?>>{{$type}}</option>
                                     @endforeach

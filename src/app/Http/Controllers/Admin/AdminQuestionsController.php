@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Validator;
 use App\Question;
 use App\Level;
+use App\QuestionRequirement;
 
 class AdminQuestionsController extends Controller
 {
@@ -83,6 +84,16 @@ class AdminQuestionsController extends Controller
             'level_min' => $request->input('question_level'),
             'background_image_path' => $request->has('question_image') ? $image_name.$image_extention : ''
         ]);
+        if($request->has('question_requirements') && !empty($request->input('question_requirements'))) {
+            foreach(explode(',', $request->input('question_requirements')) as $requirement) {
+                $requirement = explode(':', $requirement);
+                QuestionRequirement::create([
+                    'question_answer' => $requirement[1],
+                    'question_answer_id' => $requirement[0],
+                    'question_id' => $nextId
+                ]);
+            }
+        }
         return redirect(url('/admin/questions'));
     }
 
@@ -120,5 +131,33 @@ class AdminQuestionsController extends Controller
         ]);
 
         return redirect(url('/admin/questions'));
+    }
+
+    function ajaxQuestionsIdList(Request $request) {
+        if(!$request->ajax()){
+            return back();
+        }
+        return Question::select('id', 'question')->get()->toArray();
+    }
+
+    function ajaxQuestionAnswerInput(Request $request) {
+        if(!$request->ajax()){
+            return back();
+        }
+        $question = Question::find($request->question_id);
+        $html = ' ';
+        if($question->answer_type == 'multiple') {
+            $html .= '<select class="relation-question-answer">';
+            foreach(explode(',', $question->answers) as $answer) {
+                $options = explode(':', $answer);
+                $html .= '<option value="'.$options[1].'">'.$options[0].'</option>';
+            }
+            $html .= '</select>';
+        }
+        else {
+            $html .= '<input type="text" name="relation-question-answer" class="relation-question-answer">';
+        }
+        $res = [$html];
+        return $res;
     }
 }

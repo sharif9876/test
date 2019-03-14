@@ -43,6 +43,8 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/{id}/delete', 'Admin\AdminQuestionsController@questionDelete');
         Route::post('/add', 'Admin\AdminQuestionsController@questionAddSave');
         Route::post('/{id}/edit', 'Admin\AdminQuestionsController@questionEditSave');
+        Route::get('/ajaxquestionsidlist', 'Admin\AdminQuestionsController@ajaxQuestionsIdList');
+        Route::post('/ajaxquestionanswerinput', 'Admin\AdminQuestionsController@ajaxQuestionAnswerInput');
     });
     Route::group(['prefix' => 'settings'], function() {
         Route::get('/', 'Admin\AdminSettingsController@general');
