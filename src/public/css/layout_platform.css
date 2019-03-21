@@ -431,6 +431,23 @@ i {
   background-color: #df2525;
 }
 
+.table.platform .table-field table .table-row td .td-hoverbox {
+  position: relative;
+  right: -30px;
+  top: -30px;
+}
+
+.table.platform .table-field table .table-row td .td-hoverbox.hb-color {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+}
+
+.table.platform .table-field table .table-row td .td-hoverbox.hb-color .hb-inner {
+  width: 100%;
+  height: 100%;
+}
+
 .table.platform .table-field table .table-row .table-centered {
   text-align: center;
   padding: 0px;

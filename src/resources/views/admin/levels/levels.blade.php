@@ -49,7 +49,7 @@
                                 <td class="actions"><a class="edit" href="{{url('/admin/levels/'.$level->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/levels/'.$level->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="level">{{$level->level}}</td>
                                 <td class="points">{{$level->points}}</td>
-                                <td class="color">{{$level->container_background_color}}</td>
+                                <td class="color td-color">{{$level->container_background_color}}</td>
                             </tr>
                         @endforeach
                         @else

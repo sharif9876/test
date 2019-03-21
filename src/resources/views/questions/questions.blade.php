@@ -4,7 +4,7 @@
     <div class="question">
         <div class="question-inner">
             <div class="question-image">
-                <div class="image-inner background-contain" style="background-image: url({{asset('/images/splash-levelup.png')}});">
+                <div class="image-inner background-cover" style="background-image: url({{asset('/images/questions/'.$question->background_image_path)}});">
                 </div>
             </div>
             <div class="question-title">

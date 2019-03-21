@@ -389,6 +389,21 @@ main {
                             }
                         }
                     }
+                    .td-hoverbox {
+                        position: relative;
+                        right: -30px;
+                        top: -30px;
+                        &.hb-color {
+                            width: 30px;
+                            height: 30px;
+                            border: 1px solid #000;
+                            .hb-inner {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                    }
                 }
                 .table-centered {
                     text-align: center;
