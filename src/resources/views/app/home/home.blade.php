@@ -43,12 +43,33 @@
         @if($loop->first)
             <div class="level-container-next" style="background-image: url({{asset($level->container_background_image_path)}})">
                 <div class="level-container-inner">
-                @if($level->highestRewardTaskAvailable()->count())
+                @if(Auth::user()->entriesPending($level->level)->count())
+                    <a href="{{url('tasks/'.Auth::user()->entriesPending($level->level)->first()->task_id)}}" class="level-container-link">
+                        <div class="level-left">
+                            <div class="level-info">
+                                <div class="level-name">
+                                    Level {{$level->level}}
+                                </div>
+                                <div class="level-task">
+                                    <div class="task-title">
+                                        {{Auth::user()->entriesPending($level->level)->first()->task->title}}
+                                    </div>
+                                    <div class="task-info">
+                                        Status: {{Auth::user()->entriesPending($level->level)->first()->status}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            {!!load_icon('chevron-right')!!}
+                        </div>
+                    </a>
+                @elseif($level->highestRewardTaskAvailable()->count())
                     <a href="{{url('tasks/'.$level->highestRewardTaskAvailable()->id)}}" class="level-container-link">
                         <div class="level-left">
                             <div class="level-info">
                                 <div class="level-name">
-                                    Level {{$level->id}}
+                                    Level {{$level->level}}
                                 </div>
                                 <div class="level-task">
                                     <div class="task-title">
@@ -66,7 +87,7 @@
                 @else
                     <div class="level-empty">
                         <div class="level-name">
-                            Level {{$level->id}}
+                            Level {{$level->level}}
                         </div>
                         <div class="level-text">
                             No tasks available<br />
@@ -80,7 +101,7 @@
             <div class="level-container" style="background-image: url({{asset($level->container_background_image_path)}})">
                 <div class="level-container-inner" style="background-color: {{$level->container_background_color}};">
                     <div class="level-left">
-                        LEVEL {{$level->id}}
+                        LEVEL {{$level->level}}
                     </div>
                     <div class="level-right">
                         <div class="icon-locked">

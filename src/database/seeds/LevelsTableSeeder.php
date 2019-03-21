@@ -21,19 +21,19 @@ class LevelsTableSeeder extends Seeder
         ]);
         App\Level::create([
             'level' => 1,
-            'points' => 10,
+            'points' => 50,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#0000ff80'
         ]);
         App\Level::create([
             'level' => 2,
-            'points' => 50,
+            'points' => 100,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#ff00ff80'
         ]);
         App\Level::create([
             'level' => 3,
-            'points' => 100,
+            'points' => 150,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#00ff0080'
         ]);
@@ -45,7 +45,7 @@ class LevelsTableSeeder extends Seeder
         ]);
         App\Level::create([
             'level' => 5,
-            'points' => 500,
+            'points' => 250,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
             'container_background_color' => '#ff000080'
         ]);

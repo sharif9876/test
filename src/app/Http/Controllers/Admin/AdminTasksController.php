@@ -37,7 +37,7 @@ class AdminTasksController extends Controller
     }
 
     public function taskAdd() {
-        $task_types = TaskType::all();
+        $task_types = TaskType::where('name', 'image')->get();
         $level_max = Level::max('level');
         return view('admin/tasks/taskAdd', compact('task_types', 'level_max'));
     }
@@ -134,7 +134,7 @@ class AdminTasksController extends Controller
         if(!$request->ajax()){
             return back();
         }
-        $task_entries = TaskEntry::with('task')->with('user')->whereNotIn('id', $request->loaded)->where('status', 'ready')->orderBy('date_submit', 'asc')->get();
+        $task_entries = TaskEntry::with('task')->with('user')->whereNotIn('id', $request->loaded)->where('status', 'pending')->orderBy('date_submit', 'asc')->get();
         return $task_entries;
     }
 

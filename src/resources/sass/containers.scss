@@ -169,7 +169,8 @@
                                 .task-info {
                                     height: 20px;
                                     line-height: 20px;
-                                    font-size: 14px;
+                                    font-size: 18px;
+                                    font-weight: 600;
                                     color: $text-light;
                                 }
                             }
@@ -311,6 +312,15 @@
                                                 cursor: pointer;
                                             }
                                         }
+                                    }
+                                    .task-pending-info {
+                                        line-height: 20px;
+                                        font-size: 18px;
+                                        color: $text-light;
+                                        font-weight: 600;
+                                    }
+                                    &.shown {
+                                        display: block!important;
                                     }
                                 }
                             }

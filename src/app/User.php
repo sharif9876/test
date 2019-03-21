@@ -55,7 +55,7 @@ class User extends Authenticatable {
 
     public function nextLevel(int $count = null) {
         if($count != null) {
-            $level_ids = ($this->level + $count) > Level::max('id') ? range($this->level+1, Level::max('id')) : range($this->level+1, $this->level+$count);
+            $level_ids = ($this->level + $count + 1) > Level::max('id') ? range($this->level+2, Level::max('id')) : range($this->level+2, $this->level+$count+1);
             return level::whereIn('id', $level_ids)->get()->all();
         }
         return Level::find($this->level + 1);
@@ -110,5 +110,19 @@ class User extends Authenticatable {
 
     public function getTasks() {
         return Task::available($this->level)->get();
+    }
+
+    public function entriesPending($level = null) {
+        if($level == null) {
+            return $this::hasMany(TaskEntry::class)->where('status', 'pending');
+        }
+        else {
+            $tasks = Task::where('level_min', $level)->get();
+            $ids = [];
+            foreach($tasks as $task) {
+                $ids[] = $task->id;
+            }
+            return $this::hasMany(TaskEntry::class)->where('status', 'pending')->whereIn('task_id', $ids);
+        }
     }
 }

@@ -24,7 +24,6 @@ class AppHomeController extends Controller
         }
 
         $levels_next = (array) Auth::user()->nextLevel(3);
-
         return view('app.home.home', compact('bar_width', 'levels_next'));
     }
 }

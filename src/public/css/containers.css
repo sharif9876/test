@@ -191,7 +191,8 @@
 .page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-left .level-info .level-task .task-info {
   height: 20px;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -355,5 +356,16 @@
 
 .page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-submit button:hover {
   cursor: pointer;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit .task-pending-info {
+  line-height: 20px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.page-container.task .row .task-block .task-info .task-footer .form-task-submit .task-type-image .form-row.row-task-submit.shown {
+  display: block !important;
 }
 

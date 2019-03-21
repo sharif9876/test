@@ -1,124 +1,124 @@
-var tables = [];
-var tablesTotalRows = [];
-var tablesCurrentRows = [];
-
-$("document").ready(function() {
-    tablesSetup();
-
-    //Check for amount change
-    $(".table .table-amount select").on("change", function(e) {
-        var table = getTable(e.target.closest(".table").id);
-        tableLoad(table);
-    });
-
-    //Check for search input
-    $(".table .table-search input").on("keyup", function(e) {
-        var table = getTable(e.target.closest(".table").id);
-        tableLoad(table);
-    });
-
-    //Check for sort input
-    $(".table .table-header th").on("click", function(e) {
-        var table = getTable(e.target.closest(".table").id);
-        var asc = true;
-        if($(e.target).hasClass("descending")) {
-            asc = false;
-            $(e.target).removeClass("descending");
-        }
-        else {
-            $(e.target).addClass("descending");
-        }
-        tableSort(table, asc);
-    });
-});
-
-
-function tablesSetup() {
-    tablesPrepare();
-    $(tables).each(function(i,v) {
-        tablesTotalRows.push({
-            name : v.name,
-            rows : $("#"+v.name+" .table-row")
-        });
-        tableLoad(getTable(v.name));
-    });
-}
-
-function tablesPrepare() {
-    $(".table").each(function(i,v) {
-        tables.push({
-            name : v.id,
-            page : 1,
-            ajax : $(v).attr("data-ajax") == "true" ? true : false,
-            ajaxPath: $(v).attr("data-ajaxPath") ? $(v).attr("data-ajaxPath") : ""
-        });
-        tablesCurrentRows.push({
-            name : v.id,
-            rows : $("#"+v.id+" .table-row")
-        });
-    });
-}
-
-function getTable(name) {
-    var table = tables.find(item => item.name == name);
-    return table;
-}
-function getCurrentRows(name) {
-    var currentRows = tablesCurrentRows.find(item => item.name == name);
-    return currentRows;
-}
-function getTotalRows(name) {
-    var totalRows = tablesTotalRows.find(item => item.name == name);
-    return totalRows;
-}
-function getSearch(name) {
-    var table = tables.find(item => item.name == name);
-    return $("#"+name+" .table-search input").val();
-}
-
-
-function tableLoad(table) {
-    if(table.ajax) {
-
-    }
-    else {
-        var tableRows = tableLoadRows(table);
-    }
-    // var currentRows = getCurrentRows(table.name);
-    // console.log(currentRows);
-    // currentRows.rows = tableRows;
-    // tablePaginate(table);
-}
-
-function tableLoadRows(table) {
-    //get all rows
-    var tableRows = getTotalRows(table.name).rows;
-    //filter through search
-    var tableSearch = getSearch();
-    var tr = {};
-    tableRows.each(function(i, v) {
-        for(var j = 0; j < v.children.length; j++) {
-            if(v.children[j].textContent.toLowerCase().indexOf(tableSearch) >= 0) {
-                tr[Object.keys(tr).length] = v;
-                return true;
-            }
-        }
-    });
-    tableRows = tr;
-    //paginate function
-}
-
-function tableSort() {
-    //get current rows
-}
-
-function tablePaginate(table) {
-
-}
-
-function tableRender(table) {
-
-}
+// var tables = [];
+// var tablesTotalRows = [];
+// var tablesCurrentRows = [];
+//
+// $("document").ready(function() {
+//     tablesSetup();
+//
+//     //Check for amount change
+//     $(".table .table-amount select").on("change", function(e) {
+//         var table = getTable(e.target.closest(".table").id);
+//         tableLoad(table);
+//     });
+//
+//     //Check for search input
+//     $(".table .table-search input").on("keyup", function(e) {
+//         var table = getTable(e.target.closest(".table").id);
+//         tableLoad(table);
+//     });
+//
+//     //Check for sort input
+//     $(".table .table-header th").on("click", function(e) {
+//         var table = getTable(e.target.closest(".table").id);
+//         var asc = true;
+//         if($(e.target).hasClass("descending")) {
+//             asc = false;
+//             $(e.target).removeClass("descending");
+//         }
+//         else {
+//             $(e.target).addClass("descending");
+//         }
+//         tableSort(table, asc);
+//     });
+// });
+//
+//
+// function tablesSetup() {
+//     tablesPrepare();
+//     $(tables).each(function(i,v) {
+//         tablesTotalRows.push({
+//             name : v.name,
+//             rows : $("#"+v.name+" .table-row")
+//         });
+//         tableLoad(getTable(v.name));
+//     });
+// }
+//
+// function tablesPrepare() {
+//     $(".table").each(function(i,v) {
+//         tables.push({
+//             name : v.id,
+//             page : 1,
+//             ajax : $(v).attr("data-ajax") == "true" ? true : false,
+//             ajaxPath: $(v).attr("data-ajaxPath") ? $(v).attr("data-ajaxPath") : ""
+//         });
+//         tablesCurrentRows.push({
+//             name : v.id,
+//             rows : $("#"+v.id+" .table-row")
+//         });
+//     });
+// }
+//
+// function getTable(name) {
+//     var table = tables.find(item => item.name == name);
+//     return table;
+// }
+// function getCurrentRows(name) {
+//     var currentRows = tablesCurrentRows.find(item => item.name == name);
+//     return currentRows;
+// }
+// function getTotalRows(name) {
+//     var totalRows = tablesTotalRows.find(item => item.name == name);
+//     return totalRows;
+// }
+// function getSearch(name) {
+//     var table = tables.find(item => item.name == name);
+//     return $("#"+name+" .table-search input").val();
+// }
+//
+//
+// function tableLoad(table) {
+//     if(table.ajax) {
+//
+//     }
+//     else {
+//         var tableRows = tableLoadRows(table);
+//     }
+//     // var currentRows = getCurrentRows(table.name);
+//     // console.log(currentRows);
+//     // currentRows.rows = tableRows;
+//     // tablePaginate(table);
+// }
+//
+// function tableLoadRows(table) {
+//     //get all rows
+//     var tableRows = getTotalRows(table.name).rows;
+//     //filter through search
+//     var tableSearch = getSearch();
+//     var tr = {};
+//     tableRows.each(function(i, v) {
+//         for(var j = 0; j < v.children.length; j++) {
+//             if(v.children[j].textContent.toLowerCase().indexOf(tableSearch) >= 0) {
+//                 tr[Object.keys(tr).length] = v;
+//                 return true;
+//             }
+//         }
+//     });
+//     tableRows = tr;
+//     //paginate function
+// }
+//
+// function tableSort() {
+//     //get current rows
+// }
+//
+// function tablePaginate(table) {
+//
+// }
+//
+// function tableRender(table) {
+//
+// }
 
 
 

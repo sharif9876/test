@@ -16,7 +16,7 @@ class CreateTaskEntriesTable extends Migration
         Schema::create('task_entries', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('date_submit');
-            $table->enum('status', ['completed', 'rejected', 'ready']);
+            $table->enum('status', ['completed', 'rejected', 'pending']);
             $table->text('answer');
             $table->integer('user_id')->unsigned();
             $table->integer('task_id')->unsigned();

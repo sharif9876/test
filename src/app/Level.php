@@ -32,11 +32,11 @@ class Level extends Model {
         // for each available tasks
         // get where no entry available
         //dd(Task::where('level_min', $this->id)->get());
-        if(Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->count()) {
-            return Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->first();
+        if(Task::available($this->level)->where('level_min', $this->level)->orderBy('reward_points', 'desc')->count()) {
+            return Task::available($this->level)->where('level_min', $this->level)->orderBy('reward_points', 'desc')->first();
         }
         else {
-            return Task::available($this->id)->where('level_min', $this->id)->orderBy('reward_points', 'desc')->get();
+            return Task::available($this->level)->where('level_min', $this->level)->orderBy('reward_points', 'desc')->get();
         }
     }
 }

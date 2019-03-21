@@ -55,12 +55,14 @@ class Task extends Model {
                         $answers = $task_requirement->question_answer;
                         $user_info = UserInfo::where('user_id', Auth::user()->id)->where('question_id', $task_requirement->question_id)->first()->info;
                         // check if answers match via answer types
-                        if($answer_type == 'multiple') {
-                            $user_info = explode($user_info, ',');
-                            $answers = explode($answers, ',');
+                        if($answer_type == 'multiple' || $answer_type == 'select') {
+                            $user_info = explode( ',', $user_info);
+                            $answers = explode( ',', $answers);
                             foreach($answers as $answer) {
+
                                 if(in_array($answer, $user_info)) {
                                     $ids[] = $task->id;
+
                                 }
                             }
                         }
