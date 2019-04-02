@@ -14,6 +14,11 @@
                             <div class="input-label">
                                 <label>level</label>
                             </div>
+                            @if($errors != null && $errors->has('level_level'))
+                                <div class="input-errors">
+                                    - {{$errors->first('level_level')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="number" name="level_level" value="{{$level->level}}">
                             </div>
@@ -24,6 +29,11 @@
                             <div class="input-label">
                                 <label>points</label>
                             </div>
+                            @if($errors != null && $errors->has('level_points'))
+                                <div class="input-errors">
+                                    - {{$errors->first('level_points')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="number" name="level_points" value="{{$level->points}}">
                             </div>
@@ -34,6 +44,11 @@
                             <div class="input-label">
                                 <label>color</label>
                             </div>
+                            @if($errors != null && $errors->has('level_color'))
+                                <div class="input-errors">
+                                    - {{$errors->first('level_color')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="color" name="level_color" value="{{$level->container_background_color}}">
                             </div>
@@ -44,6 +59,11 @@
                             <div class="input-label">
                                 <label>background</label>
                             </div>
+                            @if($errors != null && $errors->has('level_image'))
+                                <div class="input-errors">
+                                    - {{$errors->first('level_image')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <div class="button">
                                     SELECT IMAGE

@@ -14,6 +14,11 @@
                             <div class="input-label">
                                 <label>title</label>
                             </div>
+                            @if($errors != null && $errors->has('task_title'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_title')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="text" name="task_title">
                             </div>
@@ -24,6 +29,11 @@
                             <div class="input-label">
                                 <label>description</label>
                             </div>
+                            @if($errors != null && $errors->has('task_description'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_description')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <textarea name="task_description"></textarea>
                             </div>
@@ -34,6 +44,11 @@
                             <div class="input-label">
                                 <label>type</label>
                             </div>
+                            @if($errors != null && $errors->has('task_type'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_type')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <select name="task_type">
                                     <option></option>
@@ -49,6 +64,11 @@
                             <div class="input-label">
                                 <label>level</label>
                             </div>
+                            @if($errors != null && $errors->has('task_level_min'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_level_min')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="number" name="task_level_min"  min="0" max="{{$level_max}}">
                             </div>
@@ -60,6 +80,11 @@
                             <div class="input-label">
                                 <label>requirements</label>
                             </div>
+                            @if($errors != null && $errors->has('task_requirements'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_requirements')}}
+                                </div>
+                            @endif
                             <div class="relation-add">
                                 <div class="add-button">
                                     <div class="add-left">
@@ -85,10 +110,15 @@
                         </div>
                     </div> --}}
                     <div class="form-row">
-                        <div class="form-input image task-rewardpoints">
+                        <div class="form-input image task-image">
                             <div class="input-label">
                                 <label>background</label>
                             </div>
+                            @if($errors != null && $errors->has('task_image'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_image')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <div class="button">
                                     SELECT IMAGE

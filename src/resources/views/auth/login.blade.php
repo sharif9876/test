@@ -45,7 +45,7 @@
                     </div>
                     <div class="login-social">
                         <div class="social-message">
-                            login via twitter or facebook
+                            login via twitter
                         </div>
                         <div class="social-icons">
                             <div class="social-button twitter">
@@ -53,11 +53,11 @@
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </div>
-                            <div class="social-button facebook">
+                            {{-- <div class="social-button facebook">
                                 <a href="{{url('/auth/facebook')}}">
                                     <i class="fab fa-facebook"></i>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

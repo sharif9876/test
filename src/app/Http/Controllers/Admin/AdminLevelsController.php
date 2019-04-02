@@ -26,12 +26,14 @@ class AdminLevelsController extends Controller
     public function levelAdd() {
         $nextLevel = Level::max('level')+1;
         $points_min = Level::max('points');
-        return view('admin/levels/leveladd', compact('nextLevel', 'points_min'));
+        $errors = session('errors');
+        return view('admin/levels/leveladd', compact('nextLevel', 'points_min', 'errors'));
     }
 
     public function levelEdit($id) {
         $level = Level::find($id);
-        return view('admin/levels/levelEdit', compact('level'));
+        $errors = session('errors');
+        return view('admin/levels/levelEdit', compact('level', 'errors'));
     }
 
     public function levelDelete($id) {
@@ -48,7 +50,8 @@ class AdminLevelsController extends Controller
             'level_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/levels/add'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/levels/add'))->with('errors', $errors);
         }
         if($request->has('level_image')) {
             $level_image = $request->file('level_image');
@@ -74,7 +77,8 @@ class AdminLevelsController extends Controller
             'level_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/levels/add'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/levels/add'))->with('errors', $errors);
         }
         if($request->has('level_image')) {
             $level_image = $request->file('level_image');

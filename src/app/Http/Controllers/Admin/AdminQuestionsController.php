@@ -28,7 +28,8 @@ class AdminQuestionsController extends Controller
         $level_max = Level::max('level');
         //$answer_types = ['text', 'select', 'multiple', 'num', 'date'];
         $answer_types = ['text', 'select', 'multiple'];
-        return view('admin/questions/questionAdd', compact('level_max', 'answer_types'));
+        $errors = session('errors');
+        return view('admin/questions/questionAdd', compact('level_max', 'answer_types', 'errors'));
     }
 
     public function questionEdit($id) {
@@ -45,8 +46,8 @@ class AdminQuestionsController extends Controller
         elseif($question->answer_type == "text") {
             $answers = $question->answers;
         }
-
-        return view('admin/questions/questionEdit', compact('level_max', 'answer_types', 'question', 'answers'));
+        $errors = session('errors');
+        return view('admin/questions/questionEdit', compact('level_max', 'answer_types', 'question', 'answers', 'errors'));
     }
 
     public function questionDelete($id) {
@@ -65,7 +66,8 @@ class AdminQuestionsController extends Controller
             'question_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/questions/add'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/questions/add'))->with('errors', $errors);
         }
         $nextId = Question::max('id')+1;
         if($request->has('question_image')) {
@@ -107,7 +109,8 @@ class AdminQuestionsController extends Controller
             'question_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/questions/edit'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/questions/edit'))->with('errors', $errors);
         }
         $question = Question::find($id);
         if($request->has('question_image')) {
@@ -121,7 +124,7 @@ class AdminQuestionsController extends Controller
             $question_image->move($image_path, 'task_'.$id.$image_extention);
         }
         $question->update([
-            'name' => $request->has('question_name') ? $request->has('question_name') : $question->name,
+            'name' => $request->has('question_name') ? $request->input('question_name') : $question->name,
             'name_slug' => $request->has('question_name') ? Str::slug($request->input('question_name')) : $question->name_slug,
             'question' => $request->has('question_question') ? $request->input('question_question') : $question->question,
             'answers' => $request->has('question_answers') ? $request->input('question_answers') : $question->answers,

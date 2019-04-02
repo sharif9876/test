@@ -29,13 +29,15 @@ class AdminUsersController extends Controller
 
     public function userAdd() {
         $level_max = Level::max('id');
-        return view('admin/users/userAdd', compact('level_max'));
+        $errors = session('errors');
+        return view('admin/users/userAdd', compact('level_max', 'errors'));
     }
 
     public function userEdit($id) {
         $user = User::find($id);
         $level_max = Level::max('id');
-        return view('admin/users/userEdit', compact('user', 'level_max'));
+        $errors = session('errors');
+        return view('admin/users/userEdit', compact('user', 'level_max', 'errors'));
     }
 
     public function userDelete($id) {
@@ -54,7 +56,8 @@ class AdminUsersController extends Controller
             'user_userlevel' => 'required|in:member,admin,owner'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/users/add'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/users/add'))->with('errors', $errors);
         }
         User::create([
             'name' => $request->input('user_name'),
@@ -77,7 +80,8 @@ class AdminUsersController extends Controller
             'user_userlevel' => 'required|in:member,admin,owner'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/users/'.$id.'/edit'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/users/'.$id.'/edit'))->with('errors', $errors);
         }
         $user = User::find($id);
         $user->update([

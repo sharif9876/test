@@ -483,11 +483,11 @@ main {
     width: 100%;
     .form-row {
         width: 100%;
-        min-height: 60px;
         margin-bottom: 15px;
         .form-input {
             padding-left: 15px;
             .input-label {
+                
                 width: 100%;
                 line-height: 20px;
                 margin-bottom: 5px;
@@ -498,9 +498,18 @@ main {
                     color: #505050;
                 }
             }
+            .input-errors {
+                width: 80%;
+                line-height: 18px;
+                font-size: 14px;
+                color: #fff;
+                background-color: #f55;
+                margin: 5px 0px;
+                padding: 5px;
+                border-radius: 3px;
+            }
             &.text {
                 width: 50%;
-                float: left;
                 .input {
                     width: 80%;
                     height: 35px;

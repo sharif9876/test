@@ -18,6 +18,7 @@ Auth::routes();
 Route::group(['prefix' => ''], function() {
     Route::get('/', 'App\AppHomeController@home');
     Route::get('/home', 'App\AppHomeController@home');
+    Route::get('/timeline', 'App\AppTimelineController@timeline');
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');

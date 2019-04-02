@@ -39,14 +39,16 @@ class AdminTasksController extends Controller
     public function taskAdd() {
         $task_types = TaskType::where('name', 'image')->get();
         $level_max = Level::max('level');
-        return view('admin/tasks/taskAdd', compact('task_types', 'level_max'));
+        $errors = session('errors');
+        return view('admin/tasks/taskAdd', compact('task_types', 'level_max', 'errors'));
     }
 
     public function taskEdit($id) {
         $task = Task::find($id);
         $task_types = TaskType::all();
         $level_max = Level::max('id');
-        return view('admin/tasks/taskEdit', compact('task', 'task_types', 'level_max'));
+        $errors = session('errors');
+        return view('admin/tasks/taskEdit', compact('task', 'task_types', 'level_max', 'errors'));
     }
 
     public function taskDelete($id) {
@@ -65,7 +67,8 @@ class AdminTasksController extends Controller
             'task_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/tasks/add'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/tasks/add'))->with('errors', $errors);
         }
         $nextId = Task::max('id')+1;
         if($request->has('task_image')) {
@@ -106,7 +109,8 @@ class AdminTasksController extends Controller
             'task_image' => 'file|image'
         ]);
         if($validator->fails()) {
-            return redirect(url('/admin/tasks/'.$id.'/edit'));
+            $errors = $validator->errors();
+            return redirect(url('/admin/tasks/'.$id.'/edit'))->with('errors', $errors);
         }
         $task = Task::find($id);
         if($request->has('task_image')) {

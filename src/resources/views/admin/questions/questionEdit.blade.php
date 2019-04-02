@@ -14,6 +14,11 @@
                             <div class="input-label">
                                 <label>name</label>
                             </div>
+                            @if($errors != null && $errors->has('question_name'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_name')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="text" name="question_name" value="{{$question->name}}">
                             </div>
@@ -24,6 +29,11 @@
                             <div class="input-label">
                                 <label>Question</label>
                             </div>
+                            @if($errors != null && $errors->has('question_question'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_question')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <textarea name="question_question">{{$question->question}}</textarea>
                             </div>
@@ -34,6 +44,11 @@
                             <div class="input-label">
                                 <label>Level</label>
                             </div>
+                            @if($errors != null && $errors->has('question_level'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_level')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="number" name="question_level" min="0" max="{{$level_max}}" value="{{$question->level_min}}">
                             </div>
@@ -44,6 +59,11 @@
                             <div class="input-label">
                                 <label>answer type</label>
                             </div>
+                            @if($errors != null && $errors->has('question_answer_type'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_answer_type')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <select name="question_answer_type" class="answer-type">
                                     <option></option>
@@ -56,10 +76,15 @@
                     </div>
                     <div class="form-row">
                         <div class="form-input answers question-answer-type">
-                            <input type="hidden" class="answers-input" name="question_answers">
+                            <input type="hidden" class="answers-input" name="question_answers" value="{{$question->answers}}">
                             <div class="input-label">
                                 <label>answers</label>
                             </div>
+                            @if($errors != null && $errors->has('question_answers'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_answers')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <div class="type-answer text <?= $question->answer_type == "text" ? "active" : "" ?>" >
                                     any
@@ -93,6 +118,11 @@
                             <div class="input-label">
                                 <label>image</label>
                             </div>
+                            @if($errors != null && $errors->has('question_image'))
+                                <div class="input-errors">
+                                    - {{$errors->first('question_image')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <div class="button">
                                     SELECT IMAGE

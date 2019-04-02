@@ -14,6 +14,11 @@
                             <div class="input-label">
                                 <label>name</label>
                             </div>
+                            @if($errors != null && $errors->has('user_name'))
+                                <div class="input-errors">
+                                    - {{$errors->first('user_name')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="text" name="user_name" value="{{$user->name}}">
                             </div>
@@ -24,6 +29,11 @@
                             <div class="input-label">
                                 <label>e-mail</label>
                             </div>
+                            @if($errors != null && $errors->has('user_email'))
+                                <div class="input-errors">
+                                    - {{$errors->first('user_email')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="email" name="user_email" value="{{$user->email}}">
                             </div>
@@ -34,6 +44,11 @@
                             <div class="input-label">
                                 <label>level</label>
                             </div>
+                            @if($errors != null && $errors->has('user_level'))
+                                <div class="input-errors">
+                                    - {{$errors->first('user_level')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="number" name="user_level" min="0" max="{{$level_max}}" value="{{$user->level}}">
                             </div>
@@ -44,6 +59,11 @@
                             <div class="input-label">
                                 <label>password</label>
                             </div>
+                            @if($errors != null && $errors->has('user_password'))
+                                <div class="input-errors">
+                                    - {{$errors->first('user_password')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <input type="password" name="user_password"><span class="password-toggle"><i class="far fa-eye"></i></span>
                             </div>
@@ -54,6 +74,11 @@
                             <div class="input-label">
                                 <label>user level</label>
                             </div>
+                            @if($errors != null && $errors->has('user_userlevel'))
+                                <div class="input-errors">
+                                    - {{$errors->first('user_userlevel')}}
+                                </div>
+                            @endif
                             <div class="input">
                                 <select name="user_userlevel">
                                     <option></option>
