@@ -19,7 +19,7 @@ class AppTimelineController extends Controller
     }
 
     public function timeline() {
-
-        return view('app.timeline.timeline', compact());
+        $timeline = Auth::user()->timeLine();
+        return view('app.timeline.timeline')->with(compact('timeline'));
     }
 }

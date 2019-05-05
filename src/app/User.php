@@ -125,4 +125,8 @@ class User extends Authenticatable {
             return $this::hasMany(TaskEntry::class)->where('status', 'pending')->whereIn('task_id', $ids);
         }
     }
+
+    public function timeLine() {
+        return TaskEntry::where('user_id', Auth::user()->id)->where('status', 'completed')->get();
+    }
 }

@@ -100,9 +100,7 @@
 
 #task-complete.splash .splash-inner .splash-continue {
   width: 100%;
-  height: calc(100% - 480px);
-  padding-top: calc(100% - 290px);
-  padding-bottom: 30px;
+  height: 50px;
 }
 
 #task-complete.splash .splash-inner .splash-continue .button-continue {

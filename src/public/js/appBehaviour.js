@@ -95,6 +95,31 @@ $("document").ready(function () {
             $("#formTaskSubmit #imageRowSubmit").css("display", "none");
         }
     });
+
+    $("#timeline").on("load", function (e) {
+        console.log('hi');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: "post",
+            url: url() + '/timeline/ajaxTimeLine',
+            data: {
+                offset: tel
+            },
+            cache: false,
+            success: function success(result) {
+                var elements = result;
+                console.log(elements);
+            },
+            error: function error(xhr, status, _error) {
+                console.log(xhr + "///" + status + "///" + _error);
+            }
+        });
+    });
 });
 
 /***/ })

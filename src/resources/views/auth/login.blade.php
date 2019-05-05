@@ -12,6 +12,13 @@
                 <div class="login-inner">
                     <form method="POST" action="" class="form login">
                     @csrf
+                        @if ($errors->has('email') || $errors->has('password'))
+                            <div class="form-error">
+                                <div class="invalid-feedback">
+                                    Incorrect email or password, please try again.
+                                </div>
+                            </div>
+                        @endif
                         <div class="form-row">
                             <div class="form-input login-email">
                                 <input id="email" type="email" placeholder="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -36,16 +43,16 @@
                             </div>
                         </div>
                     </form>
-                    <div class="login-forgot">
-                        <div class="forgot-message">
-                            <span>- or -</span>
-                            <a href="{{url('password/reset')}}">forgot password?</a> / <a href="{{url('/register')}}">create an account</a>
-                            <span>- or -</span>
+                    <div class="login-alt">
+                        <div class="alt-buttons">
+                            <a class="forgot-forgot-button" href="{{url('password/reset')}}">forgot password?</a>
+                            <a class="forgot-create-button" href="{{url('/register')}}">create an account</a>
                         </div>
+                        <span>- or -</span>
                     </div>
                     <div class="login-social">
                         <div class="social-message">
-                            login via twitter
+                            login via Twitter
                         </div>
                         <div class="social-icons">
                             <div class="social-button twitter">
