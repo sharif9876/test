@@ -127,6 +127,6 @@ class User extends Authenticatable {
     }
 
     public function timeLine() {
-        return TaskEntry::where('user_id', Auth::user()->id)->where('status', 'completed')->get();
+        return TaskEntry::where('user_id', $this->id)->where('status', 'completed')->get();
     }
 }

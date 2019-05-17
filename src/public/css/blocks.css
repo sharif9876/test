@@ -198,3 +198,137 @@
   margin-right: 20px;
 }
 
+/*User block*/
+
+.page-container.user .row .user-profile .user-inner .user-left {
+  padding: 20px 0px;
+  float: left;
+}
+
+.page-container.user .row .user-profile .user-inner .user-left .user-initial {
+  width: 125px;
+  height: 125px;
+  margin-right: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 70px;
+  color: #fff;
+  line-height: 125px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right {
+  width: calc(100% - 170px);
+  padding-top: 40px;
+  float: left;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info {
+  width: 100%;
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-name {
+  height: 35px;
+  line-height: 35px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-level {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #d7732a;
+  color: #fff;
+  padding: 0px 20px;
+  border-radius: 17.5px;
+  font-size: 22px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-info .user-level .user-level-level {
+  font-weight: 600;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-points {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar {
+  padding: 5px 0px;
+  height: 8px;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #d0d0d0;
+}
+
+.page-container.user .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar .points-progress {
+  top: -8px;
+  height: 8px;
+  margin-top: 0px;
+  background-color: #d7732a;
+  border-radius: 4px;
+}
+
+/*TIMELINE CONTAINER*/
+
+.page-container.timeline .row {
+  height: 100%;
+}
+
+.page-container.timeline .row .timeline-container .timeline-header {
+  width: 100%;
+  height: 35px;
+  font-size: 24px;
+  padding: 5px;
+  padding-bottom: 50px;
+  padding-left: 15px;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item {
+  margin-left: 10px;
+  width: calc(100% - 40px);
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-header {
+  width: 100%;
+  height: 25px;
+  padding-left: 5px;
+  margin-bottom: 3px;
+  font-size: 16px;
+  color: #363636;
+  border-bottom: 1px solid #363636;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-header .item-profile {
+  width: 30px;
+  height: 30px;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content {
+  width: 100%;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .item-text {
+  line-height: 23px;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .item-text .text-action {
+  font-size: 19px;
+}
+
+.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .background-cover {
+  width: 80%;
+  height: 200px;
+}
+

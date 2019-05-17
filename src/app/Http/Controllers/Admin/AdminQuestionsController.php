@@ -115,7 +115,7 @@ class AdminQuestionsController extends Controller
         $question = Question::find($id);
         if($request->has('question_image')) {
             $question_image = $request->file('question_image');
-            $image_name = $task->background_image_path;
+            $image_name = $question->background_image_path;
             $image_extention = $question_image->extension() == 'jpeg' ? '.jpg' : '.'.$question_image->extension();
             $image_path = public_path('/images/tasks/');
             if(File::exists($image_path.$image_name)) {

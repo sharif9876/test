@@ -41,7 +41,7 @@ class LevelsTableSeeder extends Seeder
             'level' => 4,
             'points' => 200,
             'container_background_image_path' => '/images/loremipsum-background2.jpg',
-            'container_background_color' => '#00ff0080'
+            'container_background_color' => '#0000ff80'
         ]);
         App\Level::create([
             'level' => 5,

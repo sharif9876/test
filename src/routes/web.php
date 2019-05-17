@@ -18,14 +18,14 @@ Auth::routes();
 Route::group(['prefix' => ''], function() {
     Route::get('/', 'App\AppHomeController@home');
     Route::get('/home', 'App\AppHomeController@home');
-    Route::get('/timeline', 'App\AppTimelineController@timeline');
-    Route::get('/timeline/ajaxTimeline', 'App\AppTimelineController@ajaxtimeline');
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
-    Route::get('/terms-of-service', 'Guest\GuestController@termsOfService');
-    Route::get('/privacy-policy', 'Guest\GuestController@privacyPolicy');
+    Route::get('/about', 'Guest\GuestController@about');
+    Route::get('/termsofservice', 'Guest\GuestController@termsOfService');
+    Route::get('/privacypolicy', 'Guest\GuestController@privacyPolicy');
+    Route::get('/users/{id}', 'Guest\GuestController@userProfile');
 });
 
 // OAuth Routes
@@ -51,6 +51,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'settings'], function() {
         Route::get('/', 'Admin\AdminSettingsController@general');
         Route::get('/general', 'Admin\AdminSettingsController@general');
+        Route::get('/pages', 'Admin\AdminSettingsController@pages');
+        Route::post('/pages', 'Admin\AdminSettingsController@pagesEditSave');
+
     });
     Route::group(['prefix' => 'tasks'], function() {
         Route::get('/', 'Admin\AdminTasksController@tasks');

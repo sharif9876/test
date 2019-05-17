@@ -94,7 +94,7 @@ if(!function_exists('menu_admin_sidebar')) {
             'settings' => [
                 'name' => 'settings',
                 'display_name' => 'settings',
-                'slug' => 'menuitem_setitngs',
+                'slug' => 'menuitem_settings',
                 'site_url' => 'admin/settings',
                 'icon' => 'cog',
                 'permissions' => [],
@@ -103,7 +103,14 @@ if(!function_exists('menu_admin_sidebar')) {
                         'name' => 'settings-general',
                         'display_name' => 'general',
                         'slug' => 'menuitem_settings-general',
-                        'site_url' => 'admin/settings',
+                        'site_url' => 'admin/settings/general',
+                        'permissions' => []
+                    ],
+                    'settings-pages' => [
+                        'name' => 'settings-pages',
+                        'display_name' => 'pages',
+                        'slug' => 'menuitem_settings-pages',
+                        'site_url' => 'admin/settings/pages',
                         'permissions' => []
                     ]
                 ]

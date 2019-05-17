@@ -37,7 +37,7 @@
         </div>
         <div class="header-logo">
             <a href="{{url('home')}}">
-                GET OUT
+                LEVELS OUT
             </a>
         </div>
     </div>

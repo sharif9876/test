@@ -1,5 +1,6 @@
 @extends('layouts.guest.layout')
 
 @section('content')
-    TERMS OF SERVICE
+    {{$page_text}}
+
 @endsection

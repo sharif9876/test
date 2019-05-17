@@ -30,8 +30,6 @@ ul {
   width: 100%;
   min-height: calc(100vh - 25px);
   padding-top: 65px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
 }
 
 .page-container {
@@ -169,7 +167,8 @@ header .header-bar .header-nav .header-logo {
   width: calc(100% - 65px);
   height: 65px;
   float: left;
-  padding: 5px 25px;
+  padding: 5px 20px;
+  padding-bottom: 15px;
 }
 
 header .header-bar .header-nav .header-logo a {
@@ -178,7 +177,7 @@ header .header-bar .header-nav .header-logo a {
   height: 100%;
   color: #fff;
   line-height: 55px;
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 700;
 }
 

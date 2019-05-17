@@ -2,5 +2,4 @@
 
 @section('content')
     {{$page_text}}
-
 @endsection
