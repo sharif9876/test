@@ -49,7 +49,7 @@
                                 <td class="name">{{$question->name}}</td>
                                 <td class="description">{{$question->question}}</td>
                                 <td class="level-min table-centered">{{$question->level_min}}</td>
-                                <td class="reward-points table-centered">{{$question->age_min}}</td>
+                                <td class="reward-points table-centered">{{$question->age_min}}</td>Hey dud
                             </tr>
                         @endforeach
                         @else
