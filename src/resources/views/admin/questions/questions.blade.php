@@ -1,6 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('content')
+
     <div class="content-block" id="questions">
         <div class="block-header">
             <div class="block-title">Questions</div>
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+              
                 <div class="table-field">
                     <table cellpadding="0" cellspacing="0">
                         <tr class="table-header">
@@ -40,6 +42,7 @@
                             <th style="width: 300px;">question</th>
                             <th style="width: 70px;">level</th>
                             <th style="width: 70px;">age</th>
+                            <th style="width: 70px;">image_path</th>
                         </tr>
                         @if(count($questions) > 0)
                         @foreach($questions as $question)
@@ -49,7 +52,8 @@
                                 <td class="name">{{$question->name}}</td>
                                 <td class="description">{{$question->question}}</td>
                                 <td class="level-min table-centered">{{$question->level_min}}</td>
-                                <td class="reward-points table-centered">{{$question->age_min}}</td>Hey dud
+                                <td class="reward-points table-centered">{{$question->age_min}}</td>
+                                <td onmousemove="move(event)" onmouseleave="del()" onmouseover="display('/onlineoffline/guestlist/src/public/images/questions/{{$question->background_image_path}}')" id ="/onlineoffline/guestlist/src/public/images/questions/{{$question->background_image_path}}" class="image-hover">{{$question->background_image_path}}</td>
                             </tr>
                         @endforeach
                         @else
@@ -57,7 +61,7 @@
                                 <td></td>
                                 <td class="table-empty-msg">
                                     No items found.
-                                </td>
+                                 </td>
                             </tr>
                         @endif
                     </table>
@@ -71,4 +75,5 @@
             </div>
         </div>
     </div>
+   
 @endsection
