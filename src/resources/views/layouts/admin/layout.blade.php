@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <script type="text/javascript">
+        function display(link) {
+
+
+    $(document.body).append('<div id="img" style="position:absolute;" ><img width="300" heigth="300" src="' + link + '" ></div>');
+}
+
+function move(e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    $('#img').css('top', y + 10).css("left", x - 300);
+}
+function del() {
+    $('#img').remove();
+}
+</script>   
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">

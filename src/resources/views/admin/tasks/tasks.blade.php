@@ -32,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="table-field">
                     <table cellpadding="0" cellspacing="0">
                         <tr class="table-header">
@@ -43,6 +44,7 @@
                             <th style="width: 100px;">points</th>
                             <th style="width: 200px;">start date</th>
                             <th style="width: 200px;">end date</th>
+                            <th style="width: 200px;">image_path</th>
                         </tr>
                         @if(count($tasks) > 0)
                         @foreach($tasks as $task)
@@ -55,6 +57,7 @@
                                 <td class="reward-points table-centered">{{$task->reward_points}}</td>
                                 <td class="date-start">{{$task->date_start}}</td>
                                 <td class="date-end">{{$task->date_end}}</td>
+                               <td onmousemove="move(event)" onmouseleave="del()" onmouseover="display('/onlineoffline/guestlist/src/public/images/questions/{{$task->background_image_path}}')"  class="image-hover">{{$task->background_image_path}}</td>
                             </tr>
                         @endforeach
                         @else
