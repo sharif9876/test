@@ -90,7 +90,6 @@ $("document").ready(function () {
 var taskEntriesLoaded = [0];
 function display(link) {
 
-
     $(document.body).append('<div id="img" style="position:absolute;" ><img width="300" heigth="300" src="' + link + '" ></div>');
 }
 
