@@ -10,7 +10,8 @@ $("document").ready(function() {
 });
 
 var taskEntriesLoaded = [0];
-
+  
+            
 function updateTaskEntry(ei, ea) {
     $.ajaxSetup({
         headers: {

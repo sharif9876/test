@@ -14,6 +14,20 @@ if(!function_exists('menu_app_main')) {
                 'site_url' => 'home',
                 'permissions' => []
             ],
+             'invite' => [
+                'name' => 'invite',
+                'display_name' => 'invite',
+                'slug' => 'menuitem_invite',
+                'site_url' => 'invite',
+                'permissions' => []
+            ],
+            'code' => [
+                'name' => 'code',
+                'display_name' => 'code',
+                'slug' => 'menuitem_code',
+                'site_url' => 'code',
+                'permissions' => []
+            ],
             'logout' => [
                 'name' => 'logout',
                 'display_name' => 'logout',
@@ -21,6 +35,7 @@ if(!function_exists('menu_app_main')) {
                 'site_url' => 'logout',
                 'permissions' => []
             ]
+           
         ];
 
         $menu = [];

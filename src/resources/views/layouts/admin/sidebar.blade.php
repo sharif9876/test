@@ -22,6 +22,7 @@
                         <ul class="submenu">
                         @foreach($item['submenu'] as $subitem)
                             <li class="menu-item">
+                                    
                                 <a href="{{url($subitem['site_url'])}}">
                                     <div class="item-title">
                                         {{$subitem['display_name']}}

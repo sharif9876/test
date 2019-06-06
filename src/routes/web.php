@@ -18,14 +18,28 @@ Auth::routes();
 Route::group(['prefix' => ''], function() {
     Route::get('/', 'App\AppHomeController@home');
     Route::get('/home', 'App\AppHomeController@home');
+<<<<<<< HEAD
+=======
+    Route::get('/timeline', 'App\AppTimelineController@timeline');
+    Route::get('/invite','App\AppInviteController@invite');
+    Route::post('/sendInvite','App\AppInviteController@send');
+    Route::get('/code','App\AppCodeController@code');
+    Route::post('/sendCode','App\AppCodeController@send');
+>>>>>>> origin/push_everything
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+<<<<<<< HEAD
     Route::get('/about', 'Guest\GuestController@about');
     Route::get('/termsofservice', 'Guest\GuestController@termsOfService');
     Route::get('/privacypolicy', 'Guest\GuestController@privacyPolicy');
     Route::get('/users/{id}', 'Guest\GuestController@userProfile');
+=======
+    Route::get('/terms-of-service', 'Guest\GuestController@termsOfService');
+    Route::get('/privacy-policy', 'Guest\GuestController@privacyPolicy');
+
+>>>>>>> origin/push_everything
 });
 
 // OAuth Routes
@@ -48,11 +62,22 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/ajaxquestionsidlist', 'Admin\AdminQuestionsController@ajaxQuestionsIdList');
         Route::post('/ajaxquestionanswerinput', 'Admin\AdminQuestionsController@ajaxQuestionAnswerInput');
     });
+     Route::group(['prefix' => 'codes'], function() {
+        Route::get('/', 'Admin\AdminCodesController@codes');
+        Route::get('/add', 'Admin\AdminCodesController@codeAdd');
+        Route::post('/add', 'Admin\AdminCodesController@codeAddSave');
+        Route::get('/{id}/edit', 'Admin\AdminCodesController@codeEdit');
+        Route::post('/{id}/edit', 'Admin\AdminCodesController@codeEditSave');
+        Route::get('/{id}/delete', 'Admin\AdminCodesController@codeDelete');
+    });
     Route::group(['prefix' => 'settings'], function() {
         Route::get('/', 'Admin\AdminSettingsController@general');
         Route::get('/general', 'Admin\AdminSettingsController@general');
+<<<<<<< HEAD
         Route::get('/pages', 'Admin\AdminSettingsController@pages');
         Route::post('/pages', 'Admin\AdminSettingsController@pagesEditSave');
+=======
+>>>>>>> origin/push_everything
 
     });
     Route::group(['prefix' => 'tasks'], function() {
@@ -91,6 +116,7 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'splash'], function() {
     Route::get('/levelup', 'Splash\SplashController@levelUp');
     Route::get('/taskcomplete', 'Splash\SplashController@taskComplete');
+    Route::get('/codeused', 'Splash\SplashController@codeUsed');
 });
 
 // Questions routes

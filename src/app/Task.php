@@ -27,6 +27,7 @@ class Task extends Model {
      *
      * @var array
      */
+
     protected $hidden = [];
 
     public function type() {

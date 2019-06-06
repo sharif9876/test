@@ -12,6 +12,7 @@ class AppHomeController extends Controller
         $this->middleware('auth');
         $this->middleware('splash');
         $this->middleware('question');
+        $this->middleware('points');
 
     }
 
