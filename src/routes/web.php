@@ -20,7 +20,9 @@ Route::group(['prefix' => ''], function() {
     Route::get('/home', 'App\AppHomeController@home');
     Route::get('/timeline', 'App\AppTimelineController@timeline');
     Route::get('/invite','App\AppInviteController@invite');
-    Route::post('/send','App\AppInviteController@send');
+    Route::post('/sendInvite','App\AppInviteController@send');
+    Route::get('/code','App\AppCodeController@code');
+    Route::post('/sendCode','App\AppCodeController@send');
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
@@ -50,9 +52,18 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/ajaxquestionsidlist', 'Admin\AdminQuestionsController@ajaxQuestionsIdList');
         Route::post('/ajaxquestionanswerinput', 'Admin\AdminQuestionsController@ajaxQuestionAnswerInput');
     });
+     Route::group(['prefix' => 'codes'], function() {
+        Route::get('/', 'Admin\AdminCodesController@codes');
+        Route::get('/add', 'Admin\AdminCodesController@codeAdd');
+        Route::post('/add', 'Admin\AdminCodesController@codeAddSave');
+        Route::get('/{id}/edit', 'Admin\AdminCodesController@codeEdit');
+        Route::post('/{id}/edit', 'Admin\AdminCodesController@codeEditSave');
+        Route::get('/{id}/delete', 'Admin\AdminCodesController@codeDelete');
+    });
     Route::group(['prefix' => 'settings'], function() {
         Route::get('/', 'Admin\AdminSettingsController@general');
         Route::get('/general', 'Admin\AdminSettingsController@general');
+
     });
     Route::group(['prefix' => 'tasks'], function() {
         Route::get('/', 'Admin\AdminTasksController@tasks');
@@ -90,6 +101,7 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'splash'], function() {
     Route::get('/levelup', 'Splash\SplashController@levelUp');
     Route::get('/taskcomplete', 'Splash\SplashController@taskComplete');
+    Route::get('/codeused', 'Splash\SplashController@codeUsed');
 });
 
 // Questions routes

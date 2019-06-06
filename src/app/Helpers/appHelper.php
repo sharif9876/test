@@ -21,6 +21,13 @@ if(!function_exists('menu_app_main')) {
                 'site_url' => 'invite',
                 'permissions' => []
             ],
+            'code' => [
+                'name' => 'code',
+                'display_name' => 'code',
+                'slug' => 'menuitem_code',
+                'site_url' => 'code',
+                'permissions' => []
+            ],
             'logout' => [
                 'name' => 'logout',
                 'display_name' => 'logout',

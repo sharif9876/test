@@ -14,6 +14,7 @@ class SplashController extends Controller
     public function __construct() {
         $this->middleware('auth');
         $this->middleware('splashCheck');
+      
     }
 
     public function levelUp() {
@@ -22,5 +23,10 @@ class SplashController extends Controller
 
     public function taskComplete() {
         return view('splash.taskComplete');
+    }
+
+    public function codeUsed(){
+
+        return view('splash.codeUsed');
     }
 }

@@ -146,6 +146,7 @@ class AdminTasksController extends Controller
         if(!$request->ajax()){
             return back();
         }
+        
         if($request->action == 'approve') {
             //code for approving a task entry
             if(TaskEntry::find($request->entry_id)) {

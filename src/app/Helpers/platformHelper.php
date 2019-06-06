@@ -33,6 +33,23 @@ if(!function_exists('menu_admin_sidebar')) {
                     ]
                 ]
             ],
+            'codes' => [
+                'name' => 'codes',
+                'display_name' => 'codes',
+                'slug' => 'menuitem_codes',
+                'site_url' => 'admin/codes',
+                'icon' => 'code',
+                'permissions' => [],
+                'submenu' => [
+                    'codes-all' => [
+                        'name' => 'codes-all',
+                        'display_name' => 'all codes',
+                        'slug' => 'menuitem_codes-all',
+                        'site_url' => 'admin/codes',
+                        'permissions' => []
+                    ]
+                ]
+            ],
             'tasks' => [
                 'name' => 'tasks',
                 'display_name' => 'tasks',
