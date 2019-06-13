@@ -52,7 +52,7 @@
                                 <td class="status">{{$entry->status}}</td>
                                 <td class="answer" title="{{$entry->answer}}">{{$entry->answer}}</td>
                                 <td class="user">{{$entry->user->name}}</td>
-                                <td class="task">{{$entry->task->title}}</td>
+                                <td class="task">{{$entry->task["title"]}}</td>
                             </tr>
                         @endforeach
                         @else

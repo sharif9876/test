@@ -52,7 +52,7 @@
                                 <td class="name">{{$question->name}}</td>
                                 <td class="description">{{$question->question}}</td>
                                 <td class="level-min table-centered">{{$question->level_min}}</td>
-                                <td class="image table-image">{{$question->background_image_path}}</td>
+                               
 
                                 <td class="reward-points table-centered">{{$question->age_min}}</td>
                                 <td onmousemove="move(event)" onmouseleave="del()" onmouseover="display('/onlineoffline/guestlist/src/public/images/questions/{{$question->background_image_path}}')" id ="/onlineoffline/guestlist/src/public/images/questions/{{$question->background_image_path}}" class="image-hover">{{$question->background_image_path}}</td>
