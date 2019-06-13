@@ -41,7 +41,7 @@
                             <th style="width: 10px;">levels</th>
                             <th style="width: 10px;">points</th>
                             <th style="width: 50px;">code</th>
-                           
+
 
                         </tr>
                         @if(count($codes) > 0)
@@ -52,8 +52,8 @@
                                 <td class="points">{{$code->levels}}</td>
                                 <td class="points">{{$code->points}}</td>
                                 <td class="level">{{$code->code}}</td>
-                               
-                               
+
+
                             </tr>
                         @endforeach
                         @else

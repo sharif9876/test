@@ -16,7 +16,6 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('nickname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('level')->unsigned();
@@ -29,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('level')->references('id')->on('levels')->onDelete('set null');
+            $table->foreign('level')->references('level')->on('levels')->onDelete('set null');
         });
     }
 

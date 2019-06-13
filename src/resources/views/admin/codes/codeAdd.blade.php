@@ -10,7 +10,7 @@
                 <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                     <div class="form-row">
-                        <div class="form-input num level-level">
+                        <div class="form-input num code-code">
                             <div class="input-label">
                                 <label>Code</label>
                             </div>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-input num level-points">
+                        <div class="form-input num code-points">
                             <div class="input-label">
                                 <label>points</label>
                             </div>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-input num level-points">
+                        <div class="form-input num code-levels">
                             <div class="input-label">
                                 <label>levels</label>
                             </div>
@@ -56,7 +56,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-submit level-submit">
+                        <div class="form-submit code-submit">
                             <button class="submit" type="submit" name="code_submit">CREATE CODE</button>
                         </div>
                     </div>

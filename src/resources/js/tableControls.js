@@ -288,6 +288,24 @@ function fillTable(trr, t) {
     tc.text("showing "+tca+" / "+trl[tn].length+" entries");
 }
 
+
+//Column types
+$(document).ready(function() {
+    $(".table.platform").on("mousemove", "td.image-hover", function(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        $('#ihImage').css('top', y + 10).css("left", x - 300);
+    });
+    $(".table.platform").on("mouseleave", "td.image-hover", function() {
+        $('#ihImage').remove();
+    });
+    $(".table.platform").on("mouseenter", "td.image-hover", function(e) {
+        var img = url()+"/images"+e.target.innerText;
+        $(document.body).append('<div id="ihImage" style="position:absolute;" ><img width="300" src="' + img + '" ></div>');
+    });
+});
+
+
 //Remake script
 
 //Actions:
