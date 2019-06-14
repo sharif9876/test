@@ -70,7 +70,6 @@ Route::group(['prefix' => 'admin'], function() {
     });
     Route::group(['prefix' => 'tasks'], function() {
         Route::get('/', 'Admin\AdminTasksController@tasks');
-        Route::get('/entries', 'Admin\AdminTasksController@taskEntries');
         Route::get('/add', 'Admin\AdminTasksController@taskAdd');
         Route::get('/{id}/edit', 'Admin\AdminTasksController@taskEdit');
         Route::get('/{id}/delete', 'Admin\AdminTasksController@taskDelete');
@@ -80,6 +79,17 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('/ajaxtasksconfirm', 'Admin\AdminTasksController@ajaxTasksConfirm');
         Route::get('/ajaxquestionsidlist', 'Admin\AdminTasksController@ajaxQuestionsIdList');
         Route::post('/ajaxquestionanswerinput', 'Admin\AdminTasksController@ajaxQuestionAnswerInput');
+
+        Route::group(['prefix'=>'entries'],function(){
+             Route::get('/', 'Admin\AdminTasksController@taskEntries');
+             Route::get('/add', 'Admin\AdminTasksController@taskEntryAdd');
+             Route::get('/{id}/edit', 'Admin\AdminTasksController@taskEntryEdit');
+             Route::get('/{id}/delete', 'Admin\AdminTasksController@taskEntryDelete');
+             Route::post('/add', 'Admin\AdminTasksController@taskEntryAddSave');
+             Route::post('/{id}/edit', 'Admin\AdminTasksController@taskEntryEditSave');
+
+
+        });
     });
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', 'Admin\AdminUsersController@users');

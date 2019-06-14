@@ -15,7 +15,7 @@ use App\Splash;
 use App\Level;
 use App\Question;
 use App\TaskRequirement;
-
+use App\User;
 class AdminTasksController extends Controller
 {
     public function __construct() {
@@ -35,6 +35,7 @@ class AdminTasksController extends Controller
 
         return view('admin/tasks/taskEntries', compact('task_entries'));
     }
+    
 
     public function taskAdd() {
         $task_types = TaskType::where('name', 'image')->get();
@@ -141,7 +142,7 @@ class AdminTasksController extends Controller
         $task_entries = TaskEntry::with('task')->with('user')->whereNotIn('id', $request->loaded)->where('status', 'pending')->orderBy('date_submit', 'asc')->get();
         return $task_entries;
     }
-
+    
     public function ajaxTasksConfirm(Request $request) {
         if(!$request->ajax()){
             return back();
@@ -198,6 +199,97 @@ class AdminTasksController extends Controller
         }
         $res = [$html];
         return $res;
+    }
+    public function taskEntryAdd() {
+         $entry_status = ['pending', 'completed', 'rejected'];
+         $errors=session('errors');
+        return view('admin/tasks/taskEntriesAdd', compact('entry_status', 'errors'));
+    }
+    public function taskEntryAddSave(Request $request) {
+       
+        $validator = Validator::make($request->all(), [
+            'entry_date' => 'required',
+            'entry_status' => '',
+            'entry_answer' => 'file|image',
+            'entry_user' => 'required|exists:users,id',
+            'entry_task' => 'required|exists:tasks,id'
+        ]);
+        
+        if($validator->fails()) {
+            $errors = $validator->errors();
+            
+            return redirect(url('/admin/tasks/entries/add'))->with('errors', $errors);
+        }
+        $user = User::find($request->input('id'));
+        $task = Task::find($request->input('id'));
+
+       
+        if($request->has('entrie_answer')) {
+           
+            $entrie_image = $request->file('entrie_answer');
+            $image_name = 'task'.$task->id.'_'.$user->id;
+            $image_extention = $entrie_image->extension() == 'jpeg' ? '.jpg' : '.'.$entrie_image->extension();
+            $image_path = public_path('/images/taskentries/');
+            $entrie_image->move($image_path, $image_name.$image_extention);
+        }
+       
+        TaskEntry::create([
+            'date_submit' => $request->input('entry_date'),
+            'status' => $request->input('entry_status'),
+            'answer' =>  $request->has('entry_answer') ? $image_name.$image_extention : '',
+            'user_id' => $user->id,
+            'task_id' => $task->id
+        ]);
+       
+        return redirect(url('/admin/tasks/entries'));
+    }
+     public function taskEntryEditSave($id, Request $request) {
+        $validator = Validator::make($request->all(), [
+            'entry_date' => 'required',
+            'entry_status' => '',
+            'entry_answer' => 'file|image',
+            'entry_user' => 'required|exists:users,id',
+            'entry_task' => 'required|exists:tasks,id'
+        ]);
+        if($validator->fails()) {
+            $errors = $validator->errors();
+            return redirect(url('/admin/tasks/entries/'.$id.'/edit'))->with('errors', $errors);
+        }
+        $entry = TaskEntry::find($id);
+        if($request->has('entry_answer')) {
+           
+            $entry_image = $request->file('entry_answer');
+            $image_name = 'task'.$task->id.'_'.$user->id;
+            $image_extention = $entry_image->extension() == 'jpeg' ? '.jpg' : '.'.$entry_image->extension();
+            $image_path = public_path('/images/taskentries/');
+             if(File::exists($image_path.$image_name)) {
+                File::delete($image_path.$image_name);
+            }
+            $entry_image->move($image_path, $image_name.$image_extention);
+        }
+        $entry->update([
+            'date_submit' => $request->has('entry_submit') ? $request->input('entry_submit') : $entry->date_submit,
+            'status' => $request->has('entry_status') ? $request->input('entry_status') : $entry->status,
+            'answer' => $request->has('entry_answer') ? 'task_'.$id.$image_extention : $entry->answer,
+            'user_id' => $request->has('entry_user') ? $request->input('entry_user') : $entry->user_id,
+            'task_id' => $request->has('entry_task') ? $request->input('entry_task') : $entry->task_id
+            
+        ]);
+
+        return redirect(url('/admin/tasks/entries'));
+    }
+
+    public function taskEntryEdit($id) {
+        $entry = TaskEntry::find($id);
+        $errors = session('errors');
+        $entry_status = ['pending', 'completed', 'rejected'];
+        return view('admin/tasks/taskEntriesEdit', compact('entry','errors','entry_status'));
+    }
+
+    public function taskEntryDelete($id) {
+        $entry = TaskEntry::find($id);
+        $entry->delete();
+        return redirect('/admin/tasks/entries');
     }
 }
 

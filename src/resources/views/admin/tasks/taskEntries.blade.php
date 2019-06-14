@@ -21,7 +21,7 @@
                     </div>
                     <div class="table-add">
                         <div class="add-button">
-                            <a href="{{url('/admin/tasks/add')}}">
+                            <a href="{{url('/admin/tasks/entries/add')}}">
                                 <div class="add-left">
                                     <i class="fas fa-plus"></i>
                                 </div>
@@ -50,7 +50,7 @@
                                 <td class="actions"><a class="edit" href="{{url('/admin/tasks/entries/'.$entry->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/tasks/entries/'.$entry->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="submit-date">{{$entry->date_submit}}</td>
                                 <td class="status">{{$entry->status}}</td>
-                                <td class="answer" title="{{$entry->answer}}">{{$entry->answer}}</td>
+                                <td onmousemove="move(event)" onmouseleave="del()" onmouseover="display('/onlineoffline/guestlist/src/public/images/taskentries/{{$entry->answer}}')" class="answer" title="{{$entry->answer}}">{{$entry->answer}}</td>
                                 <td class="user">{{$entry->user->name}}</td>
                                 <td class="task">{{$entry->task["title"]}}</td>
                             </tr>

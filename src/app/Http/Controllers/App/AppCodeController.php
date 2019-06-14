@@ -42,7 +42,6 @@ class AppCodeController extends Controller
         if($code!=null){
             $points = $code->points;
             $levels = $code->levels;
-            echo $levels;
             $user = Auth::user();
             if(($user->points+$points>0)and($user->level+$levels>0)){
             $user->update(array('points'=>($user->points)+$points,'level'=>($user->level)+$levels));
@@ -56,7 +55,7 @@ class AppCodeController extends Controller
             return redirect(url('code'));
         }else{
             $errors['code']="This code doesn't exist";
-            return redirect(url('code'))->with('errors', $errors)->with('levels',$levels);
+            return redirect(url('code'))->with('errors', $errors);
         }
 
 

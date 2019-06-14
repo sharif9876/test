@@ -57,7 +57,7 @@
                                 <td class="reward-points table-centered">{{$task->reward_points}}</td>
                                 <td class="date-start">{{$task->date_start}}</td>
                                 <td class="date-end">{{$task->date_end}}</td>
-                                <td class="image-path image-hover">/tasks/{{$task->background_image_path}}</td>
+                                <td onmousemove="move(event)" onmouseleave="del()" onmouseover="display('/onlineoffline/guestlist/src/public/images/tasks/{{$task->background_image_path}}')"  class="image-path image-hover">/tasks/{{$task->background_image_path}}</td>
                             </tr>
                         @endforeach
                         @else

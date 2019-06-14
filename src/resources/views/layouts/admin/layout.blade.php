@@ -11,6 +11,21 @@
             function url() {
                 return '<?= url('') ?>';
             }
+            function display(link) {
+
+                if(link!=""){
+                $(document.body).append('<div id="img" style="position:absolute;" ><img width="300" heigth="300" src="' + link + '" ></div>');
+                }
+            }
+
+            function move(e) {
+                var x = e.clientX;
+                var y = e.clientY;
+                $('#img').css('top', y + 10).css("left", x - 300);
+            }
+            function del() {
+                $('#img').remove();
+            }
         </script>
         <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/behaviour.js') }}"></script>
