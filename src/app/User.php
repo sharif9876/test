@@ -46,7 +46,7 @@ class User extends Authenticatable {
     }
 
     public function level() {
-        return Level::find($this->level);
+        return Level::where('level',$this->level)->first();
     }
 
     public function splashes() {
@@ -58,7 +58,7 @@ class User extends Authenticatable {
             $level_ids = ($this->level + $count + 1) > Level::max('id') ? range($this->level+2, Level::max('id')) : range($this->level+2, $this->level+$count+1);
             return level::whereIn('id', $level_ids)->get()->all();
         }
-        return Level::find($this->level + 1);
+        return Level::where('level',$this->level + 1)->first();
     }
 
     public function taskComplete($task_id) {

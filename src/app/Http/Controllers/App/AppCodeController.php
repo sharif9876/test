@@ -18,7 +18,7 @@ class AppCodeController extends Controller
 
     }
      public function code() {
-    	 if(Auth::user()->points > 0) {
+    	 if((Auth::user()->points > 0)and(Auth::user()->nextLevel()!=[])) {
             $bar_width = ((Auth::user()->points - Auth::user()->level()->points) / (Auth::user()->nextLevel()->points - Auth::user()->level()->points)) * 100;
         }
         else {
@@ -30,7 +30,7 @@ class AppCodeController extends Controller
     public function send(Request $request){
 
     	$validator = Validator::make($request->all(), [
-            'code' => 'required'
+            'code' => 'required|exists:codes,code'
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
@@ -39,7 +39,7 @@ class AppCodeController extends Controller
        	$code_code = $request->input('code');
         $code=Code::where('code',$code_code)->first();
 
-        if($code!=null){
+        
             $points = $code->points;
             $levels = $code->levels;
             $user = Auth::user();
@@ -53,10 +53,7 @@ class AppCodeController extends Controller
                 ]);
         }
             return redirect(url('code'));
-        }else{
-            $errors['code']="This code doesn't exist";
-            return redirect(url('code'))->with('errors', $errors);
-        }
+      
 
 
     }
