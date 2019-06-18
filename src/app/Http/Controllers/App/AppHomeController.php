@@ -28,7 +28,7 @@ class AppHomeController extends Controller
         //$levels_next=Level::all();
         $skipped = Auth::user()->skipped;
         if($skipped!=""){
-            
+            aaa
         }
         
         return view('app.home.home', compact('bar_width', 'levels_next'));
