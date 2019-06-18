@@ -31,19 +31,19 @@ class AdminCodesController extends Controller
     }
     public function codeAddSave(Request $request) {
         $validator = Validator::make($request->all(), [
-            'code_code' => 'required|string',
-            'code_points' => 'required|numeric',
-            'code_levels' => 'required|numeric'
+            'code_code' => 'required|string|unique:codes,code',
+            'code_active' => 'required',
+            'code_levels' => 'required|numeric|min:1'
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
-            return redirect(url('/admin/levels/add'))->with('errors', $errors);
+            return redirect(url('/admin/codes/add'))->with('errors', $errors);
         }
        
         Code::create([
             'code' => $request->input('code_code'),
-            'points' => $request->input('code_points'),
             'levels' => $request->input('code_levels'),
+            'active' => $request->input('code_active')=="True"?1:0,
         ]);
         return redirect(url('/admin/codes'));
     }
@@ -56,18 +56,18 @@ class AdminCodesController extends Controller
         $code = Code::find($id);
         $validator = Validator::make($request->all(), [
             'code_code' => 'required|string',
-            'code_points' => 'required|numeric',
-            'code_levels' => 'required|numeric'
+            'code_active' => 'required|',
+            'code_levels' => 'required|numeric|min:1'
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
-            return redirect(url('/admin/codes/add'))->with('errors', $errors);
+            return redirect(url('/admin/codes/'.$id.'/edit'))->with('errors', $errors);
         }
        
         $code->update([
             'code' => $request->has('code_code') ? $request->input('code_code') : $code->code,
-            'points' => $request->has('code_points') ? $request->input('code_points') : $code->points,
-           'levels' => $request->has('code_levels') ? $request->input('code_levels') : $code->levels
+            'levels' => $request->has('code_levels') ? $request->input('code_levels') : $code->points,
+           'active' => $request->has('code_active') ? $request->input('code_active')=="True" ?1:0 : $code->levels
         ]);
 
         return redirect(url('/admin/codes'));

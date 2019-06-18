@@ -25,17 +25,23 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-input num code-points">
+                        <div class="form-input select code-active">
                             <div class="input-label">
-                                <label>points</label>
+                                <label>active</label>
                             </div>
-                            @if($errors != null && $errors->has('code_points'))
+                            @if($errors != null && $errors->has('code_active'))
                                 <div class="input-errors">
-                                    - {{$errors->first('code_points')}}
+                                    - {{$errors->first('code_active')}}
                                 </div>
                             @endif
                             <div class="input">
-                                <input type="number" name="code_points" value="">
+                                <select name="code_active">
+                                  <option></option>
+                                    <option  type="true">True</option>
+                                  
+                                     <option type="false">False</option>
+                                  
+                               </select>
                             </div>
                         </div>
                     </div>

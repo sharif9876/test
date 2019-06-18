@@ -8,5 +8,5 @@ class Code extends Model
 {
      protected $table = 'codes';
      public $timestamps = false;
-     protected $fillable = ['levels', 'points', 'code'];
+     protected $fillable = ['levels', 'active', 'code'];
 }

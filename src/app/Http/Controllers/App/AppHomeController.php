@@ -5,7 +5,7 @@ namespace App\Http\Controllers\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use App\Level;
 class AppHomeController extends Controller
 {
     public function __construct() {
@@ -23,8 +23,14 @@ class AppHomeController extends Controller
         else {
             $bar_width = 0;
         }
-      
         $levels_next = (array) Auth::user()->nextLevel(3);
+
+        //$levels_next=Level::all();
+        $skipped = Auth::user()->skipped;
+        if($skipped!=""){
+            
+        }
+        
         return view('app.home.home', compact('bar_width', 'levels_next'));
     }
 }

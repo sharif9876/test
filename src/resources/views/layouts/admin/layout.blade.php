@@ -37,8 +37,9 @@
         <link href="{{ asset('css/grid.css') }}" rel="stylesheet" type="text/css" >
 
         <link href="{{ asset('fonts/fontawesome-free-5.3.1-web/css/all.min.css') }}" rel="stylesheet" type="text/css" >
+        @yield('stylesheets')
     </head>
-    <body>
+    <body onload="enableEditMode()">
         <div class="page-wrapper">
             <header>
                 @include('layouts.admin.header')

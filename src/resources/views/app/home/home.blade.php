@@ -40,6 +40,7 @@
     <div class="row">
         <div class="upcoming-levels">
         @foreach($levels_next as $level)
+        
         @if($loop->first)
             <div class="level-container-next" style="background-image: url({{asset($level->container_background_image_path)}})">
                 <div class="level-container-inner">

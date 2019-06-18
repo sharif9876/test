@@ -39,7 +39,7 @@
                             <th style="width: 10px;">actions</th>
 
                             <th style="width: 10px;">levels</th>
-                            <th style="width: 10px;">points</th>
+                            <th style="width: 10px;">active</th>
                             <th style="width: 50px;">code</th>
 
 
@@ -49,8 +49,14 @@
                             <tr class="table-row">
                                 <td class="id table-centered">{{$code->id}}</td>
                                 <td class="actions"><a class="edit" href="{{url('/admin/codes/'.$code->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/codes/'.$code->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
-                                <td class="points">{{$code->levels}}</td>
-                                <td class="points">{{$code->points}}</td>
+                                <td class="levels">{{$code->levels}}</td>
+                                <td class="points">
+                                    @if($code->active)
+                                    {{"true"}}
+                                    @else
+                                    {{"false"}}
+                                    @endif
+                                </td>
                                 <td class="level">{{$code->code}}</td>
 
 
