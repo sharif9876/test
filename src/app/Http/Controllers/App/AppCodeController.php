@@ -50,17 +50,16 @@ class AppCodeController extends Controller
                $user->update(array('level'=>$code->levels,'points'=>Level::where('level',$code->levels)->first()->points));
                 Splash::create([
                         'tye' => 'code_used',
-                        'data' => 'd',
+                        'data' => 'level:'.$code->levels.',code:'.$code->code,
                         'path' => 'splash/codeused',
                         'user_id' => Auth::user()->id
                     ]);
                  
              
                 $levels=range($currentLevel,$user->level-1);
-                
                 foreach($levels as $level){
 
-                    if($user->skipped==""){
+                    if(($user->skipped=="")and($user->skipped!="0")){
 
                         $user->update(array('skipped'=>$level));
                     }else{

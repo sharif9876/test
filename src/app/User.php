@@ -52,20 +52,27 @@ class User extends Authenticatable {
     public function splashes() {
         return $this->hasMany(Splash::class);
     }
+    public function previousLevel(){
+         $level_ids =  range(1, $this->level);   
+        return level::whereIn('id', $level_ids)->get()->all();
 
+
+    }
     public function nextLevel(int $count = null) {
         if($count != null) {
-            $level_ids = ($this->level + $count + 1) > Level::max('id') ? range($this->level+2, Level::max('id')) : range($this->level+2, $this->level+$count+1);
+            $level_ids = ($this->level + $count + 1) > Level::max('id') ? range($this->level+1, Level::max('id')) : range($this->level+1, $this->level+$count+1);
+           
             return level::whereIn('id', $level_ids)->get()->all();
         }
         return Level::where('level',$this->level + 1)->first();
     }
 
     public function taskComplete($task_id) {
+
         $task = Task::find($task_id);
         $points_new = $this->points + $task->reward_points;
         $this->update(['points' => $points_new]);
-        if($this->nextLevel()->points < $this->points) {
+        if($this->nextLevel()->points <= $this->points) {
             $this->levelUp();
         }
     }

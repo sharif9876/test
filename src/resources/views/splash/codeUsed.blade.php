@@ -12,7 +12,7 @@
             </div>
             <div class="splash-desc">
                 <p class="desc-name">{{Auth::user()->name}}</p>
-                <p class="desc-text">You've inserted a code</p>
+                <p class="desc-text">You jumped straight to level {{$datas['level']}} !</p>
             </div>
             <div class="splash-continue">
                 <div class="button-continue">
