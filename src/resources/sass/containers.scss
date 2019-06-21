@@ -131,7 +131,7 @@
             .level-container-next {
                 width: 100%;
                 height: 150px;
-                margin-top: 15px;
+                margin-top: 0px;
                 border-radius: 10px;
                 box-shadow: 0 5px 3px -3px #090909;
                 .level-container-inner {
@@ -238,12 +238,35 @@
 .chevron-up{
     text-align:center;
     padding-top:10px;
+    font-size:30px;
 }
+.chevron-up:hover{
+    cursor:pointer;
+    
+}
+.chevron-down{
+    display:none;
+    text-align:center;
+    padding-top:10px;
+    font-size:30px;
+}
+.chevron-down:hover{
+    cursor:pointer;
+    
+}
+
 
 /* Container previous-levels*/
 
-.page-container.previous-levels {
-   display:none;
+
+ .page-container.previous-levels {
+   height : 0;
+   transition-property:height;
+   transition-duration:0.5s;
+   transition-timing-function: ease-out;
+   overflow:hidden;
+   //max-height:0;
+  
     .row {
         .previous-levels {
             width: 100%;
@@ -289,7 +312,7 @@
             .level-container-next {
                 width: 100%;
                 height: 150px;
-                margin-top: 15px;
+                margin-top: 30px;
                 border-radius: 10px;
                 box-shadow: 0 5px 3px -3px #090909;
                 .level-container-inner {

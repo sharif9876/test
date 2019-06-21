@@ -96,6 +96,23 @@ $("document").ready(function () {
         }
     });
 
+    $('.chevron-up').click(function () {
+        var count = $(this).attr('id');
+        $('.page-container.previous-levels').css('visibility', 'visible');
+        $('.page-container.previous-levels').css('height', 'auto');
+        var height = $("#previous-levels").height();
+        $('.page-container.previous-levels').css('height', '0');
+        $('.page-container.previous-levels').css('position', 'relative  ');
+        $('.page-container.previous-levels').css('height', height + count * 7);
+        $('.chevron-up').css('display', 'none');
+        $('.chevron-down').css('display', 'block');
+    });
+    $('.chevron-down').click(function () {
+        $('.page-container.previous-levels').css('height', '0');
+        $('.chevron-down').css('display', 'none');
+        $('.chevron-up').css('display', 'block');
+    });
+
     $("#timeline").on("load", function (e) {
         console.log('hi');
         $.ajaxSetup({

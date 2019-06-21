@@ -25,7 +25,7 @@ class Splash extends Model {
      */
     protected $hidden = [];
 
-     public function getDatas($data){
+     public static function getDatas($data){
         $array = explode(',',$data);
         $datas = array();
         foreach ($array as $data ) {

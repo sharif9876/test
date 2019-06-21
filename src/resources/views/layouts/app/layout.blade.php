@@ -10,7 +10,7 @@
         <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/behaviour.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/appBehaviour.js') }}"></script>
-
+        
         <link href="{{ asset('css/layout_app.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/containers.css') }}" rel="stylesheet" type="text/css" >
 

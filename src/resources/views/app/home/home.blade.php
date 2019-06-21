@@ -36,8 +36,19 @@
     </div>
 </div>
 
+@if($levels_previous!=[])
 
-<div class="page-container previous-levels">
+
+<div id="chevrondown" class="chevron-down" onclick="hideprevious()">
+    {!!load_icon('chevron-down')!!}
+</div>
+<div id="{{count($levels_previous)}}" class="chevron-up" onclick="displayPreviousLevels({{count($levels_previous)}})"> 
+    {!!load_icon('chevron-up')!!}
+</div>
+
+
+
+<div class="page-container previous-levels" id="previous-levels">
     <div class="row">
         <div class="previous-levels">
         @foreach($levels_previous as $level)
@@ -132,6 +143,7 @@
                         </div>
                     </a>
                 @elseif($level->highestRewardTaskAvailable()->count())
+
                     <a href="{{url('tasks/'.$level->highestRewardTaskAvailable()->id)}}" class="level-container-link">
                         <div class="level-left">
                             <div class="level-info">
@@ -149,7 +161,7 @@
                         </div>
                         <div class="level-right">
                             <div class="icon-locked">
-                            {!!load_icon('thick-circle')!!}
+                            {!!load_icon('check-circle')!!}
                             </div>
                         </div>
                     </a>
@@ -178,19 +190,18 @@
 
 
 
+@endif
+<script type="text/javascript">
+      
+</script>
 
-<div class="chevron-up">
-    {!!load_icon('chevron-up')!!}
-</div>
 
-
-
-<div class="page-container upcoming-levels">
+<div class="page-container upcoming-levels" id="upcoming-levels">
     <div class="row">
         <div class="upcoming-levels">
         @foreach($levels_next as $level)
         @if($loop->first)
-            <div class="level-container-next" style="background-image: url({{asset($level->container_background_image_path)}})">
+            <div class="level-container-next" style="background-image: url({{asset($level->container_background_image_path)}});   @if($levels_previous==[])margin-top:30px;   @endif">
                 <div class="level-container-inner">
                 @if(Auth::user()->entriesPending($level->level)->count())
                     <a href="{{url('tasks/'.Auth::user()->entriesPending($level->level)->first()->task_id)}}" class="level-container-link">
@@ -266,4 +277,5 @@
         </div>
     </div>
 </div>
+
 @endsection

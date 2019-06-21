@@ -52,9 +52,18 @@ class User extends Authenticatable {
     public function splashes() {
         return $this->hasMany(Splash::class);
     }
-    public function previousLevel(){
-         $level_ids =  range(1, $this->level);   
-        return level::whereIn('id', $level_ids)->get()->all();
+    public function previousLevel(int $count=null){
+        if($this->level!=0){
+            
+            $level_ids = ($this->level - $count+1 ) < Level::min('id') ? range(Level::min('id'), $this->level) : range($this->level - $count+1,$this->level);
+           
+            return level::whereIn('id', $level_ids)->get()->all();
+             //$level_ids =  range(1, $this->level);  
+            //return level::whereIn('id', $level_ids)->get()->all();
+        }else{
+            return[];
+        }
+
 
 
     }
@@ -136,4 +145,30 @@ class User extends Authenticatable {
     public function timeLine() {
         return TaskEntry::where('user_id', $this->id)->where('status', 'completed')->get();
     }
+    public function skippedCheck(){
+
+        $modificated = false;
+        $arraySkipped = explode(',',$this->skipped);
+
+        if($arraySkipped!=[]){
+
+            foreach($arraySkipped as $skippedLevel){
+             
+                if($skippedLevel>=$this->level){
+                    
+
+                    $modificated = true;
+                    unset($arraySkipped[array_search($skippedLevel, $arraySkipped)]);
+                }
+            }   
+        }
+        if($modificated){
+
+            $this->update(['skipped'=>implode(',',$arraySkipped)]);
+        
+
+        }
+        return true;       
+    }
+
 }

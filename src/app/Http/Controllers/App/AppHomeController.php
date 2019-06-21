@@ -12,8 +12,8 @@ class AppHomeController extends Controller
         $this->middleware('auth');
         $this->middleware('splash');
         $this->middleware('question');
+        $this->middleware('points');
         
-
     }
 
     public function home() {
@@ -24,7 +24,7 @@ class AppHomeController extends Controller
             $bar_width = 0;
         }
         $levels_next = (array) Auth::user()->nextLevel(10);
-        $levels_previous = (array) Auth::user()->previousLevel();
+        $levels_previous = (array) Auth::user()->previousLevel(10);
 
         $arraySkipped = array();
 
