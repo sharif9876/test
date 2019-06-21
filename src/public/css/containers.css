@@ -136,7 +136,7 @@
 .page-container.upcoming-levels .row .upcoming-levels .level-container-next {
   width: 100%;
   height: 150px;
-  margin-top: 15px;
+  margin-top: 0px;
   border-radius: 10px;
   -webkit-box-shadow: 0 5px 3px -3px #090909;
           box-shadow: 0 5px 3px -3px #090909;
@@ -207,6 +207,24 @@
   font-size: 50px;
 }
 
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-right-previous {
+  float: left;
+  width: 140px;
+  height: 150px;
+}
+
+.page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-right-previous .icon-locked {
+  width: 80px;
+  height: 80px;
+  margin: 35px 20px;
+  border: 3px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 75px;
+  font-size: 45px;
+  border-radius: 50%;
+}
+
 .page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty {
   color: #fff;
   padding: 20px;
@@ -229,6 +247,208 @@
 }
 
 .page-container.upcoming-levels .row .upcoming-levels .level-container-next .level-container-inner .level-empty .level-text span {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.chevron-up {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+.chevron-up:hover {
+  cursor: pointer;
+}
+
+.chevron-down {
+  display: none;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+.chevron-down:hover {
+  cursor: pointer;
+}
+
+/* Container previous-levels*/
+
+.page-container.previous-levels {
+  height: 0;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  overflow: hidden;
+}
+
+.page-container.previous-levels .row .previous-levels {
+  width: 100%;
+  padding: 5px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container {
+  width: 100%;
+  height: 150px;
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 3px -3px #090909;
+          box-shadow: 0 5px 3px -3px #090909;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container .level-container-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container .level-container-inner .level-left {
+  float: left;
+  width: calc(100% - 180px);
+  height: 80px;
+  margin: 35px 20px;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container .level-container-inner .level-right {
+  float: left;
+  width: 140px;
+  height: 150px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container .level-container-inner .level-right .icon-locked {
+  width: 80px;
+  height: 80px;
+  margin: 35px 20px;
+  border: 3px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 75px;
+  font-size: 45px;
+  border-radius: 50%;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next {
+  width: 100%;
+  height: 150px;
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 3px -3px #090909;
+          box-shadow: 0 5px 3px -3px #090909;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-container-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left {
+  width: calc(100% - 90px);
+  height: 100%;
+  float: left;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left .level-info {
+  padding: 20px;
+  padding-right: 0px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left .level-info .level-name {
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left .level-info .level-task {
+  height: 70px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left .level-info .level-task .task-title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 25px;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-left .level-info .level-task .task-info {
+  height: 20px;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-right {
+  width: 50px;
+  height: 50px;
+  margin: 50px 20px;
+  float: left;
+  color: #fff;
+  text-align: right;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-right-previous {
+  float: left;
+  width: 140px;
+  height: 150px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-right-previous .icon-locked {
+  width: 80px;
+  height: 80px;
+  margin: 35px 20px;
+  border: 3px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 75px;
+  font-size: 45px;
+  border-radius: 50%;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-empty {
+  color: #fff;
+  padding: 20px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-empty .level-name {
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-empty .level-text {
+  height: 70px;
+  line-height: 25px;
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.page-container.previous-levels .row .previous-levels .level-container-next .level-container-inner .level-empty .level-text span {
   font-size: 14px;
   line-height: 14px;
   font-weight: 500;

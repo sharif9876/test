@@ -81,7 +81,10 @@
         }
     }
 }
+
+
 /* Container upcoming-levels*/
+
 .page-container.upcoming-levels {
     .row {
         .upcoming-levels {
@@ -128,7 +131,7 @@
             .level-container-next {
                 width: 100%;
                 height: 150px;
-                margin-top: 15px;
+                margin-top: 0px;
                 border-radius: 10px;
                 box-shadow: 0 5px 3px -3px #090909;
                 .level-container-inner {
@@ -185,6 +188,204 @@
                         text-align: right;
                         line-height: 50px;
                         font-size: 50px;
+                       
+                    }
+                     .level-right-previous {
+                        float: left;
+                        width: 140px;
+                        height: 150px;
+                        .icon-locked {
+                            width: 80px;
+                            height: 80px;
+                            margin: 35px 20px;
+                            border: 3px solid #fff;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 75px;
+                            font-size: 45px;
+                            border-radius: 50%;
+                        }
+                    }
+                    .level-empty {
+                        color: #fff;
+                        padding: 20px;
+                        .level-name {
+                            height: 20px;
+                            line-height: 20px;
+                            margin-bottom: 20px;
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                        .level-text {
+                            height: 70px;
+                            line-height: 25px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            padding-bottom: 20px;
+                            span {
+                                font-size: 14px;
+                                line-height: 14px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.chevron-up{
+    text-align:center;
+    padding-top:10px;
+    font-size:30px;
+}
+.chevron-up:hover{
+    cursor:pointer;
+    
+}
+.chevron-down{
+    display:none;
+    text-align:center;
+    padding-top:10px;
+    font-size:30px;
+}
+.chevron-down:hover{
+    cursor:pointer;
+    
+}
+
+
+/* Container previous-levels*/
+
+
+ .page-container.previous-levels {
+   height : 0;
+   transition-property:height;
+   transition-duration:0.5s;
+   transition-timing-function: ease-out;
+   overflow:hidden;
+   //max-height:0;
+  
+    .row {
+        .previous-levels {
+            width: 100%;
+            padding: 5px;
+            .level-container {
+                width: 100%;
+                height: 150px;
+                margin-top: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 3px -3px #090909;
+                .level-container-inner {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    .level-left {
+                        float: left;
+                        width: calc(100% - 180px);
+                        height: 80px;
+                        margin: 35px 20px;
+                        line-height: 80px;
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: $text-light;
+                    }
+                    .level-right {
+                        float: left;
+                        width: 140px;
+                        height: 150px;
+                        .icon-locked {
+                            width: 80px;
+                            height: 80px;
+                            margin: 35px 20px;
+                            border: 3px solid #fff;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 75px;
+                            font-size: 45px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+            .level-container-next {
+                width: 100%;
+                height: 150px;
+                margin-top: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 3px -3px #090909;
+                .level-container-inner {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    .level-container-link {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .level-left {
+                        width: calc(100% - 90px;);
+                        height: 100%;
+                        float: left;
+                        .level-info {
+                            padding: 20px;
+                            padding-right: 0px;
+                            .level-name {
+                                height: 20px;
+                                line-height: 20px;
+                                margin-bottom: 20px;
+                                color: $text-light;
+                                font-size: 18px;
+                                font-weight: 600;
+                            }
+                            .level-task {
+                                height: 70px;
+                                .task-title {
+                                    color: $text-light;
+                                    font-size: 22px;
+                                    font-weight: 600;
+                                    line-height: 25px;
+                                    height: 50px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                                .task-info {
+                                    height: 20px;
+                                    line-height: 20px;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    color: $text-light;
+                                }
+                            }
+                        }
+                    }
+                    .level-right {
+                        width: 50px;
+                        height: 50px;
+                        margin: 50px 20px;
+                        float: left;
+                        color: #fff;
+                        text-align: right;
+                        line-height: 50px;
+                        font-size: 50px;
+                       
+                    }
+                     .level-right-previous {
+                        float: left;
+                        width: 140px;
+                        height: 150px;
+                        .icon-locked {
+                            width: 80px;
+                            height: 80px;
+                            margin: 35px 20px;
+                            border: 3px solid #fff;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 75px;
+                            font-size: 45px;
+                            border-radius: 50%;
+                        }
                     }
                     .level-empty {
                         color: #fff;

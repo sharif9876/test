@@ -19,7 +19,7 @@ class SplashCheck {
      {
          // Splash Screens
          if(Splash::where(['user_id'=>Auth::user()->id,'path'=>Route::current()->uri()])->first()) {
-             Splash::where(['user_id'=>Auth::user()->id,'path'=>Route::current()->uri()])->first()->delete();
+             
              return $next($request);
          }
          return redirect(url('home'));

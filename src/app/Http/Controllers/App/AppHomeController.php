@@ -13,7 +13,7 @@ class AppHomeController extends Controller
         $this->middleware('splash');
         $this->middleware('question');
         $this->middleware('points');
-
+        
     }
 
     public function home() {
@@ -23,14 +23,17 @@ class AppHomeController extends Controller
         else {
             $bar_width = 0;
         }
-        $levels_next = (array) Auth::user()->nextLevel(3);
+        $levels_next = (array) Auth::user()->nextLevel(10);
+        $levels_previous = (array) Auth::user()->previousLevel(10);
 
-        //$levels_next=Level::all();
-        $skipped = Auth::user()->skipped;
-        if($skipped!=""){
+        $arraySkipped = array();
+
+        if(Auth::user()->skipped!=""){
+            
+            $arraySkipped = explode(',',Auth::user()->skipped);
             
         }
         
-        return view('app.home.home', compact('bar_width', 'levels_next'));
+        return view('app.home.home', compact('bar_width', 'levels_next','arraySkipped','levels_previous'));
     }
 }

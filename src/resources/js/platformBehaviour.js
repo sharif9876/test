@@ -7,11 +7,12 @@ $("document").ready(function() {
         ea = e.target.closest(".card-button").getAttribute("card-action");
         updateTaskEntry(ei, ea);
     });
+    
+
 });
 
 var taskEntriesLoaded = [0];
-  
-            
+         
 function updateTaskEntry(ei, ea) {
     $.ajaxSetup({
         headers: {

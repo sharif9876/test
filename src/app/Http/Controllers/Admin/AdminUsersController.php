@@ -92,6 +92,7 @@ class AdminUsersController extends Controller
             'password' => $request->has('user_password') ? Hash::make($request->input('user_password')) : $user->name,
             'userlevel' => $request->has('user_userlevel') ? $request->input('user_userlevel') : $user->userlevel
         ]);
+        $user->skippedCheck();
         return redirect(url('/admin/users'));
     }
 }

@@ -161,6 +161,7 @@ class AdminTasksController extends Controller
                 ]);
                 //User task complete
                 Auth::user()->taskComplete(TaskEntry::find($request->entry_id)->task_id);
+                
             }
             return;
         }
