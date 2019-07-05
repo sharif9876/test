@@ -6,7 +6,7 @@
             <div class="block-title">Codes</div>
         </div>
         <div class="block-body">
-            <div class="table platform levels" id="table-levels">
+            <div class="table platform codes" id="table-levels">
                 <div class="table-options">
                     <div class="table-search">
                         <input type="text" placeholder="search...">

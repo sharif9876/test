@@ -13,6 +13,7 @@ use App\Task;
 use App\Question;
 use App\UserInfo;
 use App\TaskEntry;
+use App\MessageEntry;
 
 class User extends Authenticatable {
     use Notifiable;
@@ -81,8 +82,10 @@ class User extends Authenticatable {
         $task = Task::find($task_id);
         $points_new = $this->points + $task->reward_points;
         $this->update(['points' => $points_new]);
-        if($this->nextLevel()->points <= $this->points) {
-            $this->levelUp();
+        if($this->nextLevel()!=[]){
+            if($this->nextLevel()->points <= $this->points) {
+                $this->levelUp();
+            }
         }
     }
 
@@ -93,7 +96,7 @@ class User extends Authenticatable {
                 'tye' => 'level_up',
                 'data' => ' ',
                 'path' => 'splash/levelup',
-                'user_id' => Auth::user()->id
+                'user_id' => $this->id
             ]);
         }
         //Cant't get a higher level than current
@@ -169,6 +172,14 @@ class User extends Authenticatable {
 
         }
         return true;       
+    }
+
+    public function unopenedMessage(){
+        if(MessageEntry::where('user_id',$this->id)->where('opened',0)->count()){
+            return true;
+        }else{
+            return false; 
+        }
     }
 
 }

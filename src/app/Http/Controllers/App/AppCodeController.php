@@ -16,6 +16,7 @@ class AppCodeController extends Controller
         $this->middleware('splash');
         $this->middleware('question');
         $this->middleware('points');
+        $this->middleware('messages');
 
     }
      public function code() {

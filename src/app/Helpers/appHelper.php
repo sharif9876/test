@@ -28,7 +28,6 @@ if(!function_exists('menu_app_main')) {
                 'site_url' => 'code',
                 'permissions' => []
             ],
-            
             'logout' => [
                 'name' => 'logout',
                 'display_name' => 'logout',
@@ -36,7 +35,6 @@ if(!function_exists('menu_app_main')) {
                 'site_url' => 'logout',
                 'permissions' => []
             ]
-           
         ];
 
         $menu = [];

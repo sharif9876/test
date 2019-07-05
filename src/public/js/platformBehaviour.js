@@ -82,14 +82,30 @@ $("document").ready(function () {
     //Check for approval or decline
     $("#task-entries-field").on("click", ".card .card-button", function (e) {
         ei = e.target.closest(".card").getAttribute("card-id");
+        ui = e.target.closest(".card").getAttribute("user-id");
         ea = e.target.closest(".card-button").getAttribute("card-action");
-        updateTaskEntry(ei, ea);
+        mt = "";
+        mm = "";
+        if (ea == "decline") {
+            parent = $(e.target.closest('.card.background-cover'));
+            calloutId = parent.find('.callout').attr('id');
+            callout = $('#' + calloutId);
+            if (callout.css('display') == "block") {
+                mt = $('#title' + ei).val();
+                mm = $('#message' + ei).val();
+                updateTaskEntry(ei, ea, ui, mt, mm);
+            } else {
+                callout.css('display', 'block');
+            }
+        } else {
+            updateTaskEntry(ei, ea, ui, mt, mm);
+        }
     });
 });
 
 var taskEntriesLoaded = [0];
 
-function updateTaskEntry(ei, ea) {
+function updateTaskEntry(ei, ea, ui, mt, mm) {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -100,7 +116,10 @@ function updateTaskEntry(ei, ea) {
         url: url() + '/admin/tasks/ajaxtasksconfirm',
         data: {
             entry_id: ei,
-            action: ea
+            action: ea,
+            user_id: ui,
+            message_title: mt,
+            message_message: mm
         },
         cache: false,
         success: function success() {
@@ -113,6 +132,7 @@ function updateTaskEntry(ei, ea) {
 }
 
 function removeFromFeed(ci) {
+
     var card = $(".card[card-id='" + ci + "']");
     card.addClass("disappear");
     setTimeout(function () {
@@ -154,7 +174,7 @@ function showNewCards(cards) {
         } else {
             var image = "";
         }
-        var html = "\n        <div class=\"card background-cover\" title=\"" + v.task.title + "\" card-id=\"" + v.id + "\" style=\"" + image + "\">\n            <div class=\"card-top\">\n                <div class=\"card-approve card-button\" card-action=\"approve\">\n                    <i class=\"fas fa-check\"></i>\n                </div>\n                <div class=\"card-decline card-button\" card-action=\"decline\">\n                    <i class=\"fas fa-times\"></i>\n                </div>\n            </div>\n            <div class=\"card-bottom\">\n                <div class=\"card-date\">\n                    " + v.date_submit + "\n                </div>\n                <div class=\"card-user\">\n                    " + v.user.name + "\n                </div>\n            </div>\n        </div>";
+        var html = "\n        <div class=\"card background-cover\" title=\"" + v.task.title + "\" user-id=\"" + v.user_id + "\"  card-id=\"" + v.id + "\" style=\"" + image + "\">\n            <div class=\"card-top\">\n                <div class=\"card-approve card-button\" card-action=\"approve\">\n                    <i class=\"fas fa-check\"></i>\n                </div>\n                <div class=\"card-decline card-button\" card-action=\"decline\">\n                    <i class=\"fas fa-times\"></i>\n                </div>\n            </div>\n            <div class=\"card-bottom\">\n                <div class=\"card-date\">\n                    " + v.date_submit + "\n                </div>\n                <div class=\"card-user\">\n                    " + v.user.name + "\n                </div>\n            </div>\n            <div class=\"callout\" id=\"" + v.id + "\" >\n                <div class=\"callout-content\" id=\"callout-content-field\">\n                    <div class=\"callout-title\">\n                        Enter why you want to declined this task\n                    </div>\n                    <div class=\"form\">\n                        <div class=\"title\">\n                            <div class=\"input-label\">\n                            <lavel>title</label>\n                            </div>\n                            <div class=\"input\">\n                               <input type=\"text\" id=\"title" + v.id + "\" >\n                            </div>\n                        \n                        </div>\n                        <div class=\"message\">\n                            <div class=\"input-label\">\n                            <lavel>message</label>\n                            </div>\n                            <div class=\"input\">\n                               <textarea type=\"text\" id=\"message" + v.id + "\" ></textarea>\n                            </div>\n                        \n                        </div>\n                    </div>\n                </div>                   \n            </div>\n        </div>\n         ";
         cardsField.append(html);
         taskEntriesLoaded.push(v.id);
     });

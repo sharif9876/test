@@ -99,7 +99,8 @@ header {
     .header-bar {
         width: 100%;
         height: 65px;
-
+        z-index: 2;
+        position:fixed; 
         line-height: 65px;
         background-color: #486591;
         .header-nav {
@@ -146,7 +147,7 @@ header {
                 }
             }
             .header-logo {
-                width: calc(100% - 130px);
+                width: calc(100% - 200px);
                 height: 65px;
                 float: left;
                 padding: 5px 20px;
@@ -168,7 +169,8 @@ header {
                 .user-button {
                     width: 100%;
                     height: 100%;
-                    a {
+                    
+                     a{
                         width: 100%;
                         height: 100%;
                         display: block;
@@ -180,11 +182,144 @@ header {
                             font-size: 32px;
                         }
                     }
+
                 }
             }
+              .header-message {
+
+                width: 65px;
+                height: 65px;
+                float: left;
+                .message-button {
+                    width: 100%;
+                    height: 100%;
+                     .link{
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        .message-button-inner {
+                            width: 100%;
+                            height: 100%;
+                            text-align: center;
+                            color: $text-light;
+                            font-size: 32px;
+                            
+                        }
+                    }
+                    .link:hover{
+                        cursor:pointer;
+                    } 
+                    .exclamation-container{
+                        background-color: red;
+                        position:relative;
+                        top: -79%;
+                        left: 60%;
+                        width: 15px;
+                        height: 15px;
+                        display: none;
+                        .exclamation{
+                            color :white;
+                            font-size: 10px;
+                            position: absolute;
+                            top: -24px;
+                            left: 35%;               
+                        }
+
+                         &.disappear {
+                            transition: opacity .3s ease;
+                            opacity: 0;
+                         }
+                        &.appear{
+                            transition: opacity .3s ease;
+                            opacity: 1;
+                        }            
+                    }
+
+                }
+                 .message-button:hover{
+                    cursor:pointer;
+                 }
+            }
+
+           
         }
     }
 }
+
+
+
+/*CALLOUT*/
+
+
+.callout{
+
+}
+
+.callout {
+    font-family: Helvetica;
+    height: 400px;
+    width: 290px;
+    font-size: 13px;
+}
+
+.callout {
+    background-color: white;
+    border-radius: 3px;
+    position:relative;
+    top : -36%;
+    left:-300%;
+    box-shadow: 0px 0px 20px #999;
+    margin: 25px;
+    border: 1px solid white;
+    text-shadow: 0 0 1px #000;
+    display:none;
+    .callout-content{
+        width:100%;
+        height:100%;
+        overflow:auto;
+        .message-block{
+            width:100%;
+            height:120px;
+            color:purple;
+            border-bottom:solid;
+        }
+        .message-block-unopened{
+            width:100%;
+            height:120px;
+            color:purple;
+            border-bottom:solid;
+            background-color: #E5EAF2;
+        }
+    }
+
+}
+
+.callout::before {
+    content: "";
+    width: 0px;
+    height: 2px; 
+    border: 0.8em solid transparent;
+    position: absolute;
+    left: 67%;
+    top: -20px;
+    border-bottom: 10px solid white;
+}
+ @media only screen and (max-width: 479px) {
+    .callout {
+        width: 100%;
+    }
+}
+/*MESSAGES*/
+
+
+
+
+
+
+
+
+
+
 
 /*Footer*/
 .footer-bar {
@@ -202,3 +337,5 @@ header {
         text-align: center;
     }
 }
+
+

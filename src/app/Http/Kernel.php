@@ -67,7 +67,8 @@ class Kernel extends HttpKernel
         'splashCheck' => \App\Http\Middleware\SplashCheck::class,
         'question' => \App\Http\Middleware\QuestionRead::class,
         'questionsCheck' => \App\Http\Middleware\QuestionsCheck::class,
-        'points'=>\App\Http\Middleware\PointsCheck::class
+        'points'=>\App\Http\Middleware\PointsCheck::class,
+        'messages'=>\App\Http\Middleware\MessageRead::class
 
         //'perms' => \App\Http\Middleware\Permissions::class
     ];

@@ -39,10 +39,10 @@
 @if($levels_previous!=[])
 
 
-<div id="chevrondown" class="chevron-down" onclick="hideprevious()">
+<div id="chevrondown" class="chevron-down">
     {!!load_icon('chevron-down')!!}
 </div>
-<div id="{{count($levels_previous)}}" class="chevron-up" onclick="displayPreviousLevels({{count($levels_previous)}})"> 
+<div id="{{count($levels_previous)}}" class="chevron-up"> 
     {!!load_icon('chevron-up')!!}
 </div>
 
@@ -191,9 +191,7 @@
 
 
 @endif
-<script type="text/javascript">
-      
-</script>
+
 
 
 <div class="page-container upcoming-levels" id="upcoming-levels">

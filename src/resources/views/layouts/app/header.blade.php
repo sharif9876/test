@@ -1,4 +1,4 @@
-<div class="header-bar">
+<div class="header-bar" >
     <div class="header-nav">
         <div class="header-sidebar">
             <div class="sidebar-toggle">
@@ -40,14 +40,41 @@
                 LEVELS OUT
             </a>
         </div>
+         <div class="header-message" id="header-message-display">
+            
+            <div class="message-button">
+                <div class="link">
+                    <div class="message-button-inner">
+                        <i id="messages-box" class="fas fa-envelope"></i>         
+                    </div>
+                </div>
+
+                <div class="exclamation-container" @if(Auth::user()->unopenedMessage()) style="display:block;" @endif>
+                     <div class="exclamation">
+                          {!!load_icon('exclamation')!!}
+                      </div>
+                </div>
+            </div>
+             <div class="callout" >
+                <div class="callout-content" id="callout-content-field">
+                                   
+                </div>                
+            </div>
+        </div>
         <div class="header-user">
+            
             <div class="user-button">
-                <a href="">
+                <a class="link" href="">
+                   
                     <div class="user-button-inner">
                         {!!load_icon('user')!!}
                     </div>
                 </a>
             </div>
         </div>
+        
+
+
+
     </div>
 </div>

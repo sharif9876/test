@@ -4,16 +4,36 @@ $("document").ready(function() {
     //Check for approval or decline
     $("#task-entries-field").on("click", ".card .card-button", function(e) {
         ei = e.target.closest(".card").getAttribute("card-id");
+        ui = e.target.closest(".card").getAttribute("user-id");
         ea = e.target.closest(".card-button").getAttribute("card-action");
-        updateTaskEntry(ei, ea);
+        mt ="";
+        mm="";
+        if(ea=="decline"){
+            parent = $(e.target.closest('.card.background-cover'));
+            calloutId = parent.find('.callout').attr('id');
+            callout = $('#'+calloutId);
+            if(callout.css('display')=="block"){
+                mt = $('#title'+ei).val();
+                mm = $('#message'+ei).val();
+                updateTaskEntry(ei, ea, ui, mt, mm);
+            }else{
+                 callout.css('display','block');
+            }
+           
+            
+        }else{
+            updateTaskEntry(ei, ea, ui, mt, mm);
+        }
+        
     });
+
     
 
 });
 
 var taskEntriesLoaded = [0];
          
-function updateTaskEntry(ei, ea) {
+function updateTaskEntry(ei, ea, ui, mt, mm) {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -24,7 +44,10 @@ function updateTaskEntry(ei, ea) {
         url: url()+'/admin/tasks/ajaxtasksconfirm',
         data: {
             entry_id: ei,
-            action: ea
+            action: ea,
+            user_id: ui,
+            message_title: mt,
+            message_message: mm
         },
         cache: false,
         success: function() {
@@ -37,6 +60,7 @@ function updateTaskEntry(ei, ea) {
 }
 
 function removeFromFeed(ci) {
+    
     var card = $(".card[card-id='"+ci+"']");
     card.addClass("disappear");
     setTimeout(function(){card.remove()},350);
@@ -59,6 +83,7 @@ function loadTaskEntries() {
         cache: false,
         success: function(response) {
             showNewCards(response);
+
         },
         error: function(xhr,status,error) {
             console.log(xhr+"///"+status+"///"+error)
@@ -72,7 +97,7 @@ function showNewCards(cards) {
     $.each(cards, function(i, v) {
         if(v.task.type == "image") {var image = "background-image: url('"+url()+"/images/taskentries/"+v.answer+"')";} else {var image = "";}
         var html = `
-        <div class="card background-cover" title="`+v.task.title+`" card-id="`+v.id+`" style="`+image+`">
+        <div class="card background-cover" title="`+v.task.title+`" user-id="`+v.user_id+`"  card-id="`+v.id+`" style="`+image+`">
             <div class="card-top">
                 <div class="card-approve card-button" card-action="approve">
                     <i class="fas fa-check"></i>
@@ -89,7 +114,35 @@ function showNewCards(cards) {
                     `+v.user.name+`
                 </div>
             </div>
-        </div>`;
+            <div class="callout" id="`+v.id+`" >
+                <div class="callout-content" id="callout-content-field">
+                    <div class="callout-title">
+                        Enter why you want to declined this task
+                    </div>
+                    <div class="form">
+                        <div class="title">
+                            <div class="input-label">
+                            <lavel>title</label>
+                            </div>
+                            <div class="input">
+                               <input type="text" id="title`+v.id+`" >
+                            </div>
+                        
+                        </div>
+                        <div class="message">
+                            <div class="input-label">
+                            <lavel>message</label>
+                            </div>
+                            <div class="input">
+                               <textarea type="text" id="message`+v.id+`" ></textarea>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>                   
+            </div>
+        </div>
+         `;
         cardsField.append(html);
         taskEntriesLoaded.push(v.id);
     });

@@ -3,7 +3,7 @@
 @section('content')
     <div class="content-block" id="task-add">
         <div class="block-header">
-            <div class="block-title">New Task Entrie</div>
+            <div class="block-title">New Task Entry</div>
         </div>
         <div class="block-body">
             <div class="form task-add">
@@ -29,7 +29,7 @@
                      <div class="form-row">
                         <div class="form-input select question-answer-type">
                             <div class="input-label">
-                                <label>entrie status</label>
+                                <label>entry status</label>
                             </div>
                             @if($errors != null && $errors->has('entry_status'))
                                 <div class="input-errors">
@@ -37,7 +37,7 @@
                                 </div>
                             @endif
                             <div class="input">
-                                <select name="entrie_status" class="answer-type">
+                                <select name="entry_status" class="answer-type">
                                     <option></option>
                                     @foreach($entry_status as $status)
                                         @if($status==$entry->status)
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-input text entrie_date">
+                        <div class="form-input text entry_date">
                             <div class="input-label">
                                 <label>user : id</label>
                             </div>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                       <div class="form-row">
-                        <div class="form-input text entrie_date">
+                        <div class="form-input text entry_date">
                             <div class="input-label">
                                 <label>task : id</label>
                             </div>

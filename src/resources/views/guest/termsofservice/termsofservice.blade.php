@@ -2,10 +2,14 @@
 
 @section('content')
 
-<div style="width:500px;height:300px;border:1px solid #000;margin-left:30%; margin-top:5%;">
+<div class="background-cover">
 	
-      {!!$page_text!!}
- 
+
+	<div class="text-about">
+		
+	    {!!$page_text!!}
+	    
+	</div>
 </div>
 
 @endsection

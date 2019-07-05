@@ -14,7 +14,8 @@ class AppInviteController extends Controller
         $this->middleware('auth');
         $this->middleware('splash');
         $this->middleware('question');
-         $this->middleware('points');
+        $this->middleware('points');
+        $this->middleware('messages');
 
     }
     public function invite() {

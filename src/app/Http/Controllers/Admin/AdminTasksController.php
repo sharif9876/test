@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Validator;
+use Carbon\Carbon;
 
 use App\Task;
 use App\TaskType;
@@ -16,26 +17,22 @@ use App\Level;
 use App\Question;
 use App\TaskRequirement;
 use App\User;
+use App\Message;
+use App\MessageEntry;
+
 class AdminTasksController extends Controller
 {
     public function __construct() {
         $this->middleware('admin', ['except' => 'ajaxQuestionAnswerInput']);
     }
 
+    //tasks
     public function tasks() {
         $tasks = Task::all();
         (array) $tasks;
 
         return view('admin/tasks/tasks', compact('tasks'));
     }
-
-    public function taskEntries() {
-        $task_entries = TaskEntry::with('task', 'user')->get();
-        (array) $task_entries;
-
-        return view('admin/tasks/taskEntries', compact('task_entries'));
-    }
-    
 
     public function taskAdd() {
         $task_types = TaskType::where('name', 'image')->get();
@@ -87,8 +84,11 @@ class AdminTasksController extends Controller
             //'reward_points' => $request->input('task_reward_points'),
             'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : ''
         ]);
+
         if($request->has('task_requirements') && !empty($request->input('task_requirements'))) {
+
             foreach(explode(',', $request->input('task_requirements')) as $requirement) {
+
                 $requirement = explode(':', $requirement);
                 TaskRequirement::create([
                     'question_answer' => $requirement[1],
@@ -135,6 +135,7 @@ class AdminTasksController extends Controller
         return redirect(url('/admin/tasks'));
     }
 
+    //ajax
     public function ajaxTasksFeed(Request $request) {
         if(!$request->ajax()){
             return back();
@@ -157,10 +158,18 @@ class AdminTasksController extends Controller
                     'type' => 'task_complete',
                     'data' => 'task_id='.$request->entry_id,
                     'path' => 'splash/taskcomplete',
-                    'user_id' => Auth::user()->id
+                    'user_id' => $request->user_id
+                ]);
+                 $message = Message::create([
+                    'title' => 'Congratulations !',
+                    'message' => "Your're on to the next level."
+                ]);
+                  MessageEntry::create([
+                    'user_id' => $request->user_id,
+                    'message_id' => $message->id
                 ]);
                 //User task complete
-                Auth::user()->taskComplete(TaskEntry::find($request->entry_id)->task_id);
+                User::find($request->user_id)->taskComplete(TaskEntry::find($request->entry_id)->task_id);
                 
             }
             return;
@@ -168,6 +177,22 @@ class AdminTasksController extends Controller
         elseif($request->action == 'decline') {
             //code for declining a task entry
             if(TaskEntry::find($request->entry_id)) {
+                $title = $request->message_title;
+                $message = $request->message_message;
+                if($title == ""){
+                    $title = "Sorry !";
+                }
+                if($message == ""){
+                    $message = "Your task got declined. Try again !";
+                }
+               $message = Message::create([
+                    'title' => $title,
+                    'message' => $message
+                ]);
+                  MessageEntry::create([
+                    'user_id' => $request->user_id,
+                    'message_id' => $message->id
+                ]);
                 TaskEntry::find($request->entry_id)->update(['status' => 'rejected']);
             }
             return;
@@ -195,11 +220,27 @@ class AdminTasksController extends Controller
             }
             $html .= '</select>';
         }
-        else {
-            $html .= '<input type="text" name="relation-question-answer" class="relation-question-answer">';
+        elseif($question->answer_type == 'select') {
+            $html .= '<select class="relation-question-answer">';
+            foreach(explode(',', $question->answers) as $answer) {
+                $options = explode(':', $answer);
+                $html .= '<option value="'.$options[1].'">'.$options[0].'</option>';
+            }
+            $html .= '</select>';
+        }else{
+            $html = "<input type='text' name='relation-question-answer' class='relation-question-answer'>";
         }
         $res = [$html];
         return $res;
+    }
+
+    //taskEntries
+
+    public function taskEntries() {
+        $task_entries = TaskEntry::with('task', 'user')->get();
+        (array) $task_entries;
+
+        return view('admin/tasks/taskEntries', compact('task_entries'));
     }
     public function taskEntryAdd() {
          $entry_status = ['pending', 'completed', 'rejected'];
@@ -225,13 +266,13 @@ class AdminTasksController extends Controller
         $task = Task::find($request->input('id'));
 
        
-        if($request->has('entrie_answer')) {
+        if($request->has('entry_answer')) {
            
-            $entrie_image = $request->file('entrie_answer');
+            $entry_image = $request->file('entry_answer');
             $image_name = 'task'.$task->id.'_'.$user->id;
-            $image_extention = $entrie_image->extension() == 'jpeg' ? '.jpg' : '.'.$entrie_image->extension();
+            $image_extention = $entry_image->extension() == 'jpeg' ? '.jpg' : '.'.$entry_image->extension();
             $image_path = public_path('/images/taskentries/');
-            $entrie_image->move($image_path, $image_name.$image_extention);
+            $entry_image->move($image_path, $image_name.$image_extention);
         }
        
         TaskEntry::create([

@@ -31,8 +31,13 @@ Route::group(['prefix' => ''], function() {
     Route::get('/termsofservice', 'Guest\GuestController@termsOfService');
     Route::get('/privacypolicy', 'Guest\GuestController@privacyPolicy');
     Route::get('/users/{id}', 'Guest\GuestController@userProfile');
-});
 
+});
+// Messages Routes
+Route::group(['prefix' => 'messages'], function() {
+    Route::post('/ajaxmessagesfeed','App\AppMessagesController@ajaxMessagesFeed');
+    Route::post('/ajaxmessagesupdate','App\AppMessagesController@ajaxMessagesUpdate');
+});
 // OAuth Routes
 Route::get('auth/{provider}', 'Auth\OAuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback');
@@ -52,6 +57,27 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('/{id}/edit', 'Admin\AdminQuestionsController@questionEditSave');
         Route::get('/ajaxquestionsidlist', 'Admin\AdminQuestionsController@ajaxQuestionsIdList');
         Route::post('/ajaxquestionanswerinput', 'Admin\AdminQuestionsController@ajaxQuestionAnswerInput');
+    });
+    Route::group(['prefix' => 'messages'], function() {
+        Route::get('/', 'Admin\AdminMessagesController@messages');
+        Route::get('/messages', 'Admin\AdminMessagesController@messages');
+        Route::get('/add', 'Admin\AdminMessagesController@messageAdd');
+        Route::get('/{id}/edit', 'Admin\AdminMessagesController@messageEdit');
+        Route::get('/{id}/delete', 'Admin\AdminMessagesController@messageDelete');
+        Route::post('/add', 'Admin\AdminMessagesController@messageAddSave');
+        Route::post('/{id}/edit', 'Admin\AdminMessagesController@messageEditSave');
+
+        Route::group(['prefix'=>'user'],function(){
+             Route::get('/', 'Admin\AdminMessagesController@userMessages');
+             Route::get('/add', 'Admin\AdminMessagesController@userMessageAdd');
+             Route::get('/{id}/edit', 'Admin\AdminMessagesController@userMessageEdit');
+             Route::get('/{id}/delete', 'Admin\AdminMessagesController@userMessageDelete');
+             Route::post('/add', 'Admin\AdminMessagesController@userMessageAddSave');
+             Route::post('/{id}/edit', 'Admin\AdminMessagesController@userMessageEditSave');
+
+
+        });
+
     });
      Route::group(['prefix' => 'codes'], function() {
         Route::get('/', 'Admin\AdminCodesController@codes');

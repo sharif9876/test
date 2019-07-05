@@ -139,6 +139,7 @@ main {
 /*Sidebar*/
 
 .sidebar {
+  overflow: auto;
   width: 250px;
   height: 100vh;
   padding-top: 25px;
@@ -151,7 +152,7 @@ main {
 }
 
 .sidebar:hover .sidebar-toggle {
-  right: -25px;
+  right: -10px;
   color: #fff;
 }
 
@@ -961,5 +962,42 @@ i {
   color: #fff;
   font-size: 18px;
   padding: 0px 10px;
+}
+
+/*CALLOUT*/
+
+.callout {
+  font-family: Helvetica;
+  height: 250px;
+  width: 280px;
+  font-size: 13px;
+}
+
+.callout {
+  background-color: white;
+  border-radius: 3px;
+  position: absolute;
+  top: 52%;
+  -webkit-box-shadow: 0px 0px 20px #999;
+          box-shadow: 0px 0px 20px #999;
+  margin: 25px;
+  border: 1px solid white;
+  text-shadow: 0 0 1px #000;
+  display: none;
+}
+
+.callout .callout-content {
+  overflow: auto;
+}
+
+.callout::before {
+  content: "";
+  width: 0px;
+  height: 2px;
+  border: 0.8em solid transparent;
+  position: absolute;
+  left: 70%;
+  top: -20px;
+  border-bottom: 10px solid white;
 }
 

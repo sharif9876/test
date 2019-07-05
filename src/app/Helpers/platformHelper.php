@@ -91,6 +91,30 @@ if(!function_exists('menu_admin_sidebar')) {
                     ]
                 ]
             ],
+            'messages' => [
+                'name' => 'messages',
+                'display_name' => 'messages',
+                'slug' => 'menuitem_messages',
+                'site_url' => 'admin/messages',
+                'icon' => 'envelope',
+                'permissions' => [],
+                'submenu' => [
+                    'messages-all' => [
+                        'name' => 'all-messages',
+                        'display_name' => 'all messages',
+                        'slug' => 'menuitem_messages-all',
+                        'site_url' => 'admin/messages/messages',
+                        'permissions' => []
+                    ],
+                    'messages-entries' => [
+                        'name' => 'messages-entries',
+                        'display_name' => 'message entries',
+                        'slug' => 'menuitem_messages-entries',
+                        'site_url' => 'admin/messages/user',
+                        'permissions' => []
+                    ]
+                ]
+            ],
             'levels' => [
                 'name' => 'levels',
                 'display_name' => 'levels',

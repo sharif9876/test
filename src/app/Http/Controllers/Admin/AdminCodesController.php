@@ -63,7 +63,6 @@ class AdminCodesController extends Controller
             $errors = $validator->errors();
             return redirect(url('/admin/codes/'.$id.'/edit'))->with('errors', $errors);
         }
-       
         $code->update([
             'code' => $request->has('code_code') ? $request->input('code_code') : $code->code,
             'levels' => $request->has('code_levels') ? $request->input('code_levels') : $code->points,
