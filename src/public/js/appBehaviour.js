@@ -78,13 +78,6 @@ module.exports = __webpack_require__(66);
 
 $("document").ready(function () {
     loadMessages();
-    function calloutHeight() {
-        setTimeout(function () {
-            calloutHeight();
-        }, 100);
-    }
-    calloutHeight();
-
     $('body').on('click', function (e) {
 
         if (!$(e.target).parents('.header-message').length) {
@@ -166,6 +159,7 @@ $("document").ready(function () {
 
 var messagesLoaded = [0];
 var messagesOpened = [];
+var newMessage = false;
 
 function loadMessages() {
     $.ajaxSetup({
@@ -225,6 +219,7 @@ function showNewMessages(messages) {
             if (v.opened == 0) {
                 swapExclamation(true);
                 opened = "unopened-toast";
+                newMessage = true;
             }
 
             var html = ' \n<div class="toast__container">\n        <div class="' + opened + '" id="' + v.id + '" >\n            ' + toHtml(v.message.type) + ' \n          </div>\n          <div class="toast__content">\n            <p class="toast__title__' + v.message.type.split('-')[1] + '">' + v.message.title + '</p>\n            <p class="toast__message">' + v.message.message + '</p>\n          </div>\n          <div class="toast__close">\n            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 15.642 15.642">\n          <path fill-rule="evenodd" d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061  c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061  l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22l6.541-6.541  l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z"></path>\n        </svg>\n          </div>\n          </div>\n        </div>\n</div>\n\n\n            ';
@@ -248,8 +243,11 @@ function openCallout() {
         }
     });
     messagesOpened = messagesOpened.concat(entries);
-    swapExclamation(false);
-    updateMessageEntries();
+    if (newMessage) {
+        swapExclamation(false);
+        updateMessageEntries();
+        newMessage = false;
+    }
 }
 
 function updateMessageEntries() {

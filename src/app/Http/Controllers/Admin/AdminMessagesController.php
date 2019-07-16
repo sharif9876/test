@@ -34,12 +34,14 @@ class AdminMessagesController extends Controller
     }
     public function messageEdit($id) {
         $level_max=Level::max('level');
-        $message = Message::find($id);  
+        $message = Message::find($id);
+        $message_types=["date"=>'date',"level"=>'level'];  
         $errors = session('errors');
         return view('admin/messages/messageEdit', compact('message',  'errors','level_max','message_types'));
     }
      public function messageDelete($id) {
         $message = Message::find($id);
+        $userMessages = MessageEntry::where('message_id',$message->id)->delete();
         $message->delete();
         return redirect('/admin/messages');
    }
@@ -67,7 +69,7 @@ class AdminMessagesController extends Controller
         $validator = Validator::make($request->all(), [
             'message_title' => 'max:50',
             'message_message' => 'max:500',
-            'message_level' => 'numeric|min:0|max:'.$level_max
+             'message_type' => 'required|in:date,level'
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
@@ -78,7 +80,8 @@ class AdminMessagesController extends Controller
         $message->update([
             'title' => $request->has('message_title') ? $request->input('message_title') : $message->title,
             'message' => $request->has('message_message') ?  $request->input('message_message') : $message->message,
-            'level_min' => $request->has('message_level') ? $request->input('message_level') : $message->level_min
+            'type' => $request->has('message_type') ? 'global-'.$request->input('message_type') : $message->type,
+            'data' => $request->has('message_data') ? $request->input('message_data') : $message->data,
         ]);
         return redirect(url('/admin/messages'));
     }

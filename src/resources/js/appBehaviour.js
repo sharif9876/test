@@ -1,12 +1,5 @@
 $("document").ready(function() {
     loadMessages();
-    function calloutHeight(){
-        setTimeout(function(){calloutHeight();},100);
-
-     }
-    calloutHeight();
-
-    
      $('body').on('click',function(e){
       
         if(!($(e.target).parents('.header-message').length)){
@@ -95,6 +88,7 @@ $("document").ready(function() {
 
  var messagesLoaded = [0];
  var messagesOpened =[];
+ var newMessage = false;
 
 function loadMessages() {
     $.ajaxSetup({
@@ -188,6 +182,7 @@ function showNewMessages(messages){
             if(v.opened == 0){
                 swapExclamation(true);
                 opened ="unopened-toast";
+                newMessage = true;
             }
 
             var html = ` 
@@ -230,8 +225,11 @@ function openCallout(){
         }
     });
     messagesOpened = messagesOpened.concat(entries);
-    swapExclamation(false);
-    updateMessageEntries();
+    if(newMessage){
+        swapExclamation(false);
+        updateMessageEntries();
+        newMessage = false;
+    }
 }
 
 function updateMessageEntries(){
