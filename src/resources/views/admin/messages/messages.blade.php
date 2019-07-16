@@ -40,8 +40,8 @@
                             <th style="width: 70px;">actions</th>
                             <th style="width: 100px;">title</th>
                             <th style="width: 300px;">message</th>
-                            <th style="width: 70px;">level</th>
-                            <th style="width: 70px;">global</th>
+                            <th style="width: 70px;">type</th>
+                            <th style="width: 70px;">data</th>
                         </tr>
                         @if(count($messages) > 0)
                         @foreach($messages as $message)
@@ -50,8 +50,8 @@
                                 <td class="actions"><a class="edit" href="{{url('/admin/messages/'.$message->id.'/edit')}}"><i class="edit fas fa-pencil-alt"></i></a><a class="delete" href="{{url('/admin/messages/'.$message->id.'/delete')}}"><i class="far fa-trash-alt"></i></a></td>
                                 <td class="title">{{$message->title}}</td>
                                 <td class="message">{{$message->message}}</td>
-                                <td class="level-min table-centered">{{$message->level_min}}</td>
-                                <td class="global table-centered">@if($message->global) Global @else Unique @endif</td>
+                                <td class="level-min table-centered">{{explode('-',$message->type)[1]}}</td>
+                                <td class="global table-centered">{{$message->data}}</td>
                             </tr>
                         @endforeach
                         @else

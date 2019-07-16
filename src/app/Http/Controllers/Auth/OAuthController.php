@@ -56,8 +56,8 @@ class OAuthController extends Controller
         return User::create([
             'name'     => $user->name,
             'email'    => $user->email,
-            'level' => 0,
-            'points' => 0,
+            'level' => 1,
+            'points' => 50,
             'userlevel' => 'member',
             'provider' => $provider,
             'provider_id' => $user->id

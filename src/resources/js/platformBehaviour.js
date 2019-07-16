@@ -29,6 +29,8 @@ $("document").ready(function() {
 
     
 
+    
+
 });
 
 var taskEntriesLoaded = [0];
@@ -433,6 +435,7 @@ $("document").ready(function() {
 
 
 
+
     // Answer Types
     $("document").on("load",function(e) {
         compileAnswers(e);
@@ -471,7 +474,7 @@ $("document").ready(function() {
         al.append(html);
     }
     function removeAnswerField(e) {
-        e.target.closest(".answer-field").remove();
+        e.target.closest(".answer-field").remove(); 
     }
     function compileAnswers(e) {
         var at = $(".form.question-add .question-answer-type .answer-type")[0].value;
@@ -485,4 +488,42 @@ $("document").ready(function() {
         as = as.slice(0, -1);
         ai[0].value = as;
     }
+    $(".form.message-add .message-type").on('change', '.input',function(e) {
+        var value = $(e.target).val();
+        var html ='';
+        if(value=='level'){
+            var formrow = $('#form-row-level');
+            html = `
+                    <div class="form-row">
+                        <div class="form-input num message-level" >
+                            <div class="input-label">
+                                <label>Level</label>
+                            </div>
+
+                            <div class="input">
+                                <input type="number" name="message_data" min="0" max="{{$level_max}}">
+                            </div>
+                        </div>
+                    </div>
+            `;
+            
+            $('#form-row-date').empty();
+        }else{
+            var formrow = $('#form-row-date');
+            html = `
+             <div class="form-row">
+                        <div class="form-input text message-date">
+                            <div class="input-label">
+                                <label>Date</label>
+                            </div>
+                            <div class="input">
+                                <input type="date" name="message_data" >
+                            </div>
+                        </div>
+                    </div>
+            `;
+             $('#form-row-level').empty();
+        }
+        formrow.html(html);
+    });
 });

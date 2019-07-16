@@ -20,20 +20,21 @@ class AdminMessagesController extends Controller
 
     //messages
     public function messages() {
-        $messages = Message::orderBy('level_min','desc')->get();
+        $messages = Message::where('type','global-level')->orderBy('data','asc')->get();
+        $messages = $messages->merge(Message::where('type','global-date')->orderBy('data','asc')->get());
+        $messages = $messages->merge(Message::where('type','like','unique%')->get());
         (array) $messages;
         return view('admin/messages/messages', compact('messages'));
     }
     public function messageAdd() {
         $level_max=Level::max('level');
-        $message_types=["global"=>1,"unique"=>0];
+        $message_types=["date"=>'date',"level"=>'level'];
         $errors = session('errors');
         return view('admin/messages/messageAdd', compact('errors','level_max','message_types'));
     }
     public function messageEdit($id) {
         $level_max=Level::max('level');
-        $message = Message::find($id);
-        $message_types=["global"=>1,"unique"=>0];  
+        $message = Message::find($id);  
         $errors = session('errors');
         return view('admin/messages/messageEdit', compact('message',  'errors','level_max','message_types'));
     }
@@ -45,28 +46,20 @@ class AdminMessagesController extends Controller
     public function messageAddSave(Request $request) {
 
         $level_max = Level::max('level');
+        
+        
         $validator = Validator::make($request->all(), [
             'message_title' => 'required|max:50',
             'message_message' => 'required|max:500',
-            'message_global' => 'required|in:1,0',
-            'message_level' => 'numeric|min:0|max:'.$level_max,
-
-
+            'message_type' => 'required|in:date,level',
+            'message_data' => $request->input('message_type')=='level'?'required|numeric|min:0|max:'.$level_max:'required',
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
-            return redirect(url('/admin/messages/add'))->with('errors', $errors);
+            $messagetype = $request->input('message_type')=='date'?'date':'level';
+            return redirect(url('/admin/messages/add'))->with('errors', $errors)->with('messagetype',$messagetype);
         }
-        $level_min = $request->input('message_level');
-        if($request->input('message_global')==0){
-           $level_min = null;
-        }
-        Message::create([
-            'title' => $request->input('message_title'),
-            'message' => $request->input('message_message'),
-            'level_min' => $level_min,
-            'global' => $request->input('message_global')
-        ]);
+         Message::setGlobal($request->input('message_title'), $request->input('message_message'),$request->input('message_type'), $request->input('message_data'));
         return redirect(url('/admin/messages'));
     }
     public function messageEditSave(Request $request,$id) {
@@ -108,7 +101,7 @@ class AdminMessagesController extends Controller
     }
     public function userMessageDelete($id) {
         $userMessage = MessageEntry::find($id);
-        $message->delete();
+        $userMessage->delete();
         return redirect('/admin/messages/user');
    }
     public function userMessageAddSave(Request $request) {

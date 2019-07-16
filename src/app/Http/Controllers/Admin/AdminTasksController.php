@@ -56,6 +56,7 @@ class AdminTasksController extends Controller
     }
 
     public function taskAddSave(Request $request) {
+       
         $level_max = Level::max('id');
         $validator = Validator::make($request->all(), [
             'task_title' => 'required|max:191',
@@ -160,14 +161,7 @@ class AdminTasksController extends Controller
                     'path' => 'splash/taskcomplete',
                     'user_id' => $request->user_id
                 ]);
-                 $message = Message::create([
-                    'title' => 'Congratulations !',
-                    'message' => "Your're on to the next level."
-                ]);
-                  MessageEntry::create([
-                    'user_id' => $request->user_id,
-                    'message_id' => $message->id
-                ]);
+                Message::setUnique('Congratulations !','You are on to the next level !','approved',Auth::user()->id);
                 //User task complete
                 User::find($request->user_id)->taskComplete(TaskEntry::find($request->entry_id)->task_id);
                 
@@ -185,14 +179,7 @@ class AdminTasksController extends Controller
                 if($message == ""){
                     $message = "Your task got declined. Try again !";
                 }
-               $message = Message::create([
-                    'title' => $title,
-                    'message' => $message
-                ]);
-                  MessageEntry::create([
-                    'user_id' => $request->user_id,
-                    'message_id' => $message->id
-                ]);
+                Message::setUnique($title,$message,'declined',Auth::user()->id);
                 TaskEntry::find($request->entry_id)->update(['status' => 'rejected']);
             }
             return;

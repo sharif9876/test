@@ -441,6 +441,21 @@ $("document").ready(function () {
         as = as.slice(0, -1);
         ai[0].value = as;
     }
+    $(".form.message-add .message-type").on('change', '.input', function (e) {
+        var value = $(e.target).val();
+        var html = '';
+        if (value == 'level') {
+            var formrow = $('#form-row-level');
+            html = "\n                    <div class=\"form-row\">\n                        <div class=\"form-input num message-level\" >\n                            <div class=\"input-label\">\n                                <label>Level</label>\n                            </div>\n\n                            <div class=\"input\">\n                                <input type=\"number\" name=\"message_data\" min=\"0\" max=\"{{$level_max}}\">\n                            </div>\n                        </div>\n                    </div>\n            ";
+
+            $('#form-row-date').empty();
+        } else {
+            var formrow = $('#form-row-date');
+            html = "\n             <div class=\"form-row\">\n                        <div class=\"form-input text message-date\">\n                            <div class=\"input-label\">\n                                <label>Date</label>\n                            </div>\n                            <div class=\"input\">\n                                <input type=\"date\" name=\"message_data\" >\n                            </div>\n                        </div>\n                    </div>\n            ";
+            $('#form-row-level').empty();
+        }
+        formrow.html(html);
+    });
 });
 
 /***/ })

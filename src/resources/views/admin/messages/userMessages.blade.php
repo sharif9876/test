@@ -38,8 +38,8 @@
                         <tr class="table-header">
                             <th style="width: 70px;">id</th>
                             <th style="width: 70px;">actions</th>
-                            <th style="width: 70px;">message_id</th>
                             <th style="width: 70px;">user_id</th>
+                            <th style="width: 70px;">message_id</th>
                             <th style="width: 70px;">opened</th>
                          
                         </tr>

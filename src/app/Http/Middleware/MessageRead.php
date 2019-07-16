@@ -8,6 +8,8 @@ use Carbon\Carbon;
 
 use App\Message;
 use App\MessageEntry;
+use App\User;
+
 class MessageRead
 {
     /**
@@ -19,14 +21,28 @@ class MessageRead
      */
     public function handle($request, Closure $next)
     {
-        foreach(Message::where('global',1)->where('level_min', '<=', Auth::user()->level)->get() as $message) {
-            if(!MessageEntry::where('user_id',Auth::user()->id)->where('message_id',$message->id)->count()){
-                
+        foreach(Message::where('type','like','global%')->whereNotIn('id', Auth::user()->getMessageEntries())->get() as $message) {
+            $entry = false;
+            $type = explode('-',$message->type)[1];
+            if($type=='date'){
+                if(Carbon::now()>$message->data){
+                    $entry = true;
+                     
+                }
+            }else{
+                if(Auth::user()->level>=$message->data){
+                    $entry = true;
+
+                }
+            }
+            if($entry){
+               
                 MessageEntry::create([
                     'user_id' => Auth::user()->id,
                     'message_id' =>  $message->id
-                 ]);
+                ]);
             }
+            
         }
         return $next($request);
     }

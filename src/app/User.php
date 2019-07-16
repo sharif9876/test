@@ -182,4 +182,8 @@ class User extends Authenticatable {
         }
     }
 
+    public function getMessageEntries(){
+        return MessageEntry::where('user_id',$this->id)->pluck('message_id')->toArray();
+    }
+
 }
