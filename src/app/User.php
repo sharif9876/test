@@ -54,7 +54,7 @@ class User extends Authenticatable {
         return $this->hasMany(Splash::class);
     }
     public function previousLevel(int $count=null){
-        if($this->level!=0){
+        if($this->level!=1){
             
             $level_ids = ($this->level - $count+1 ) < Level::min('id') ? range(Level::min('id'), $this->level) : range($this->level - $count+1,$this->level);
            
