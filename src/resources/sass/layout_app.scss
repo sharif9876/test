@@ -330,7 +330,7 @@ header {
 
 /*MESSAGES*/
  
-.toast__container {
+.toast-container {
     border-bottom: solid #E0E0E0;
     line-height: 100%;
     display: table-cell;
@@ -340,7 +340,8 @@ header {
     background-color:#efefef;
     display: table;
     text-align: center;
-    .opened-toast {
+        
+    .opened-toast{
         text-align:left;
         padding: 21px 0;
         background-color:#FFF;
@@ -349,7 +350,7 @@ header {
         top: 0px;
         position:relative;
         box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
-        .toast__icon{
+        .toast-icon{
             position:absolute;
             top:50%;
             left:20px;
@@ -359,45 +360,46 @@ header {
             padding: 7px;
             border-radius:50%;
             display:inline-block;
-            .toast__svg{
-              fill:#fff;
+            .toast-svg{
+                fill:#fff;
             }
         }
-        .toast__content{
+        .toast-content{
             padding-left:70px;
             padding-right:60px;
-            .toast__title__declined {
+             .toast-title-declined {
                 color: #ED0505;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__approved {
+            .toast-title-approved {
                 color: #2BDE3F;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__date {
+            .toast-title-date {
                 color: #3e3e3e;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__level {
+            .toast-title-level {
                 color: #3e3e3e;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__message {
+
+            .toast-message {
                 font-size: 14px;
                 margin-top: 0;
-                margin-bottom: 0;
+              margin-bottom: 0;
                 color: #878787;
             }
         }
-        .toast__close {
+        .toast-close {
             position: absolute;
             right: 22px;
             top: 50%;
@@ -417,6 +419,7 @@ header {
         height: 100%;
         border-top-left-radius:4px;
         border-bottom-left-radius: 4px;
+       
 
     }
     .unopened-toast{
@@ -428,7 +431,7 @@ header {
         top: 0px;
         position:relative;
         box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
-        .toast__icon{
+        .toast-icon{
             position:absolute;
             top:50%;
             left:20px;
@@ -438,46 +441,46 @@ header {
             padding: 7px;
             border-radius:50%;
             display:inline-block;
-            .toast__svg{
+            .toast-svg{
                 fill:#fff;
             }
         }
-        .toast__content{
+        .toast-content{
             padding-left:70px;
             padding-right:60px;
-             .toast__title__declined {
+             .toast-title-declined {
                 color: #ED0505;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__approved {
+            .toast-title-approved {
                 color: #2BDE3F;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__date {
+            .toast-title-date {
                 color: #3e3e3e;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
-            .toast__title__level {
+            .toast-title-level {
                 color: #B1CEFB;
                 font-weight: 700;
                 margin-top: 0;
                 margin-bottom: 8px;
             }
 
-            .toast__message {
+            .toast-message {
                 font-size: 14px;
                 margin-top: 0;
               margin-bottom: 0;
                 color: #878787;
             }
         }
-        .toast__close {
+        .toast-close {
             position: absolute;
             right: 22px;
             top: 50%;
@@ -500,19 +503,8 @@ header {
 
     }
 
-}
-
-
-
-
-
-
-
-
-
-
-
-.toast--green .toast__icon{
+} 
+.toast--green .toast-icon{
   background-color:#2BDE3F;
 }
 
@@ -520,7 +512,7 @@ header {
   background-color:#2BDE3F;
 }
 
-.toast--blue .toast__icon{
+.toast--blue .toast-icon{
   background-color:#1D72F3;
 }
 
@@ -528,7 +520,7 @@ header {
   background-color:#1D72F3;
 }
 
-.toast--red .toast__icon{
+.toast--red .toast-icon{
   background-color:#ED0505;
 }
 

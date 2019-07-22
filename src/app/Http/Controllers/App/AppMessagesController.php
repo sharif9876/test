@@ -29,4 +29,31 @@ class AppMessagesController extends Controller
        
 
     }
+
+    public function ajaxMessageDelete(Request $request){
+        if(!$request->ajax()){
+            return back();
+        }
+         $types = ['unique-declined'];
+        $messageEntry = MessageEntry::find($request->messageEntry);
+        $message = Message::find($messageEntry->message_id);
+        if(in_array($messageEntry->message->type,$types)){
+            
+            $messageEntry->delete();
+            $message->delete();
+            return;
+        }else{
+            if(Auth::user()->deleted_messages == null){
+                Auth::user()->update(['deleted_messages'=>$message->id]);
+            }else{
+
+                  Auth::user()->update(['deleted_messages'=>Auth::user()->deleted_messages.','. $message->id]);
+            }
+            $messageEntry->delete();
+            return;
+        }
+
+
+    }
+    
 }

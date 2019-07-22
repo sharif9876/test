@@ -35,7 +35,7 @@ class MessageRead
 
                 }
             }
-            if($entry){
+            if(($entry)and (!in_array($message->id,explode(',',Auth::user()->deleted_messages)))){
                
                 MessageEntry::create([
                     'user_id' => Auth::user()->id,

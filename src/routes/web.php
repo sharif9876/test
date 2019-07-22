@@ -37,6 +37,7 @@ Route::group(['prefix' => ''], function() {
 Route::group(['prefix' => 'messages'], function() {
     Route::post('/ajaxmessagesfeed','App\AppMessagesController@ajaxMessagesFeed');
     Route::post('/ajaxmessagesupdate','App\AppMessagesController@ajaxMessagesUpdate');
+    Route::post('/ajaxmessagedelete','App\AppMessagesController@ajaxMessageDelete');
 });
 // OAuth Routes
 Route::get('auth/{provider}', 'Auth\OAuthController@redirectToProvider');
