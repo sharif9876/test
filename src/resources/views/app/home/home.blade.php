@@ -191,7 +191,7 @@
 
 
     @endif
-</div>
+
 
 
 <div class="page-container upcoming-levels" id="upcoming-levels">
