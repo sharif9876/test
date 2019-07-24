@@ -47,7 +47,7 @@
 </div>
 
 
-<div class="page-container-previous-levels">
+
     <div class="page-container previous-levels" id="previous-levels">
         <div class="row">
             <div class="previous-levels">
