@@ -64,7 +64,7 @@
         <div class="header-user">
             
             <div class="user-button">
-                <a class="link" href="">
+                <a class="link" href="profile">
                    
                     <div class="user-button-inner">
                         {!!load_icon('user')!!}

@@ -1,5 +1,6 @@
 $("document").ready(function() {
     loadMessages();
+
      $('body').on('click',function(e){
       
         if(!($(e.target).parents('.header-message').length)){
@@ -68,7 +69,7 @@ $("document").ready(function() {
         $('.chevron-up').css('display','block');
         
     });  
-    
+   
     $("#timeline").on("load", function(e) {
         console.log('hi');
         $.ajaxSetup({
@@ -223,6 +224,7 @@ function showNewMessages(messages){
 function openCallout(){
     var unopened = $('.unopened-toast');
      $('.callout').css('display','block');
+    swapExclamation(false);
     var entries = unopened.map(function(){
         return $(this).attr('id');
     }).get();
@@ -235,7 +237,6 @@ function openCallout(){
     });
     messagesOpened = messagesOpened.concat(entries);
     if(newMessage){
-        swapExclamation(false);
         updateMessageEntries();
         newMessage = false;
     }

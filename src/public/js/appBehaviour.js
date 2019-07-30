@@ -78,6 +78,7 @@ module.exports = __webpack_require__(66);
 
 $("document").ready(function () {
     loadMessages();
+
     $('body').on('click', function (e) {
 
         if (!$(e.target).parents('.header-message').length) {
@@ -241,6 +242,7 @@ function showNewMessages(messages) {
 function openCallout() {
     var unopened = $('.unopened-toast');
     $('.callout').css('display', 'block');
+    swapExclamation(false);
     var entries = unopened.map(function () {
         return $(this).attr('id');
     }).get();
@@ -253,7 +255,6 @@ function openCallout() {
     });
     messagesOpened = messagesOpened.concat(entries);
     if (newMessage) {
-        swapExclamation(false);
         updateMessageEntries();
         newMessage = false;
     }

@@ -60,6 +60,7 @@
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </div>
+                            <br><br><br>
                             {{-- <div class="social-button facebook">
                                 <a href="{{url('/auth/facebook')}}">
                                     <i class="fab fa-facebook"></i>

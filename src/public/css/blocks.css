@@ -3,6 +3,7 @@
 /* Block login*/
 
 .page-container.login {
+  overflow-y: auto;
   width: 100%;
   min-height: calc(100vh - 90px);
 }

@@ -591,53 +591,56 @@
 
 /*TIMELINE CONTAINER*/
 
-.page-container.timeline .row {
-  height: 100%;
-}
+/*.page-container.timeline {
+    .row {
+        height: 100%;
+        .timeline-container {
+            .timeline-header {
+                width: 100%;
+                height: 35px;
+                font-size: 24px;
+                padding: 5px;
+                padding-bottom: 50px;
+                padding-left: 15px;
+            }
+            .timeline {
+                .timeline-inner {
+                    .timeline-item {
+                        margin-left: 10px;
+                        width: calc(100% - 40px);
+                        .item-header {
+                            width: 100%;
+                            height: 25px;
+                            padding-left: 5px;
+                            margin-bottom: 3px;
+                            font-size: 16px;
+                            color: #363636;
+                            border-bottom:1px solid #363636;
 
-.page-container.timeline .row .timeline-container .timeline-header {
-  width: 100%;
-  height: 35px;
-  font-size: 24px;
-  padding: 5px;
-  padding-bottom: 50px;
-  padding-left: 15px;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item {
-  margin-left: 10px;
-  width: calc(100% - 40px);
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-header {
-  width: 100%;
-  height: 25px;
-  padding-left: 5px;
-  margin-bottom: 3px;
-  font-size: 16px;
-  color: #363636;
-  border-bottom: 1px solid #363636;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-header .item-profile {
-  width: 30px;
-  height: 30px;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content {
-  width: 100%;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .item-text {
-  line-height: 23px;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .item-text .text-action {
-  font-size: 19px;
-}
-
-.page-container.timeline .row .timeline-container .timeline .timeline-inner .timeline-item .item-content .background-cover {
-  width: 80%;
-  height: 200px;
-}
+                            .item-profile {
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                        .item-content {
+                            width: 100%;
+                            .item-text {
+                                line-height: 23px;
+                                .text-action {
+                                    font-size: 19px;
+                                }
+                            }
+                            .background-cover {
+                                width: 80%;
+                                height: 200px;
+                            }
+                        }
+                        .item-footer {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}*/
 

@@ -26,6 +26,9 @@ Route::group(['prefix' => ''], function() {
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
+    Route::get('/profile','App\AppUserProfileController@profile');
+    Route::get('/recent','App\AppUserProfileController@recent');
+    Route::get('/matches','App\AppUserProfileController@matches');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
     Route::get('/about', 'Guest\GuestController@about');
     Route::get('/termsofservice', 'Guest\GuestController@termsOfService');
