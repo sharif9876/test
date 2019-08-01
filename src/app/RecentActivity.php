@@ -56,7 +56,7 @@ class RecentActivity extends Model
     		$word= $ago>1?"hrs":"hr";
     	}else if(substr($now,14,2)>substr($time,14,2)){
     		$ago = substr($now,14,2)-substr($time,14,2);
-    		$word= $ago>1?"min":"mins";
+    		$word= $ago>1?"mins":"min";
     	}else if(substr($now,17,2)>substr($time,17,2)){
     		$ago = substr($now,17,2)-substr($time,17,2);
     		$word= $ago>1?"seconds":"second";
