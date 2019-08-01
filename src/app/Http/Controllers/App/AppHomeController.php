@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Level;
 use App\MessageEntry;
+
 class AppHomeController extends Controller
 {
     public function __construct() {

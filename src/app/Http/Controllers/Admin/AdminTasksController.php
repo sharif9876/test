@@ -19,6 +19,7 @@ use App\TaskRequirement;
 use App\User;
 use App\Message;
 use App\MessageEntry;
+use App\RecentActivity;
 
 class AdminTasksController extends Controller
 {
@@ -63,7 +64,9 @@ class AdminTasksController extends Controller
             'task_description' => 'required|max:355',
             'task_type' => 'required|in:image',
             'task_level_min' => 'min:0|max:'.$level_max,
-            'task_image' => 'file|image'
+            'task_image' => 'file|image',
+            'task_activity_message'=>'required|max:100'
+
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
@@ -83,7 +86,8 @@ class AdminTasksController extends Controller
             'type' => $request->input('task_type'),
             'level_min' => $request->has('task_level_min') ? $request->input('task_level_min') : 0,
             //'reward_points' => $request->input('task_reward_points'),
-            'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : ''
+            'background_image_path' => $request->has('task_image') ? $image_name.$image_extention : '',
+            'activity_message'=>$request->input('task_activity_message')
         ]);
 
         if($request->has('task_requirements') && !empty($request->input('task_requirements'))) {
@@ -108,7 +112,8 @@ class AdminTasksController extends Controller
             'task_description' => 'required|max:355',
             'task_type' => 'required|in:image',
             'task_level_min' => 'required|min:0|max:'.$level_max,
-            'task_image' => 'file|image'
+            'task_image' => 'file|image',
+            'task_activity_message'=>'required|max:100'
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
@@ -131,6 +136,7 @@ class AdminTasksController extends Controller
             'type' => $request->has('task_type') ? $request->input('task_type') : $task->type,
             'level_min' => $request->has('task_level_min') ? $request->input('task_level_min') : $task->level_min,
             'background_image_path' => $request->has('task_image') ? 'task_'.$id.$image_extention : $task->background_image_path,
+            'activity_message' => $request->has('activity_message') ? $request->input('activity_message') : $task->activity_message,
         ]);
 
         return redirect(url('/admin/tasks'));
@@ -163,6 +169,11 @@ class AdminTasksController extends Controller
                 ]);
                 Message::setUnique('Congratulations !','You are on to the next level !','approved',Auth::user()->id);
                 //User task complete
+                RecentActivity::create([
+                    'user_id'=>$request->user_id,
+                    'message'=> ' '.TaskEntry::find($request->entry_id)->task->activity_message,
+                    'image_path'=> TaskEntry::find($request->entry_id)->answer
+                ]);
                 User::find($request->user_id)->taskComplete(TaskEntry::find($request->entry_id)->task_id);
                 
             }

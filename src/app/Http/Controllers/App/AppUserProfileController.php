@@ -4,6 +4,10 @@ namespace App\Http\Controllers\App;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\TaskEntry;
+use App\User;
+use App\RecentActivity;
+use Auth;
 
 class AppUserProfileController extends Controller
 {
@@ -20,7 +24,11 @@ class AppUserProfileController extends Controller
     }
 
     public function recent(){
-        return view('app.profile.recent');
+        $activities =RecentActivity::with(['user' => function($q)  {
+                        $q->where('public', 1);
+                    }])->get();
+            
+        return view('app.profile.recent',compact('activities'));
     }
     public function matches(){
         return view('app.profile.matches');

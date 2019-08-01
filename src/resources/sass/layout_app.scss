@@ -571,7 +571,7 @@ header {
 }
 
 
-@media only screen and (max-width:999px){
+@media only screen and (max-width:900px){
     .profile-nav-link{
         display: block;
         width: 100%;    
@@ -579,7 +579,7 @@ header {
    
     
 }  
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:901px){
     .profile-nav:before{
         content:"";
         width: 90%;

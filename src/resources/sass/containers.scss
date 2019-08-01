@@ -534,8 +534,106 @@
     }
 }
 
+.page-container-profile{
+    .row{
+        height: 100%;
+        .recent-container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .recent-top{
+                position: relative;
+               
+                width: 100%;
+                .recent-time{
+                    margin-left: 10px;
+                }
+                span{
+
+                    margin-left: 10px;
+                    i{
+                        position: absolute;
+                       
+                    }
+                }
+            }
+            .recent-content{
+                margin-top: 20px;
+                margin-left: 40px;
+                a{
+                    color: orange;
+                }
+                .input-image{
+                    margin-top: 30px;
+                    text-align: center;
+                    width: 95%;
+                    height: 200px;
+                }
+
+            } 
+
+            .recent-footer{
+                width: 90%;
+                height: 0px; 
+                border:0.5px solid #DADADA;
+                position:relative;
+
+                margin: 50px 0;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            .recent-footer-last{
+                margin: 50px;
+            }  
+        }
+    }
+    &.recent{
+        .recent-time{
+            color: #484848;
+        }
+        .recent-content{
+            color: black;
+        }
+    }
+    &.old{
+        .recent-time{
+            color: #C2C2C2;
+        }
+        .recent-content{
+            color: #909090;
+        }
+    }
+    
+}
+
+@media only screen and (max-width:900px){
+    .add-margin{
+        margin-top: 140px;
+
+    }
+    .recent-top{
+        span{
+            i{
+                right:30px
+            }
+        }
+    }
+}
+@media only screen and (min-width:901px){
+    .add-margin{
+        margin-top: 70px;
+    }
+    .recent-top{
+        span{
+            i{
+                right:70px
+            }
+        }
+    }
+}
+
 /*TIMELINE CONTAINER*/  
-/*.page-container.timeline {
+.page-container.timeline {
     .row {
         height: 100%;
         .timeline-container {
@@ -580,11 +678,12 @@
                             }
                         }
                         .item-footer {
+
                         }
                     }
                 }
             }
         }
     }
-}*/
+}
 

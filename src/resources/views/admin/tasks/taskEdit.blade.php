@@ -74,6 +74,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-input text task-activity-message">
+                            <div class="input-label">
+                                <label>activity message</label>
+                            </div>
+                            @if($errors != null && $errors->has('task_activity_message'))
+                                <div class="input-errors">
+                                    - {{$errors->first('task_activity_message')}}
+                                </div>
+                            @endif
+                            <div class="input">
+                                <input value ="{{$task->activity_message}}"placeholder="exemple : just bought a user a drink" type="text" name="task_activity_message">
+                            </div>
+                        </div>
+                    </div>
                     {{-- <div class="form-row">
                         <div class="form-input num task-rewardpoints">
                             <div class="input-label">

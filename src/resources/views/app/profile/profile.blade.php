@@ -8,6 +8,6 @@
 	    <li class="profile-nav-link active"><a class="link active"href="profile">PROFILE</a></li>
 	    <li class="profile-nav-link"><a class="link" href="matches">MATCHES</a></li>		
 	</ul>
-</div>   
+</div>  
 
 @endsection

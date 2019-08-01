@@ -41,10 +41,12 @@
                             <th style="width: 200px;">title</th>
                             <th style="width: 250px;">description</th>
                             <th style="width: 70px;">level</th>
+                            <th style="width: 200px;">activity_message</th>
                             <th style="width: 100px;">points</th>
                             <th style="width: 200px;">start date</th>
                             <th style="width: 200px;">end date</th>
                             <th style="width: 200px;">image_path</th>
+
                         </tr>
                         @if(count($tasks) > 0)
                         @foreach($tasks as $task)
@@ -54,6 +56,7 @@
                                 <td class="title" title="{{$task->title}}">{{$task->title}}</td>
                                 <td class="description" title="{{$task->description}}">{{$task->description}}</td>
                                 <td class="level-min table-centered">{{$task->level_min}}</td>
+                                <td class="activity_message table-centered">{{$task->activity_message}}</td>
                                 <td class="reward-points table-centered">{{$task->reward_points}}</td>
                                 <td class="date-start">{{$task->date_start}}</td>
                                 <td class="date-end">{{$task->date_end}}</td>
