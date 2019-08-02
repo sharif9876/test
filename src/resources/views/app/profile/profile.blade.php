@@ -22,7 +22,7 @@
 				<div class="user-right">
 					<div class="user-info">
 						<div class="user-name">
-							{{Auth::user()->name}}
+							{{explode(' ',Auth::user()->name)[0]}}
 						</div>
 						<div class="user-level">
 							Level: <span class="user-level-level">{{Auth::user()->level}}</span>
