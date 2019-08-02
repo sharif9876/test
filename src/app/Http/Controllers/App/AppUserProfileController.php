@@ -52,18 +52,29 @@ class AppUserProfileController extends Controller
         return view('app.profile.profileEdit',compact('errors'));
     }
     public function editProfileSave(Request $request){
+       
         $validator = Validator::make($request->all(), [
-            'user_public' => 'required|in:yes,no',
+            'user_public' => 'required|in:1,0',
             'user_age' => 'int|max:200',
             'user_location' => 'max:200',
-            'user_mobile' => 'int|max:200',
+            'user_mobile' => 'max:200',
             'user_email' => 'email|max:100',
             'user_bio'=>'max:300'
 
         ]);
         if($validator->fails()) {
             $errors = $validator->errors();
-            return redirect(url('/userprofile/edit'))->with('errors', $errors);
+            dd($errors);
+            return redirect(url('/profile/edit'))->with('errors', $errors);
         }
+        Auth::user()->update([
+            'public'=>$request->has('user_public')?$request->input('user_public'):Auth::user()->public,
+            'age'=>$request->has('user_age')?$request->input('user_age'):Auth::user()->age,
+            'location'=>$request->has('user_location')?$request->input('user_location'):Auth::user()->location,
+            'mobile'=>$request->has('user_mobile')?$request->input('user_mobile'):Auth::user()->mobile,
+            'email'=>$request->has('user_email')?$request->input('user_email'):Auth::user()->email,
+            'bio'=>$request->has('user_bio')?$request->input('user_bio'):Auth::user()->bio,
+        ]);
+        return redirect(url('/profile'));
     }
 }

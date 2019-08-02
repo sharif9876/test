@@ -791,6 +791,10 @@
   float: right;
 }
 
+.page-container.profile .row .user-all-infos .user-right.edit {
+  float: left;
+}
+
 .page-container.profile .row .user-all-infos .user-bottom {
   width: 100%;
   padding: 10px 0;

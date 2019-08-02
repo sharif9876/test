@@ -731,8 +731,7 @@
             top: 190px;
         }
         .user-all-infos{
-
-            
+        
             height: 300px;
             line-height: 50px;
             .user-left{
@@ -743,6 +742,9 @@
             .user-right{
                 
                 float:right;
+                &.edit{
+                    float: left;
+                }
             }
             .user-bottom{
                 width: 100%;
@@ -809,6 +811,8 @@
 
     }    
 }
+
+
 
 
 

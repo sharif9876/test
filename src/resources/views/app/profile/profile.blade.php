@@ -58,7 +58,7 @@
 				
 			</div>
 			<div class="user-location">
-				<span class="info-text">Location:</span>
+				<span class="info-text">Location:</span> {{Auth::user()->location}}
 			</div>
 			<div class="user-all-infos-separation">
 				
