@@ -283,6 +283,7 @@ header .header-bar .header-nav .header-message .message-button:hover {
   font-size: 13px;
   border-radius: 3px;
   background-color: white;
+  z-index: 998;
   -webkit-box-shadow: 0px 0px 20px #999;
           box-shadow: 0px 0px 20px #999;
   margin: 25px;

@@ -26,9 +26,6 @@ Route::group(['prefix' => ''], function() {
     Route::get('/tasks/{id}', 'App\AppTasksController@task');
     Route::get('/splashes/levelup', 'App\AppSplashController@levelUp');
     Route::post('/tasks/{id}', 'App\AppTasksController@taskSubmit');
-    Route::get('/profile','App\AppUserProfileController@profile');
-    Route::get('/recent','App\AppUserProfileController@recent');
-    Route::get('/matches','App\AppUserProfileController@matches');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
     Route::get('/about', 'Guest\GuestController@about');
     Route::get('/termsofservice', 'Guest\GuestController@termsOfService');
@@ -36,6 +33,18 @@ Route::group(['prefix' => ''], function() {
     Route::get('/users/{id}', 'Guest\GuestController@userProfile');
 
 });
+
+//profile Routes
+Route::group(['prefix'=>'profile'],function(){
+    Route::get('','App\AppUserProfileController@profile');
+    Route::get('/profile','App\AppUserProfileController@profile');
+    Route::get('/matches','App\AppUserProfileController@matches');
+    Route::get('/recent','App\AppUserProfileController@recent');
+    Route::get('/edit','App\AppUserProfileController@editProfile');
+    Route::post('/edit','App\AppUserProfileController@editProfileSave');
+    Route::get('/{id}','App\AppUserProfileController@viewProfile');
+});
+
 // Messages Routes
 Route::group(['prefix' => 'messages'], function() {
     Route::post('/ajaxmessagesfeed','App\AppMessagesController@ajaxMessagesFeed');

@@ -589,50 +589,52 @@
   display: block !important;
 }
 
-.page-container-profile .row {
+/* Recent activities container*/
+
+.page-container-activities .row {
   height: 100%;
 }
 
-.page-container-profile .row .recent-container {
+.page-container-activities .row .recent-container {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.page-container-profile .row .recent-container .recent-top {
+.page-container-activities .row .recent-container .recent-top {
   position: relative;
   width: 100%;
 }
 
-.page-container-profile .row .recent-container .recent-top .recent-time {
+.page-container-activities .row .recent-container .recent-top .recent-time {
   margin-left: 10px;
 }
 
-.page-container-profile .row .recent-container .recent-top span {
+.page-container-activities .row .recent-container .recent-top span {
   margin-left: 10px;
 }
 
-.page-container-profile .row .recent-container .recent-top span i {
+.page-container-activities .row .recent-container .recent-top span i {
   position: absolute;
 }
 
-.page-container-profile .row .recent-container .recent-content {
+.page-container-activities .row .recent-container .recent-content {
   margin-top: 20px;
   margin-left: 40px;
 }
 
-.page-container-profile .row .recent-container .recent-content a {
+.page-container-activities .row .recent-container .recent-content a {
   color: orange;
 }
 
-.page-container-profile .row .recent-container .recent-content .input-image {
+.page-container-activities .row .recent-container .recent-content .input-image {
   margin-top: 30px;
   text-align: center;
   width: 95%;
   height: 200px;
 }
 
-.page-container-profile .row .recent-container .recent-footer {
+.page-container-activities .row .recent-container .recent-footer {
   width: 90%;
   height: 0px;
   border: 0.5px solid #DADADA;
@@ -642,29 +644,33 @@
   margin-right: auto;
 }
 
-.page-container-profile .row .recent-container .recent-footer-last {
+.page-container-activities .row .recent-container .recent-footer-last {
   margin: 50px;
 }
 
-.page-container-profile.recent .recent-time {
+.page-container-activities.recent .recent-time {
   color: #484848;
 }
 
-.page-container-profile.recent .recent-content {
+.page-container-activities.recent .recent-content {
   color: black;
 }
 
-.page-container-profile.old .recent-time {
+.page-container-activities.old .recent-time {
   color: #C2C2C2;
 }
 
-.page-container-profile.old .recent-content {
+.page-container-activities.old .recent-content {
   color: #909090;
 }
 
 @media only screen and (max-width: 900px) {
   .add-margin {
     margin-top: 140px;
+  }
+
+  .add-margin-profile {
+    margin-top: 100px;
   }
 
   .recent-top span i {
@@ -680,6 +686,178 @@
   .recent-top span i {
     right: 70px;
   }
+}
+
+/*PROFILE CONTAINER*/
+
+.page-container.profile .row .user-profile .user-inner .user-left {
+  padding: 20px 0px;
+  float: left;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-left .user-initial {
+  width: 125px;
+  height: 125px;
+  margin-right: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 70px;
+  color: #fff;
+  line-height: 125px;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right {
+  width: calc(100% - 170px);
+  padding-top: 40px;
+  float: left;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-info {
+  width: 100%;
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-info .user-name {
+  height: 35px;
+  line-height: 35px;
+  color: black;
+  font-size: 30px;
+  font-weight: 550;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-info .user-level {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  color: #000000;
+  font-size: 18px;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-info .user-level .user-level-level {
+  font-weight: 600;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-progress .user-points {
+  color: black;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-progress .user-bar {
+  padding: 5px 0px;
+  height: 8px;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #D6E6F3;
+}
+
+.page-container.profile .row .user-profile .user-inner .user-right .user-progress .user-bar .points-bar .points-progress {
+  top: -8px;
+  height: 8px;
+  margin-top: 0px;
+  background-color: #96C4DE;
+  border-radius: 4px;
+}
+
+.page-container.profile .row .profile-footer {
+  width: 90%;
+  height: 0px;
+  border: 0.5px solid #ECECEC;
+  position: relative;
+  margin: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 190px;
+}
+
+.page-container.profile .row .user-all-infos {
+  height: 300px;
+  line-height: 50px;
+}
+
+.page-container.profile .row .user-all-infos .user-left {
+  width: 50vw;
+  float: left;
+}
+
+.page-container.profile .row .user-all-infos .user-right {
+  float: right;
+}
+
+.page-container.profile .row .user-all-infos .user-bottom {
+  width: 100%;
+  padding: 10px 0;
+  float: left;
+}
+
+.page-container.profile .row .user-all-infos .user-bottom .user-email {
+  width: 100%;
+  line-height: 20px;
+}
+
+.page-container.profile .row .user-all-infos .user-bottom .user-bio {
+  width: 100%;
+  line-height: 20px;
+}
+
+.page-container.profile .row .user-all-infos .info-text {
+  color: #6F6F6F;
+}
+
+.page-container.profile .row .user-all-infos .user-all-infos-separation {
+  width: 100%;
+  height: 0px;
+  border: 0.5px solid #ECECEC;
+  position: relative;
+  margin: 10px 0;
+}
+
+.page-container.profile .row .user-all-infos.add-margin-infos {
+  margin-top: 200px;
+}
+
+.page-container.profile .edit-profile {
+  margin-bottom: 30px;
+  width: 150px;
+  background-color: orange;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  border-radius: 20px;
+}
+
+.page-container.profile .edit-profile .edit-profile-link {
+  width: 100%;
+  height: 100%;
+}
+
+.page-container.profile .edit-profile .edit-profile-link .edit-profile-text {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  color: white;
+}
+
+.page-container.profile .edit-profile .edit-profile-button {
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  border-radius: 20px;
+}
+
+.page-container.profile .edit-profile .edit-profile-button .edit-profile-text {
+  position: absolute;
+  left: 25%;
+  top: 35%;
+  color: white;
 }
 
 /*TIMELINE CONTAINER*/

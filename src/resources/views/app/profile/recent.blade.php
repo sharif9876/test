@@ -4,18 +4,18 @@
 
 <div class="profile-nav">
 	<ul class="nav">
-	    	<li class="profile-nav-link active "><a class="link active" href="recent">RECENT ACTIVITY</a></li>
+	    	<li class="profile-nav-link active "><a class="link active" href="{{url('profile/recent')}}">RECENT ACTIVITY</a></li>
 		
-	    	<li class="profile-nav-link "><a class="link "href="profile">PROFILE</a></li>
+	    	<li class="profile-nav-link "><a class="link "href="{{url('profile')}}">PROFILE</a></li>
 		
 	    
-	    	<li class="profile-nav-link"><a class="link" href="matches">MATCHES</a></li>
+	    	<li class="profile-nav-link"><a class="link" href="{{url('profile/matches')}}">MATCHES</a></li>
 		
 	</ul>
 </div> 
 
 @foreach($activities as $activity)
-	<div class="page-container-profile {{$loop->first?'add-margin':''}} {{$activity->old()?'old':'recent'}}">
+	<div class="page-container-activities {{$loop->first?'add-margin':''}} {{$activity->old()?'old':'recent'}}">
 		<div class="row">
 			<div class="recent-container">
 				<div class="recent-top">
