@@ -167,7 +167,7 @@ class AdminTasksController extends Controller
                     'path' => 'splash/taskcomplete',
                     'user_id' => $request->user_id
                 ]);
-                Message::setUnique('Congratulations !','You are on to the next level !','approved',Auth::user()->id);
+                Message::setUnique('Congratulations !','You are on to the next level !','approved',$request->user_id);
                 //User task complete
                 RecentActivity::create([
                     'user_id'=>$request->user_id,
