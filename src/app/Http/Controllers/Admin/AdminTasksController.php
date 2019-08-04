@@ -136,7 +136,7 @@ class AdminTasksController extends Controller
             'type' => $request->has('task_type') ? $request->input('task_type') : $task->type,
             'level_min' => $request->has('task_level_min') ? $request->input('task_level_min') : $task->level_min,
             'background_image_path' => $request->has('task_image') ? 'task_'.$id.$image_extention : $task->background_image_path,
-            'activity_message' => $request->has('activity_message') ? $request->input('activity_message') : $task->activity_message,
+            'activity_message' => $request->has('task_activity_message') ? $request->input('task_activity_message') : $task->activity_message,
         ]);
 
         return redirect(url('/admin/tasks'));
