@@ -9,6 +9,7 @@ use App\Task;
 class Level extends Model {
     /**
      * The table associated with the model.
+     * test comment
      *
      * @var string
      */
